@@ -3,25 +3,30 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Piew</title>
+	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{{ asset('css/home.css') }}">
 </head>
 <body>	
 	<!-- Navbar -->
 	<div class="nav-container">
 		<nav>
-			<h1 class="piew-logo">Piew!</h1>
-			<div class="nav-wrapper">
+			<img src="{{ asset('img/home/logo.svg') }}" class="logo">
+			<div class="nav-menu">
 				<ul>
 					<li><a href="#">TENTANG KAMI</a></li>
 					<li>
 						<form action="" method="POST">
-							<input class="seach-box-1" type="text" placeholder="Makanan Favoritmu">
-							<input class="search-box-2" type="text" placeholder="Lokasimu">
+							<input class="search-box-1" type="text" placeholder="restoran,warung,makanan..">
+							<input class="search-box-2" type="text" placeholder="Malang,Jawa Timur">
 							<button type="submit"><i class='bx bx-search'></i></button>
 						</form>
 					</li>
 					<li><a href="#">TULIS REVIEW</a></li>
-					<li><a href="#"><i class='bx bx-log-in'></i>MASUK</a></li>
+					<li><a href="#"><i class='bx bx-log-in'></i> MASUK</a></li>
 				</ul>
 			</div>
 		</nav>	
@@ -31,135 +36,59 @@
 	<!-- Header -->
 	<div class="header-container">
 		<header>
-			<div class="header-wrapper">
-				<h1>TEMUKAN</h1>
-				<h4>makanan enak tersembunyi di sekitarmu</h4>
-			</div>
+			<h1>TEMUKAN</h1>
+			<h4>makanan enak tersembunyi di sekitarmu</h4>
 		</header>
+		<p>Rekomendasi</p>
+		<a href="#content"><div class="tombol-rekomendasi">V</div></a>
 	</div>
 	<!-- Akhir Header -->
 
 	<!-- Konten Rekomendasi -->
-	<div class="content-container">
+	<div class="content-container" id="content">
 		<div class="content-pilihan-kami">
-			<h3><a href="#">PILIHAN KAMI</a></h3>
-			<div class="img-wrapper-1">
-				<p><a href="#">Ayam Nelongso</a></p>
-				<a href="#"><img src="" alt="Ayam Nelongso"></a>
-				<div class="rating">
-					<a href="#">
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<div class="rating-angka">4.0</div>
-					</a>
-				</div>
+			<h3>PILIHAN KAMI</h3>
+			<div class="content-pilihan-kami-wrapper">
+				@for ($i = 1; $i <= 4; $i++)
+					<div class="img-wrapper-{{ $i }}">
+						<!-- Ambil dari Database -->
+						<p><a href="#" class="nama-resto">Ayam Nelongso</a></p>
+						<a href="#"><img src="{{asset('img/home/home-bg.png')}}" alt="Ayam Nelongso"></a>
+						<div class="rating">
+							<i class='bx bxs-star' ></i>
+							<i class='bx bxs-star' ></i>
+							<i class='bx bxs-star' ></i>
+							<i class='bx bxs-star' ></i>
+							<i class='bx bxs-star' ></i>
+							<div class="rating-angka">4.0</div>
+							<!-- ------------------- -->
+						</div>
+					</div>
+				@endfor 
 			</div>
-			<div class="img-wrapper-2">
-				<p><a href="#">MCD Suhat</a></p>
-				<a href="#"><img src="" alt="MCD Suhat"></a>
-				<div class="rating">
-					<a href="#">
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<div class="rating-angka">4.0</div>
-					</a>
-				</div>
-			</div>
-			<div class="img-wrapper-3">
-				<p><a href="#">Holy Cow</a></p>
-				<a href="#"><img src="" alt="Holy Cow"></a>
-				<div class="rating">
-					<a href="#">
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<div class="rating-angka">4.0</div>
-					</a>
-				</div>
-			</div>
-			<div class="img-wrapper-4">
-				<p><a href="#">Buah-buahan Bu Basri</a></p>
-				<a href=""><img src="" alt="Buah-buahan Bu Basri"></a>
-				<div class="rating">
-					<a href="">
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<div class="rating-angka">4.0</div>
-					</a>
-				</div>
-			</div>
-			<a href="#">Lihat Lebih Banyak</a>
+			<a href="#" class="link-pencarian">Lihat Lebih Banyak</a>
 		</div>
-		<div class="content-masakan-padang">
-			<h3><a href="#">MASAKAN PADANG</a></h3>
-			<div class="img-wrapper-1">
-				<p><a href="#">Nasi Padang Pak Basri</a></p>
-				<a href="#"><img src="" alt="Nasi Padang Pak Basri"></a>
-				<div class="rating">
-					<a href="#">
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<div class="rating-angka">4.0</div>
-					</a>
-				</div>
+		<div class="content-random">
+			<h3>MASAKAN PADANG</h3>
+			<div class="content-random-wrapper">
+				@for ($i = 1; $i <= 4; $i++)
+					<div class="img-wrapper-{{ $i }}">
+						<!-- Ambil dari Database -->
+						<p><a href="#" class="nama-resto">Nasi Padang Pak Basri</a></p>
+						<a href="#"><img src="{{asset('img/home/home-bg.png')}}" alt="Nasi Padang Pak Basri"></a>
+						<div class="rating">
+							<i class='bx bxs-star' ></i>
+							<i class='bx bxs-star' ></i>
+							<i class='bx bxs-star' ></i>
+							<i class='bx bxs-star' ></i>
+							<i class='bx bxs-star' ></i>
+							<div class="rating-angka">4.0</div>
+							<!-- ------------------- -->
+						</div>
+					</div>
+				@endfor
 			</div>
-			<div class="img-wrapper-2">
-				<p><a href="#">Nasi Padang Sederhana</a></p>
-				<a href="#"><img src="" alt="Nasi Padang Sederhana"></a>
-				<div class="rating">
-					<a href="#">
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<div class="rating-angka">4.0</div>
-					</a>
-				</div>
-			</div>
-			<div class="img-wrapper-3">
-				<p><a href="#">Masakan Padang Dinoyo</a></p>
-				<a href="#"><img src="" alt="Masakan Padang Dinoyo"></a>
-				<div class="rating">
-					<a href="#">
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<div class="rating-angka">4.0</div>
-					</a>
-				</div>
-			</div>
-			<div class="img-wrapper-4">
-				<p><a href="#">Warung Padang Murah</a></p>
-				<a href="#"><img src="" alt="Warung Padang Murah"></a>
-				<div class="rating">
-					<a href="#">
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<i class='bx bxs-star' ></i>
-						<div class="rating-angka">4.0</div>
-					</a>
-				</div>
-			</div>
-			<a href="#">Lihat Lebih Banyak</a>
+			<a href="#" class="link-pencarian">Lihat Lebih Banyak</a>
 		</div>
 	</div>
 	<!-- Akhir Konten Rekomendasi -->
@@ -176,6 +105,5 @@
 		</footer>
 	</div>
 	<!-- Akhir Footer -->
-	
 </body>
 </html>
