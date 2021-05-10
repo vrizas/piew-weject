@@ -49,22 +49,22 @@
 		<div class="content-pilihan-kami">
 			<h3>PILIHAN KAMI</h3>
 			<div class="content-pilihan-kami-wrapper">
-				@for ($i = 1; $i <= 4; $i++)
-					<div class="img-wrapper-{{ $i }}">
+				@foreach($restaurants as $restaurant)
+					<div class="img-wrapper-{{ $restaurant->id_restaurant }}">
 						<!-- Ambil dari Database -->
-						<p><a href="#" class="nama-resto">Ayam Nelongso</a></p>
-						<a href="#"><img src="{{asset('img/home/home-bg.png')}}" alt="Ayam Nelongso"></a>
+						<p><a href="#"  class="nama-resto">{{$restaurant->nama}}</a></p>
+						<a href="#"><img src="{{asset('img/bisnis_images')}}/{{$restaurant->image}}" alt="{{$restaurant->nama}}"></a>
 						<div class="rating">
 							<i class='bx bxs-star' ></i>
 							<i class='bx bxs-star' ></i>
 							<i class='bx bxs-star' ></i>
 							<i class='bx bxs-star' ></i>
 							<i class='bx bxs-star' ></i>
-							<div class="rating-angka">4.0</div>
+							<div class="rating-angka">{{$restaurant->rating}}</div>
 							<!-- ------------------- -->
 						</div>
 					</div>
-				@endfor 
+				@endforeach 
 			</div>
 			<a href="#" class="link-pencarian">Lihat Lebih Banyak</a>
 		</div>
@@ -74,8 +74,8 @@
 				@for ($i = 1; $i <= 4; $i++)
 					<div class="img-wrapper-{{ $i }}">
 						<!-- Ambil dari Database -->
-						<p><a href="#" class="nama-resto">Nasi Padang Pak Basri</a></p>
-						<a href="#"><img src="{{asset('img/home/home-bg.png')}}" alt="Nasi Padang Pak Basri"></a>
+						<p><a href="#" class="nama-resto">{{$restaurant->nama}}</a></p>
+						<a href="#"><img src="{{asset('img/bisnis_images')}}/{{$restaurant->image}}" alt="{{$restaurant->nama}}"></a>
 						<div class="rating">
 							<i class='bx bxs-star' ></i>
 							<i class='bx bxs-star' ></i>
@@ -105,5 +105,6 @@
 		</footer>
 	</div>
 	<!-- Akhir Footer -->
+	
 </body>
 </html>
