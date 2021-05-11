@@ -28,7 +28,7 @@
 						</form>
 					</li>
 					<li><a href="#">TULIS REVIEW</a></li>
-					<li><a href="#"><i class='bx bx-log-in'></i> MASUK</a></li>
+					<li><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
 				</ul>
 			</div>
 		</nav>
