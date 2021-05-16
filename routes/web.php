@@ -19,4 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 
 use App\Http\Controllers\Management;
-Route::get('/',[App\Http\Controllers\Management\RestaurantController::class,'index']);
+
+Route::get('/', [App\Http\Controllers\Management\RestaurantController::class, 'index']);
+Route::get('/login', function () {
+  return view('login');
+});

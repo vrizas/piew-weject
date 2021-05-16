@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Piew</title>
@@ -10,7 +11,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="{{ asset('css/home.css') }}">
 </head>
-<body>	
+
+<body>
 	<!-- Navbar -->
 	<div class="nav-container">
 		<nav>
@@ -26,13 +28,13 @@
 						</form>
 					</li>
 					<li><a href="#">TULIS REVIEW</a></li>
-					<li><a href="#"><i class='bx bx-log-in'></i> MASUK</a></li>
+					<li><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
 				</ul>
 			</div>
-		</nav>	
+		</nav>
 	</div>
 	<!-- Akhir Navbar -->
-	
+
 	<!-- Header -->
 	<div class="header-container">
 		<header>
@@ -40,7 +42,9 @@
 			<h4>makanan enak tersembunyi di sekitarmu</h4>
 		</header>
 		<p>Rekomendasi</p>
-		<a href="#content"><div class="tombol-rekomendasi">V</div></a>
+		<a href="#content">
+			<div class="tombol-rekomendasi">V</div>
+		</a>
 	</div>
 	<!-- Akhir Header -->
 
@@ -50,43 +54,43 @@
 			<h3>PILIHAN KAMI</h3>
 			<div class="content-pilihan-kami-wrapper">
 				@foreach($restaurants as $restaurant)
-					<div class="img-wrapper-{{ $restaurant->id_restaurant }}">
-						<!-- Ambil dari Database -->
-						<p><a href="#"  class="nama-resto">{{$restaurant->nama}}</a></p>
-						<a href="#"><img src="{{asset('img/bisnis_images')}}/{{$restaurant->image}}" alt="{{$restaurant->nama}}"></a>
-						<div class="rating">
-							<i class='bx bxs-star' ></i>
-							<i class='bx bxs-star' ></i>
-							<i class='bx bxs-star' ></i>
-							<i class='bx bxs-star' ></i>
-							<i class='bx bxs-star' ></i>
-							<div class="rating-angka">{{$restaurant->rating}}</div>
-							<!-- ------------------- -->
-						</div>
+				<div class="img-wrapper-{{ $restaurant->id_restaurant }}">
+					<!-- Ambil dari Database -->
+					<p><a href="#" class="nama-resto">{{$restaurant->nama}}</a></p>
+					<a href="#"><img src="{{asset('img/bisnis_images')}}/{{$restaurant->image}}" alt="{{$restaurant->nama}}"></a>
+					<div class="rating">
+						<i class='bx bxs-star'></i>
+						<i class='bx bxs-star'></i>
+						<i class='bx bxs-star'></i>
+						<i class='bx bxs-star'></i>
+						<i class='bx bxs-star'></i>
+						<div class="rating-angka">{{$restaurant->rating}}</div>
+						<!-- ------------------- -->
 					</div>
-				@endforeach 
+				</div>
+				@endforeach
 			</div>
 			<a href="#" class="link-pencarian">Lihat Lebih Banyak</a>
 		</div>
 		<div class="content-random">
 			<h3>MASAKAN PADANG</h3>
 			<div class="content-random-wrapper">
-				@for ($i = 1; $i <= 4; $i++)
-					<div class="img-wrapper-{{ $i }}">
-						<!-- Ambil dari Database -->
-						<p><a href="#" class="nama-resto">{{$restaurant->nama}}</a></p>
-						<a href="#"><img src="{{asset('img/bisnis_images')}}/{{$restaurant->image}}" alt="{{$restaurant->nama}}"></a>
-						<div class="rating">
-							<i class='bx bxs-star' ></i>
-							<i class='bx bxs-star' ></i>
-							<i class='bx bxs-star' ></i>
-							<i class='bx bxs-star' ></i>
-							<i class='bx bxs-star' ></i>
-							<div class="rating-angka">4.0</div>
-							<!-- ------------------- -->
-						</div>
+				@foreach($restaurants as $restaurant)
+				<div class="img-wrapper-{{ $i }}">
+					<!-- Ambil dari Database -->
+					<p><a href="#" class="nama-resto">{{$restaurant->nama}}</a></p>
+					<a href="#"><img src="{{asset('img/bisnis_images')}}/{{$restaurant->image}}" alt="{{$restaurant->nama}}"></a>
+					<div class="rating">
+						<i class='bx bxs-star'></i>
+						<i class='bx bxs-star'></i>
+						<i class='bx bxs-star'></i>
+						<i class='bx bxs-star'></i>
+						<i class='bx bxs-star'></i>
+						<div class="rating-angka">4.0</div>
+						<!-- ------------------- -->
 					</div>
-				@endfor
+				</div>
+				@endforeach
 			</div>
 			<a href="#" class="link-pencarian">Lihat Lebih Banyak</a>
 		</div>
@@ -99,12 +103,13 @@
 			<div class="sosmed">
 				<i class='bx bxl-instagram'></i>
 				<i class='bx bxl-facebook-square'></i>
-				<i class='bx bxl-twitter' ></i>
+				<i class='bx bxl-twitter'></i>
 			</div>
-			<p><i class='bx bx-copyright' ></i> 2021 By Weject.</p>
+			<p><i class='bx bx-copyright'></i> 2021 By Weject.</p>
 		</footer>
 	</div>
 	<!-- Akhir Footer -->
-	
+
 </body>
+
 </html>
