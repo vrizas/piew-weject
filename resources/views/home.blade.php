@@ -53,8 +53,9 @@
 		<div class="content-pilihan-kami">
 			<h3>PILIHAN KAMI</h3>
 			<div class="content-pilihan-kami-wrapper">
-				@foreach($restaurants as $restaurant)
-				<div class="img-wrapper-{{ $restaurant->id_restaurant }}">
+				@foreach($restaurants as $i => $restaurant)
+				
+				<div class="img-wrapper-{{ $i }}">
 					<!-- Ambil dari Database -->
 					<p><a href="#" class="nama-resto">{{$restaurant->nama}}</a></p>
 					<a href="#"><img src="{{asset('img/bisnis_images')}}/{{$restaurant->image}}" alt="{{$restaurant->nama}}"></a>
@@ -75,7 +76,7 @@
 		<div class="content-random">
 			<h3>MASAKAN PADANG</h3>
 			<div class="content-random-wrapper">
-				@foreach($restaurants as $restaurant)
+				@foreach($restaurants as $i => $restaurant)
 				<div class="img-wrapper-{{ $i }}">
 					<!-- Ambil dari Database -->
 					<p><a href="#" class="nama-resto">{{$restaurant->nama}}</a></p>
@@ -86,7 +87,7 @@
 						<i class='bx bxs-star'></i>
 						<i class='bx bxs-star'></i>
 						<i class='bx bxs-star'></i>
-						<div class="rating-angka">4.0</div>
+						<div class="rating-angka">{{$restaurant->rating}}</div>
 						<!-- ------------------- -->
 					</div>
 				</div>

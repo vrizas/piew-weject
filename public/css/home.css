@@ -47,18 +47,18 @@ a {
 	top: -14px;
 }
 
+.nav-container .nav-menu {
+	width: 85%;
+}
+
 .nav-container .nav-menu ul{
 	list-style-type: none;
 	display: flex;
+	justify-content: space-between;
 }
 
 .nav-container .nav-menu ul li {
-	padding-right: 90px;
 	font-size: 0.9rem;
-}
-
-.nav-container .nav-menu ul li:nth-last-child(1) {
-	padding-right: 0;
 }
 
 .nav-container .nav-menu a:hover {
