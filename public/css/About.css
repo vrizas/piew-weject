@@ -1,0 +1,147 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html{
+  scroll-behavior: smooth;
+}
+
+.container{
+  position: relative;
+  scroll-behavior: smooth;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+}
+.section{
+  scroll-snap-align: start;
+}
+body {
+	font-family: var(--font-roboto);
+	font-weight: 400;
+	color: var(--color-white);
+}
+/*header*/
+.header-container {
+  background-image: url('../img/About/home-bg.png');
+	height: 100vh;
+  padding-left: 250px;
+  padding-right: 250px;
+}
+.header-container header {
+	height: inherit;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+  color: azure;
+}
+.header-container .Penjelasan1{
+  padding-right: 50px;
+  text-align: center;
+}
+.header-container header h1 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+  padding-bottom: 20px;
+}
+.header-container header p {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
+.logo1 img{
+  height: 450px;
+  width: 450px;
+}
+
+/*Mid*/
+.Mid-container {
+	position: relative;
+	height: 100vh;
+	background-color: var(--color-white);
+  padding-left: 250px;
+  padding-right: 250px;
+
+}
+
+.Mid-container header {
+	height: inherit;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.Mid-container .Penjelasan2{
+  padding-left: 50px;
+  text-align: center;
+}
+.Mid-container header h1 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+  padding-bottom: 20px;
+}
+.Mid-container header p {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
+.logo2 img{
+  height: 350px;
+  width: 350px;
+}
+/*Bot*/
+.Bot-container {
+	position: relative;
+	height: 100vh;
+	background-image: url(../img/About/ayam.png);
+  padding-left: 250px;
+  padding-right: 250px;
+}
+
+.Bot-container header {
+	height: inherit;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+  color: azure;
+}
+.Bot-container .Penjelasan3{
+  padding-right: 50px;
+  text-align: center;
+}
+.Bot-container header h1 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+  padding-bottom: 20px;
+}
+.Bot-container header p {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
+.logo3 img{
+  height: 450px;
+  width: 450px;
+}
+.tombol{
+  outline: none;
+  display: block;
+  border: solid 1px #0081D5;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 16px 30px;
+  border-radius: 30px;
+  background-color: white;
+  color: #0081D5;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  text-decoration: inherit;
+}
+.tombol:hover,.tombol:focus{
+  background: #0081D5;
+  color: white;
+}
+.tombol:active{
+  background: #000210;
+}

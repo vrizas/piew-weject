@@ -24,3 +24,6 @@ Route::get('/', [App\Http\Controllers\Management\RestaurantController::class, 'i
 Route::get('/login', function () {
   return view('login');
 });
+Route::get('/About', function () {
+  return view('About');
+});
