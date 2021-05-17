@@ -40,6 +40,11 @@
 						<li><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
 						<li><a href="register"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
 					@endif
+					<form id="logout-form" action="{{ route('logout') }}" method="POST" class="drop-content">
+								@csrf
+								<input type="submit" value="Keluar">
+							</form>
+
 				</ul>
 			</div>
 		</nav>

@@ -22,6 +22,10 @@ class RegisteredUserController extends Controller
     {
         return view('auth.register');
     }
+    public function createBisnis()
+    {
+        return view('auth.registerBisnis');
+    }
 
     /**
      * Handle an incoming registration request.
@@ -37,12 +41,14 @@ class RegisteredUserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => ['required', 'confirmed', Rules\Password::min(8)],
+            'role' => 'required',
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => $request->role,
         ]);
 
         event(new Registered($user));
