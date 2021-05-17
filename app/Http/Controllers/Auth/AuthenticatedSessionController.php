@@ -31,7 +31,9 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-        session(['login' => 'true']);
+
+        $request->session()->put('login','true');
+
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 

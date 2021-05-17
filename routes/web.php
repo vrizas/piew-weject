@@ -17,13 +17,17 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/', function () {
+    return view('home');
+})->middleware(['auth'])->name('home');
 
-require __DIR__.'/auth.php';
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('logout');
 
 Route::get('/', [App\Http\Controllers\Management\RestaurantController::class, 'index']);
 
-Route::resource('/home',App\Http\Controllers\Auth\AuthenticatedSessionController::class);
+// Route::resource('/home',App\Http\Controllers\Auth\AuthenticatedSessionController::class);
+
+require __DIR__.'/auth.php';
 
