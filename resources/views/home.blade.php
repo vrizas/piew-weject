@@ -4,11 +4,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Piew</title>
+	<!-- Favicon -->
 	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+
+	<!-- BoxIcons -->
 	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+
+	<!-- CSS -->
 	<link rel="stylesheet" href="{{ asset('css/home.css') }}">
 </head>
 
@@ -20,15 +27,9 @@
 			<div class="nav-menu">
 				<ul>
 					<li><a href="#">TENTANG KAMI</a></li>
-					<li>
-						<form action="" method="POST">
-							<input class="search-box-1" type="text" placeholder="restoran,warung,makanan..">
-							<input class="search-box-2" type="text" placeholder="Malang,Jawa Timur">
-							<button type="submit"><i class='bx bx-search'></i></button>
-						</form>
-					</li>
 					<li><a href="#">TULIS REVIEW</a></li>
 					<li><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
+					<li><a href="#"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -40,10 +41,17 @@
 		<header>
 			<h1>TEMUKAN</h1>
 			<h4>makanan enak tersembunyi di sekitarmu</h4>
+			<form action="" method="POST">
+				<input type="text" class="ket ket-1" placeholder="Cari" disabled>
+				<input class="search-box-1" type="text" placeholder="restoran,warung,makanan..">
+				<input type="text" class="ket ket-2" placeholder="Lokasi" disabled>
+				<input class="search-box-2" type="text" placeholder="Malang,Jawa Timur">
+				<button type="submit"><i class='bx bx-search'></i></button>
+			</form>
 		</header>
 		<p>Rekomendasi</p>
 		<a href="#content">
-			<div class="tombol-rekomendasi">V</div>
+			<div class="tombol-rekomendasi"><i class='bx bxs-chevron-down'></i></div>
 		</a>
 	</div>
 	<!-- Akhir Header -->
@@ -53,8 +61,9 @@
 		<div class="content-pilihan-kami">
 			<h3>PILIHAN KAMI</h3>
 			<div class="content-pilihan-kami-wrapper">
-				@foreach($restaurants as $restaurant)
-				<div class="img-wrapper-{{ $restaurant->id_restaurant }}">
+				@foreach($restaurants as $i => $restaurant)
+				
+				<div class="img-wrapper-{{ $i }}">
 					<!-- Ambil dari Database -->
 					<p><a href="#" class="nama-resto">{{$restaurant->nama}}</a></p>
 					<a href="#"><img src="{{asset('img/bisnis_images')}}/{{$restaurant->image}}" alt="{{$restaurant->nama}}"></a>
@@ -75,7 +84,7 @@
 		<div class="content-random">
 			<h3>MASAKAN PADANG</h3>
 			<div class="content-random-wrapper">
-				@foreach($restaurants as $restaurant)
+				@foreach($restaurants as $i => $restaurant)
 				<div class="img-wrapper-{{ $i }}">
 					<!-- Ambil dari Database -->
 					<p><a href="#" class="nama-resto">{{$restaurant->nama}}</a></p>
@@ -86,7 +95,7 @@
 						<i class='bx bxs-star'></i>
 						<i class='bx bxs-star'></i>
 						<i class='bx bxs-star'></i>
-						<div class="rating-angka">4.0</div>
+						<div class="rating-angka">{{$restaurant->rating}}</div>
 						<!-- ------------------- -->
 					</div>
 				</div>
