@@ -13,14 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/', function () {
+    return view('home');
+});
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-use App\Http\Controllers\Management;
+require __DIR__.'/auth.php';
 
 Route::get('/', [App\Http\Controllers\Management\RestaurantController::class, 'index']);
-Route::get('/login', function () {
-  return view('login');
-});
+
+Route::resource('/home',App\Http\Controllers\Auth\AuthenticatedSessionController::class);
+
