@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -34,7 +35,20 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->put('login','true');
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $role = Auth::user()->role;
+        
+        switch ($role) {
+            case 'reviewer':
+                return redirect()->intended(RouteServiceProvider::HOME);
+                break;
+            case 'bisnis':
+                return redirect()->intended(RouteServiceProvider::BISNIS);
+                break; 
+            default:
+                return redirect()->intended(RouteServiceProvider::HOME);
+                break;
+            }
+    
     }
 
     /**
