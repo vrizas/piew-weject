@@ -4,11 +4,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Piew</title>
+	<!-- Favicon -->
 	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+
+	<!-- BoxIcons -->
 	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+
+	<!-- CSS -->
 	<link rel="stylesheet" href="{{ asset('css/home.css') }}">
 </head>
 
