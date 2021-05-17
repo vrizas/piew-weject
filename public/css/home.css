@@ -47,52 +47,22 @@ a {
 	top: -14px;
 }
 
+.nav-container .nav-menu {
+	width: 40%;
+}
+
 .nav-container .nav-menu ul{
 	list-style-type: none;
 	display: flex;
+	justify-content: space-between;
 }
 
 .nav-container .nav-menu ul li {
-	padding-right: 90px;
 	font-size: 0.9rem;
-}
-
-.nav-container .nav-menu ul li:nth-last-child(1) {
-	padding-right: 0;
 }
 
 .nav-container .nav-menu a:hover {
 	color: var(--color-soft-blue);
-}
-
-input, button {
-	border: none;
-	box-sizing: border-box;
-	padding: 10px;
-	position: relative;
-	top: -10px;
-	display: inline-block;
-	width: 250px;
-	background-color: rgba(21,34,56,.8);
-}
-
-button {
-	cursor: pointer;
-	width: inherit;
-	border-radius: 0 3px 3px 0;
-}
-
-input::placeholder, button {
-	color: #ddd;
-}
-
-.nav-container .nav-menu input.search-box-1 {
-	border-radius: 3px 0 0 3px;
-}
-
-.nav-container .nav-menu input.search-box-2 {
-	margin-right: -3.6px;
-	margin-left: -4.5px;
 }
 
 /*Header*/
@@ -111,12 +81,12 @@ input::placeholder, button {
 
 .header-container header h1 {
 	font-family: var(--font-lato);
-	font-size: 5rem;
+	font-size: 3rem;
 }
 
 .header-container header h4 {
 	font-weight: 300;
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 }
 
 .header-container p {
@@ -125,6 +95,64 @@ input::placeholder, button {
 	position: relative;
 	bottom: 60px;
 	font-weight: 300;
+}
+
+input, button {
+	border: none;
+	box-sizing: border-box;
+	padding: 15px 0;
+	display: inline-block;
+	width: 300px;
+	background-color: rgba(21,34,56,.8);
+	margin-top: 30px;
+	color: var(--color-white);
+}
+
+button {
+	padding: 15px;
+}
+
+input.ket {
+	padding: 15px 10px;
+	width: 70px;
+	text-align: center;
+	margin-right: -4px;
+}
+
+input.ket-1 {
+	border-radius: 3px 0 0 3px;
+}
+
+input.ket-2 {
+	margin-right: inherit;
+	margin-left: -4px;
+}
+
+input:focus {
+	outline: none;
+}
+
+button {
+	cursor: pointer;
+	width: inherit;
+	border-radius: 0 3px 3px 0;
+}
+
+input::placeholder, button {
+	color: var(--color-white);
+}
+
+input.search-box-1 {
+	border-right: 1px solid var(--color-white);
+}
+
+input.search-box-2 {
+	margin-right: -3.9px;
+	margin-left: -4.7px;
+}
+
+.header-container .tombol-rekomendasi i {
+	font-size: 2rem;
 }
 
 .header-container .tombol-rekomendasi {
