@@ -22,7 +22,7 @@ Route::get('/', function () {
 })->middleware(['auth'])->name('home');
 
 Route::get('/business', function () {
-    return view('bisnis');
+    return view('bisnis.bisnis');
 })->middleware(['auth'])->name('business');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
@@ -30,6 +30,11 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->name('logout');
 
 Route::get('/', [App\Http\Controllers\Management\RestaurantController::class, 'index']);
+
+Route::get('/business/update-business', function () {
+    return view('bisnis.update-business');
+});
+
 
 // Route::resource('/home',App\Http\Controllers\Auth\AuthenticatedSessionController::class);
 

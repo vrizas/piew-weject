@@ -23,7 +23,7 @@
     <!-- Navbar -->
     <div class="nav-container">
         <nav>
-            <img src="{{ asset('img/home/logo.svg') }}" class="logo">
+            <img src="{{ asset('img/home/logo.svg') }}" class="logo"><h1 class="logo-tulis">Business</h1>
             <div class="nav-menu">
                 <ul>
                     @if(session()->has('login'))
@@ -59,7 +59,7 @@
 			<i class='bx bxs-star'></i>
 		    <i class='bx bxs-star'></i>
 		<div class="rating-angka">4</div>
-        <a href="" class="edit-bisnis"><i class='bx bxs-edit'></i>Edit</a>
+        <a href="business/update-business" class="edit-bisnis"><i class='bx bxs-edit'></i>Edit</a>
     </div>
     <!-- ----------------- -->
     <!-- Akhir Header -->

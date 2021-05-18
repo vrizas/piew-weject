@@ -186,6 +186,14 @@ button.drop.active {
     color: var(--color-soft-blue);
 }
 
+h1.logo-tulis {
+	position: absolute;
+	left: 140px;
+	font-size: 2rem;
+	top: 29px;
+	font-style: italic;
+}
+
 /* Content */
 .content-container {
     height: 100vh;
