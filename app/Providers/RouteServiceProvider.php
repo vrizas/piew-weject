@@ -23,6 +23,8 @@ class RouteServiceProvider extends ServiceProvider
 
     public const LOGIN = '/login';
 
+    public const UPDATE_BISNIS = '/business/update-business';
+
     /**
      * The controller namespace for the application.
      *

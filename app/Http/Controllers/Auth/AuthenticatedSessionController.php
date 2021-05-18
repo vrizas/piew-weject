@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Restaurant;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -37,17 +38,20 @@ class AuthenticatedSessionController extends Controller
 
         $role = Auth::user()->role;
         
-        switch ($role) {
-            case 'reviewer':
-                return redirect()->intended(RouteServiceProvider::HOME);
-                break;
-            case 'bisnis':
+        $id = Auth::user()->id;
+        $restaurants = Restaurant::all('alamat')->where($id==='id_restaurant');
+        
+        if($role == 'reviewer') {
+
+            return redirect()->intended(RouteServiceProvider::HOME);
+        }else if($role == 'bisnis'){
+            if($restaurants){
+                return redirect()->intended(RouteServiceProvider::UPDATE_BISNIS);
+            }else{
                 return redirect()->intended(RouteServiceProvider::BISNIS);
-                break; 
-            default:
-                return redirect()->intended(RouteServiceProvider::HOME);
-                break;
             }
+            
+        }
     
     }
 

@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('css/bisnis.css') }}">
 </head>
 <body>
+    
     <!-- Navbar -->
     <div class="nav-container">
         <nav>
@@ -48,8 +49,10 @@
 
     <!-- Header -->
     <!-- Ambil dari database -->
+    @foreach($restaurants as $i => $restaurant)
     <div class="header-container" style="background-image: url('{{asset('img/bisnis_images')}}/janji-jiwa.jpg')">
-        <h3 class="nama-bisnis">Ayam Nelongso</h3>
+        <h3 class="nama-bisnis">
+        {{$restaurant->nama}}</h3>
         <h4 class="alamat">Jalan Haji Basri no. 53 Malang</h4>
         <h4 class="jam">09.00 - 20.30</h4>
         <div class="rating">
@@ -61,6 +64,7 @@
 		<div class="rating-angka">4</div>
         <a href="business/update-business" class="edit-bisnis"><i class='bx bxs-edit'></i>Edit</a>
     </div>
+    @endforeach
     <!-- ----------------- -->
     <!-- Akhir Header -->
 

@@ -48,7 +48,8 @@
 
     <!-- Content -->
     <div class="content-container">
-        <form action="" method="POST" class="form-1">
+        <form action="/business/" method="POST" class="form-1">
+            @csrf
             <label for="nama-bisnis">Nama Bisnis</label>
             <input type="text" name="nama-bisnis">
             <label for="alamat">Alamat</label>
@@ -62,6 +63,7 @@
             <input type="submit" value ="Simpan">
         </form>
         <form action="" method="POST" class="form-2">
+            @csrf
             <label for="kategori">Kategori</label>
             <input type="text" name="kategori" placeholder="Simpan maksimal 3 kategori">
             <input type="submit" value="Tambah">
