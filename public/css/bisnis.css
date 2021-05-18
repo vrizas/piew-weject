@@ -1,0 +1,378 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+:root {
+	/*Fonts*/
+	--font-roboto: 'Roboto', sans-serif;
+	--font-lato: 'Lato', sans-serif;
+
+	/*Warna*/
+	--color-white: #f5f5f5;
+	--color-blue: #070B15;
+	--color-soft-blue: #23395d;
+	--color-black: #111;
+
+}
+
+body {
+	background-color: var(--color-blue);
+	font-family: var(--font-roboto);
+	font-weight: 400;
+	color: var(--color-white);
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-white);
+}
+
+/*Navbar*/
+.nav-container nav{
+	padding: 0 40px;
+	height: 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.nav-container img.logo {
+	width: 100px;
+	position: relative;
+	top: -5px;
+}
+
+.nav-container .nav-menu ul{
+	list-style-type: none;
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav-container .nav-menu ul li {
+	font-size: 0.9rem;
+}
+
+.nav-container .nav-menu a:hover {
+	color: var(--color-soft-blue);
+}
+
+.akun {
+	cursor: pointer;
+}
+
+.nav-container .nav-menu .akun button.drop {
+	background-color: transparent;
+	padding: 5px 20px;
+	border: none;
+	overflow: hidden;
+	position: relative;
+	margin: -5px;
+	top: -5px;
+	font-size: 0.9rem;
+	border-radius: 3px 3px 0 0;
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+.drop i {
+	position: relative;
+}
+
+.drop .bxs-user-circle {
+	font-size: 1.3rem;
+	top: 3px;
+}
+
+.drop .bxs-chevron-down {
+	top: 1px;
+}
+
+.drop-content {
+	background-color: var(--color-white);
+	padding: 10px 15.5px;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+    top: 30px;
+	right: 35px;
+	border-radius: 0 0 3px 3px;
+	transform: scaleY(0);
+}
+
+.drop-content button {
+	cursor: pointer;
+	color: var(--color-black);
+	background-color: transparent;
+	padding: 0 22px;
+	border: none;
+	overflow: hidden;
+	font-size: 0.7rem;
+}
+
+.drop-content i {
+	font-size: 0.8rem;
+	position: relative;
+	top: 1px;
+}
+
+button.drop.active {
+	animation: drop-button .1s ease-out forwards;
+}
+
+.drop-content.active {
+	animation: drop-content .1s ease-out forwards;
+}
+
+/* Header */
+.header-container {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 50vh;
+    margin-top: -100px;
+    padding: 90px 40px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.header-container .nama-bisnis {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+}
+
+.header-container .alamat, .header-container .jam {
+    font-weight: 300;
+    font-size: .9rem;
+}
+
+.header-container .rating {
+    margin-top: 120px;
+    display: flex;
+}
+
+.header-container .rating .rating-angka {
+	width: 25px;
+	height: 25px;
+	background-color: lightgreen;
+	border-radius: 3px;
+	text-align: center;
+	line-height: 25px;
+	margin-left: 10px;
+}
+
+.header-container i {
+	font-size: 1.3rem;
+	letter-spacing: 5px;
+	line-height: 25px;
+}
+
+.header-container a.edit-bisnis {
+    position: absolute;
+    bottom: 30px;
+    right: 70px;
+    font-size: 1.5rem;
+}
+
+.header-container a.edit-bisnis:hover {
+    color: var(--color-soft-blue);
+}
+
+/* Content */
+.content-container {
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+    margin: 90px auto;
+    width: 60%;
+}
+
+.content-container .pilihan {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+    font-size: 1.2rem;
+}
+
+.pilihan-tentang, .pilihan-ulasan, .pilihan-menu {
+    cursor: pointer;
+}
+
+.pilihan-tentang:hover, .pilihan-ulasan:hover, .pilihan-menu:hover {
+    text-decoration: underline;
+}
+
+.content-container .tentang .deskripsi {
+    font-size: 0.9rem;
+}
+
+.content-container .ulasan {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: none;
+}
+
+.content-container .ulasan-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.content-container .ulasan .ket-ulasan {
+    display: flex;
+}
+
+.content-container .ulasan-orang {
+    width: 300px;
+    margin-bottom: 15px;
+}
+
+.ulasan-orang:nth-last-child(1) {
+    margin-bottom: 0;
+}
+
+.ulasan-orang:nth-last-child(2) {
+    margin-bottom: 0;
+}
+
+.content-container .rating {
+    margin: 0;
+}
+
+.content-container .ket-ulasan .foto-user i {
+    font-size: 3rem;
+    line-height: 44px;
+}
+
+.content-container .ket-ulasan .rating i {
+    font-size: 1.3rem;
+}
+
+.content-container .ket-ulasan .user {
+    font-size: 0.8rem;
+}
+
+.content-container .ulasan .pesan {
+    font-size: 0.9rem;
+    padding: 10px;
+}
+
+.content-container .menu {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.content-container .menu img.menu-img {
+    width: 280px;
+	height: 230px;
+}
+
+.content-container .menu .daftar-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.daftar-menu:nth-last-child(1), .daftar-menu:nth-last-child(2) {
+    margin-bottom: 0;
+}
+
+.content-container .menu .delete-menu {
+    display: inline;
+}
+
+button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.content-container .menu .harga {
+    font-size: 0.9rem;
+}
+
+.content-container a {
+    color: var(--color-black);
+}
+
+.active {
+    animation: active .2s forwards;
+}
+
+/*Footer*/
+.footer-container {
+	height: 25vh;
+}
+
+.footer-container footer {
+	height: inherit;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer-container .sosmed i {
+	font-size: 2rem;
+	cursor: pointer;
+	margin-right: 15px;
+}
+
+.footer-container .sosmed i:nth-last-child(1) {
+	margin-right: 0;
+}
+
+.footer-container .sosmed i:hover {
+	color: #aaa;
+}
+
+.footer-container p {
+	margin-top: 20px;
+}
+
+/* Animations */
+@keyframes drop-button {
+	to {
+		background-color: var(--color-white);
+		color: var(--color-black);
+	}
+}
+
+@keyframes drop-content {
+	to {
+		top: 61px;
+		transform: scaleY(1);
+	}
+}
+
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes active {
+	to { 
+		text-decoration: underline;
+	}
+}

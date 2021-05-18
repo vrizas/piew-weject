@@ -54,6 +54,7 @@
                     {{ __('Register') }}
                 </x-button>
             </div>
+            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('registerBisnis') }}">Daftarkan Bisnismu Disini</a>
         </form>
     </x-auth-card>
 </x-guest-layout>
