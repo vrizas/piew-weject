@@ -13,14 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/', function () {
+    return view('home');
+});
 
+Route::get('/', function () {
+    return view('home');
+})->middleware(['auth'])->name('home');
 
-use App\Http\Controllers\Management;
+Route::get('/business', function () {
+    return view('bisnis');
+})->middleware(['auth'])->name('business');
+
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('logout');
 
 Route::get('/', [App\Http\Controllers\Management\RestaurantController::class, 'index']);
-Route::get('/login', function () {
-  return view('login');
-});
+
+// Route::resource('/home',App\Http\Controllers\Auth\AuthenticatedSessionController::class);
+
+
+require __DIR__.'/auth.php';
+

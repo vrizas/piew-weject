@@ -28,8 +28,20 @@
 				<ul>
 					<li><a href="#">TENTANG KAMI</a></li>
 					<li><a href="#">TULIS REVIEW</a></li>
-					<li><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
-					<li><a href="#"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
+					@if(session()->has('login'))
+						<li class='akun'>
+							<button class='drop'><i class='bx bxs-user-circle'></i> {{ Auth::user()->name }} <i class='bx bxs-chevron-down'></i></button>
+							<div class="drop-content">
+								<form id="logout-form" action="{{ route('logout') }}" method="POST">
+									@csrf
+									<button type="submit"><i class='bx bx-log-out' ></i> Keluar</button>
+								</form>
+							</div>
+						</li>
+					@else
+						<li><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
+						<li><a href="register"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
+					@endif
 				</ul>
 			</div>
 		</nav>
@@ -42,6 +54,7 @@
 			<h1>TEMUKAN</h1>
 			<h4>makanan enak tersembunyi di sekitarmu</h4>
 			<form action="" method="POST">
+				@csrf
 				<input type="text" class="ket ket-1" placeholder="Cari" disabled>
 				<input class="search-box-1" type="text" placeholder="restoran,warung,makanan..">
 				<input type="text" class="ket ket-2" placeholder="Lokasi" disabled>
@@ -119,6 +132,7 @@
 	</div>
 	<!-- Akhir Footer -->
 
+<script src="{{ asset('js/home.js') }}"></script>
 </body>
 
 </html>
