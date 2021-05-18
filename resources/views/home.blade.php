@@ -30,18 +30,18 @@
 					<li><a href="#">TULIS REVIEW</a></li>
 					@if(session()->has('login'))
 						<li class='akun'>
-							<button class='drop'>{{ Auth::user()->name }} <i class='bx bxs-chevron-down'></i></button>
-							<form id="logout-form" action="{{ route('logout') }}" method="POST" class="drop-content">
-								@csrf
-								<input type="submit" value="Keluar">
-							</form>
+							<button class='drop'><i class='bx bxs-user-circle'></i> {{ Auth::user()->name }} <i class='bx bxs-chevron-down'></i></button>
+							<div class="drop-content">
+								<form id="logout-form" action="{{ route('logout') }}" method="POST">
+									@csrf
+									<button type="submit"><i class='bx bx-log-out' ></i> Keluar</button>
+								</form>
+							</div>
 						</li>
 					@else
 						<li><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
 						<li><a href="register"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
 					@endif
-
-
 				</ul>
 			</div>
 		</nav>
@@ -132,7 +132,7 @@
 	</div>
 	<!-- Akhir Footer -->
 
-<script src="{{ asset('css/home.css') }}"></script>
+<script src="{{ asset('js/home.js') }}"></script>
 </body>
 
 </html>
