@@ -21,11 +21,11 @@ class RestaurantController extends Controller
 
     }
 
-    public function indexBisnis()
+    public function indexBisnis($id)
     {
         $restaurants = Restaurant::all();
+        $restaurants = Restaurant::Where('id', $id)->get();
         return view('bisnis.bisnis')->with('restaurants',$restaurants);
-
     }
 
     /**
