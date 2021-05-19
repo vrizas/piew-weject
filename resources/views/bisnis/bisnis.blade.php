@@ -49,20 +49,20 @@
 
     <!-- Header -->
     <!-- Ambil dari database -->
-    @foreach($restaurants as $restaurant)
-    <div class="header-container" style="background-image: url('{{asset('img/bisnis_images')}}/{{$restaurant->image}}')">
-        <h3 class="nama-bisnis">{{$restaurant->nama}}</h3>
-        <h4 class="alamat">{{$restaurant->alamat}}</h4>
-        <h4 class="jam">09.00 - 20.30</h4>
-        <div class="rating">
-			<i class='bx bxs-star'></i>
-			<i class='bx bxs-star'></i>
-			<i class='bx bxs-star'></i>
-			<i class='bx bxs-star'></i>
-		    <i class='bx bxs-star'></i>
-		<div class="rating-angka">{{$restaurant->rating}}</div>
-        <a href="business/{{$restaurant->id}}/update" class="edit-bisnis"><i class='bx bxs-edit'></i>Edit</a>
-    </div>
+    @foreach($restaurants as $i => $restaurant)
+        <div class="header-container" style="background-image: url('{{asset('img/bisnis_images')}}/{{$restaurant->image}}')">
+            <h3 class="nama-bisnis">{{$restaurant->nama}}</h3>
+            <h4 class="alamat">{{$restaurant->alamat}}</h4>
+            <h4 class="jam">09.00 - 20.30</h4>
+            <div class="rating">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+            <div class="rating-angka">{{$restaurant->rating}}</div>
+            <a href="business/{{$restaurant->id}}/update" class="edit-bisnis"><i class='bx bxs-edit'></i>Edit</a>
+        </div>
     @endforeach
     <!-- ----------------- -->
     <!-- Akhir Header -->

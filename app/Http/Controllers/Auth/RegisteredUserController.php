@@ -58,11 +58,11 @@ class RegisteredUserController extends Controller
             'id' => $user->id,
             'nama' => $request->name,
             'rating'=> '0.0',
-            'alamat'=> 'nullable',
+            'alamat'=> '',
             'id_location'=>'0',
             'image'=>'noimage.png',
-            'kategori'=>'nullable',
-            'deskripsi' => 'nullable',
+            'kategori'=>'',
+            'deskripsi' => '',
 
         ]);
 

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Restaurant;
+use App\Models\Location;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -41,15 +42,17 @@ class AuthenticatedSessionController extends Controller
         $id = Auth::user()->id;
         $restaurants = Restaurant::all();
         $restaurants = Restaurant::Where('id', $id)->get();
+        $locations = Location::all();
+
         if($role == 'reviewer') {
             return redirect()->intended(RouteServiceProvider::HOME);
         }else if($role == 'bisnis'){
             foreach($restaurants as $restaurant) {
-                if($restaurant->alamat === 'nullable'){
-                    return view('bisnis.update-business',['restaurants'=>$restaurants]);
+                if($restaurant->id_location === 0){
+                    return view('bisnis.create-business')->with('restaurants',$restaurants)->with('locations',$locations);
                 }else{
                     return view('bisnis.bisnis',['restaurants'=>$restaurants]);
-                } 
+                }
             }
     
         }

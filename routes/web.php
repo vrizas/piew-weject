@@ -30,7 +30,7 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');
 
-Route::get('/business', [App\Http\Controllers\Management\RestaurantController::class, 'indexBisnis']);
+Route::get('/business/{id}', [App\Http\Controllers\Management\RestaurantController::class, 'indexBisnis']);
 Route::get('/business/{id}/update', [App\Http\Controllers\Management\RestaurantController::class, 'edit']);
 Route::post('/business/{id}', [App\Http\Controllers\Management\RestaurantController::class, 'update']);
     

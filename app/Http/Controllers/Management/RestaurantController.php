@@ -117,10 +117,10 @@ class RestaurantController extends Controller
         $restaurant->kategori=$request->kategori;
         $restaurant->deskripsi=$request->deskripsi;
         $restaurant->save();
-        return redirect('/business');
-        
 
-
+        $restaurants = Restaurant::all();
+        $restaurants = Restaurant::Where('id', $request->id)->get();
+        return view('bisnis.bisnis')->with('restaurants',$restaurants);
     }
 
     /**
