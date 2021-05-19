@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Management;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
+use App\Models\Location;
 
 class RestaurantController extends Controller
 {
@@ -15,8 +16,16 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::all('nama','image','rating','id_restaurant');
+        $restaurants = Restaurant::all();
         return view('home')->with('restaurants',$restaurants);
+
+    }
+
+    public function indexBisnis()
+    {
+        $restaurants = Restaurant::all();
+        return view('bisnis.bisnis')->with('restaurants',$restaurants);
+
     }
 
     /**
@@ -26,7 +35,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -37,7 +46,7 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
@@ -59,7 +68,10 @@ class RestaurantController extends Controller
      */
     public function edit($id)
     {
-       
+        $restaurant = Restaurant::find($id);
+        $locations = Location::all();
+        return view('bisnis.update-business')->with('restaurant',$restaurant)->with('locations',$locations);
+
     }
 
     /**
@@ -71,7 +83,44 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $restaurant = Restaurant::find($request->id);
         
+        // $request->validate([
+        //     'nama' => 'required',
+        //     'alamat' => 'required',
+        //     'id_location' => 'required|numeric',
+        //     'kategori' => 'required',
+        //     'deskripsi' => 'required',
+            
+            
+        // ]);
+    
+    
+        $imageName = "noimage.png";
+
+        //jika user upload image
+        if($request->image){
+            $request->validate([
+                'image' => 'nullable|file|image|mimes:jpeg,png,jpg|max:5000'
+            ]);
+            $imageName = date('d-m-Y').uniqid().'.'.$request->image->extension();
+            $request->image->move(public_path('img/bisnis_images'),$imageName);
+        }
+        
+        
+        
+        $restaurant->image=$imageName;
+        $restaurant->nama=$request->nama;
+        $restaurant->alamat=$request->alamat;
+        $restaurant->id_location=$request->id_location;
+        $restaurant->kategori=$request->kategori;
+        $restaurant->deskripsi=$request->deskripsi;
+        $restaurant->save();
+        return redirect('/business');
+        
+
+
     }
 
     /**

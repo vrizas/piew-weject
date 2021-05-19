@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,11 +30,19 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');
 
+Route::get('/business', [App\Http\Controllers\Management\RestaurantController::class, 'indexBisnis']);
+Route::get('/business/{id}/update', [App\Http\Controllers\Management\RestaurantController::class, 'edit']);
+Route::post('/business/{id}', [App\Http\Controllers\Management\RestaurantController::class, 'update']);
+    
 Route::get('/', [App\Http\Controllers\Management\RestaurantController::class, 'index']);
 
-Route::get('/business/update-business', function () {
-    return view('bisnis.update-business');
-});
+
+//Route::resource('/business',App\Http\Controllers\Management\RestaurantController::class);
+// Route::get('/business',[App\Http\Controllers\Management\RestaurantController::class],'edit');
+// Route::put('/business',[App\Http\Controllers\Management\RestaurantController::class],'update');
+// Route::get('/business/update-business', function () {
+//     return view('bisnis.update-business');
+// });
 
 // Route::resource('/home',App\Http\Controllers\Auth\AuthenticatedSessionController::class);
 

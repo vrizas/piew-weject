@@ -55,12 +55,12 @@ class RegisteredUserController extends Controller
         ]);
 
         $restaurants = Restaurant::create([
-            'id_restaurant' => $user->id,
+            'id' => $user->id,
             'nama' => $request->name,
             'rating'=> '0.0',
             'alamat'=> 'nullable',
             'id_location'=>'0',
-            'image'=>'nullable',
+            'image'=>'noimage.png',
             'kategori'=>'nullable',
             'deskripsi' => 'nullable',
 

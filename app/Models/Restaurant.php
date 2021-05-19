@@ -9,5 +9,10 @@ class Restaurant extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id_restaurant','nama','rating','alamat','id_location','image','kategori','deskripsi'];
+    protected $fillable = ['id','nama','rating','alamat','id_location','image','kategori','deskripsi'];
+
+    public function location(){
+        return $this->belongsTo(Location::class);
+    }
+    
 }

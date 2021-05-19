@@ -40,19 +40,19 @@ class AuthenticatedSessionController extends Controller
         
         $id = Auth::user()->id;
         $restaurants = Restaurant::all();
-        $restaurants = Restaurant::Where('id_restaurant', $id)->get();
+        $restaurants = Restaurant::Where('id', $id)->get();
         if($role == 'reviewer') {
             return redirect()->intended(RouteServiceProvider::HOME);
         }else if($role == 'bisnis'){
             foreach($restaurants as $restaurant) {
                 if($restaurant->alamat === 'nullable'){
-                    return redirect()->intended(RouteServiceProvider::UPDATE_BISNIS);
+                    return view('bisnis.update-business',['restaurants'=>$restaurants]);
                 }else{
-                    return redirect()->intended(RouteServiceProvider::BISNIS);
-                }
-            } 
-        }
+                    return view('bisnis.bisnis',['restaurants'=>$restaurants]);
+                } 
+            }
     
+        }
     }
 
     /**

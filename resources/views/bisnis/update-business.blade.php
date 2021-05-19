@@ -48,15 +48,18 @@
 
     <!-- Content -->
     <div class="content-container">
-        <form action="/business/" method="POST" class="form">
+        <form action="/business/{{$restaurant->id}}" method="POST" class="form" enctype ="multipart/form-data">
             @csrf
+            <input type="hidden" value="{{$restaurant->id}}">
             <label for="nama">Nama Bisnis</label>
-            <input type="text" name="nama">
+            <input type="text" name="nama" value="{{$restaurant->nama}}">
             <label for="alamat">Alamat</label>
             <input type="text" name="alamat">
-            <label for="lokasi">Kota</label>
-            <select name="lokasi" id="lokasi">
-                <option value=""></option>
+            <label for="id_location">Kota</label>
+            <select name="id_location" id="id_location">
+                @foreach($locations as $location)
+                <option value="{{$location->id}}">{{$location->kota}}, {{$location->provinsi}}</option>
+                @endforeach  
             </select>
             <label for="kategori">Kategori</label>
             <input type="text" name="kategori" placeholder="kategori digunakan untuk pencarian">

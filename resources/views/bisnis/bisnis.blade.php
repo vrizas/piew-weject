@@ -49,11 +49,10 @@
 
     <!-- Header -->
     <!-- Ambil dari database -->
-    @foreach($restaurants as $i => $restaurant)
-    <div class="header-container" style="background-image: url('{{asset('img/bisnis_images')}}/janji-jiwa.jpg')">
-        <h3 class="nama-bisnis">
-        {{$restaurant->nama}}</h3>
-        <h4 class="alamat">Jalan Haji Basri no. 53 Malang</h4>
+    @foreach($restaurants as $restaurant)
+    <div class="header-container" style="background-image: url('{{asset('img/bisnis_images')}}/{{$restaurant->image}}')">
+        <h3 class="nama-bisnis">{{$restaurant->nama}}</h3>
+        <h4 class="alamat">{{$restaurant->alamat}}</h4>
         <h4 class="jam">09.00 - 20.30</h4>
         <div class="rating">
 			<i class='bx bxs-star'></i>
@@ -61,8 +60,8 @@
 			<i class='bx bxs-star'></i>
 			<i class='bx bxs-star'></i>
 		    <i class='bx bxs-star'></i>
-		<div class="rating-angka">4</div>
-        <a href="business/update-business" class="edit-bisnis"><i class='bx bxs-edit'></i>Edit</a>
+		<div class="rating-angka">{{$restaurant->rating}}</div>
+        <a href="business/{{$restaurant->id}}/update" class="edit-bisnis"><i class='bx bxs-edit'></i>Edit</a>
     </div>
     @endforeach
     <!-- ----------------- -->
@@ -77,7 +76,7 @@
             <h3 class="pilihan-menu">Menu</h3>
         </div>
         <div class="tentang">
-            <p class="deskripsi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, ipsum et dolores error ducimus inventore, libero soluta sunt nesciunt culpa, est itaque ab distinctio tempora ipsa odio ex qui. Ullam autem qui ad odio eligendi cupiditate reprehenderit incidunt dolorem labore vero atque, explicabo quam accusamus a magnam neque ea? Veniam reprehenderit alias molestias eum, voluptatibus porro modi inventore eaque libero odio maiores unde atque repudiandae praesentium? Maxime modi, a obcaecati officia esse, voluptate voluptatem quia nihil voluptates animi dolore! Vitae laudantium exercitationem est cum incidunt neque. Pariatur hic delectus quis itaque accusantium vitae a officiis, explicabo iusto recusandae eum non molestias libero! Facere sit ducimus facilis, rem est, id at exercitationem deleniti ratione itaque sequi quidem architecto veritatis obcaecati distinctio?</p>
+            <p class="deskripsi">{{$restaurant->deskripsi}}</p>
         </div>
         <div class="ulasan">
             <div class="ulasan-wrapper">
