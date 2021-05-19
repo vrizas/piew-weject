@@ -59,10 +59,9 @@ class RegisteredUserController extends Controller
             'nama' => $request->name,
             'rating'=> '0.0',
             'alamat'=> 'nullable',
-            'provinsi'=>'nullable',
+            'id_location'=>'0',
             'image'=>'nullable',
-            'kota'=>'nullable',
-            'category_id'=>'0',
+            'kategori'=>'nullable',
             'deskripsi' => 'nullable',
 
         ]);

@@ -146,26 +146,22 @@ h1.logo-tulis {
 	margin: 0 auto;
 }
 
-.form-1, .form-2 {
+.form {
 	display: flex;
 	flex-direction: column;
 }
 
-input[type="text"] {
+input[type="text"], select, textarea {
 	padding: 3px;
 	margin-bottom: 10px;
 }
 
-.form-2 input {
-	margin-bottom: 0;
+textarea {
+	font-family: 'Roboto', sans-serif;
 }
 
 label {
 	margin-bottom: 3px;
-}
-
-.form-2 label {
-	margin-top: 10px;
 }
 
 input[type="submit"] {
@@ -177,6 +173,12 @@ input[type="submit"] {
 	padding: 10px;
 	border-radius: 3px;
 	margin-top: 10px;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background-color: #203354;
+	color: lightgray;
 }
 
 /*Footer*/

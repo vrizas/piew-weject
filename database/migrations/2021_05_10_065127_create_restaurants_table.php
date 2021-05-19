@@ -18,10 +18,9 @@ class CreateRestaurantsTable extends Migration
             $table->string('nama');
             $table->float('rating',6,1);
             $table->string('alamat');
-            $table->string('provinsi');
-            $table->string('kota');
+            $table->integer('id_location');
             $table->string('image');
-            $table->integer('category_id');
+            $table->string('kategori');
             $table->text('deskripsi');
             $table->timestamps();
         });

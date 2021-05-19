@@ -48,25 +48,23 @@
 
     <!-- Content -->
     <div class="content-container">
-        <form action="/business/" method="POST" class="form-1">
+        <form action="/business/" method="POST" class="form">
             @csrf
-            <label for="nama-bisnis">Nama Bisnis</label>
-            <input type="text" name="nama-bisnis">
+            <label for="nama">Nama Bisnis</label>
+            <input type="text" name="nama">
             <label for="alamat">Alamat</label>
             <input type="text" name="alamat">
-            <label for="kota">Kota</label>
-            <input type="text" name="kota">
-            <label for="provinsi">Provinsi</label>
-            <input type="text" name="provinsi">
+            <label for="lokasi">Kota</label>
+            <select name="lokasi" id="lokasi">
+                <option value=""></option>
+            </select>
+            <label for="kategori">Kategori</label>
+            <input type="text" name="kategori" placeholder="kategori digunakan untuk pencarian">
             <label for="deskripsi">Deskripsi</label>
             <textarea name="deskripsi" id="deskripsi" cols="30" rows="10"></textarea>
+            <label for="image">Unggah foto</label>
+            <input type="file" name="image">
             <input type="submit" value ="Simpan">
-        </form>
-        <form action="" method="POST" class="form-2">
-            @csrf
-            <label for="kategori">Kategori</label>
-            <input type="text" name="kategori" placeholder="Simpan maksimal 3 kategori">
-            <input type="submit" value="Tambah">
         </form>
     </div>
     <!-- Akhir Content -->

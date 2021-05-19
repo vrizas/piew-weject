@@ -35,9 +35,6 @@ Route::get('/business/update-business', function () {
     return view('bisnis.update-business');
 });
 
-Route::put('/business/update-business', [App\Http\Controllers\Management\RestaurantController::class,'update']);
-Route::post('/business', [App\Http\Controllers\Management\RestaurantController::class,'store']);
-Route::get('/business/update-business', [App\Http\Controllers\Management\RestaurantController::class,'edit']);
 // Route::resource('/home',App\Http\Controllers\Auth\AuthenticatedSessionController::class);
 
 
