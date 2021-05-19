@@ -18,7 +18,6 @@ html, body {
 	--color-blue: #070B15;
 	--color-soft-blue: #23395d;
 	--color-black: #111;
-
 }
 
 body {
@@ -105,6 +104,7 @@ a {
 	right: 35px;
 	border-radius: 0 0 3px 3px;
 	transform: scaleY(0);
+	height: 30px;
 }
 
 .drop-content button {
@@ -115,6 +115,12 @@ a {
 	border: none;
 	overflow: hidden;
 	font-size: 0.7rem;
+}
+
+.drop-content button[type="submit"] {
+	position: relative;
+	bottom: 15px;
+	right: -25px;
 }
 
 .drop-content i {
@@ -136,26 +142,31 @@ button.drop.active {
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
-    height: 50vh;
-    margin-top: -100px;
+    height: 70vh;
+    margin-top: -2vh;
     padding: 90px 40px;
     box-sizing: border-box;
     position: relative;
+	color: var;
 }
 
 .header-container .nama-bisnis {
     font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     margin-bottom: 4px;
 }
 
 .header-container .alamat, .header-container .jam {
     font-weight: 300;
-    font-size: .9rem;
+    font-size: 1.2rem;
+}
+
+.nama-bisnis, .alamat, .jam {
+	transform: translateY(-40px);
 }
 
 .header-container .rating {
-    margin-top: 120px;
+    margin-top: 33vh;
     display: flex;
 }
 
@@ -199,8 +210,9 @@ h1.logo-tulis {
     height: 100vh;
     position: relative;
     z-index: 1;
-    margin: 90px auto;
+    margin: 17vh auto;
     width: 60%;
+
 }
 
 .content-container .pilihan {

@@ -105,6 +105,7 @@ a {
 	right: 35px;
 	border-radius: 0 0 3px 3px;
 	transform: scaleY(0);
+	height: 30px;
 }
 
 .drop-content button {
@@ -115,6 +116,12 @@ a {
 	border: none;
 	overflow: hidden;
 	font-size: 0.7rem;
+}
+
+.drop-content button[type="submit"] {
+	position: relative;
+	bottom: 15px;
+	right: -25px;
 }
 
 .drop-content i {
@@ -144,6 +151,11 @@ h1.logo-tulis {
 .content-container {
 	width: 50%;
 	margin: 0 auto;
+}
+
+.content-container h1 {
+	margin-bottom: 20px;
+	text-align: center;
 }
 
 .form {

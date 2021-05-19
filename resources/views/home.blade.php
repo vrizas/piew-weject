@@ -34,6 +34,7 @@
 							<div class="drop-content">
 								<form id="logout-form" action="{{ route('logout') }}" method="POST">
 									@csrf
+									<button style="font-size:.96rem;opacity:0;cursor:default;">{{ Auth::user()->name }}</button><br>
 									<button type="submit"><i class='bx bx-log-out' ></i> Keluar</button>
 								</form>
 							</div>
