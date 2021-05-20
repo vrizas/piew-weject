@@ -1,9 +1,12 @@
-<?php
-echo "<h1>Variabel</h1></br>";
-
-$angka = 99;
-echo "Ini adalah angka = $angka </br>";
-
-$angka_2 = $angka + 1;
-echo "Ini hasilnya = $angka_2 </br>";
-?>
+@foreach($restaurants as $i => $restaurant)
+    <h1>Hasil Pencarian {{$i+1}}</h1>
+    <p>{{$restaurant->nama}}</p>
+    <p>{{$restaurant->alamat}}</p>
+    <p>{{$restaurant->rating}}</p>
+    <p>{{$restaurant->kategori}}</p>
+    <p>{{$restaurant->deskripsi}}</p>
+@endforeach
+@foreach($locations as $location)
+    <h1>Lokasi</h1>
+    <p>{{$location->lokasi}}</p>
+@endforeach

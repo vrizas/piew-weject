@@ -59,7 +59,7 @@
             <label for="id_location">Kota</label>
             <select name="id_location" id="id_location">
                 @foreach($locations as $location)
-                <option value="{{$location->id}}">{{$location->kota}}, {{$location->provinsi}}</option>
+                <option value="{{$location->id}}">{{$location->lokasi}}</option>
                 @endforeach  
             </select>
             <label for="kategori">Kategori</label>
