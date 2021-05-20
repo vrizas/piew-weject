@@ -18,6 +18,14 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/updatemenu', function () {
+    return view('updatemenu');
+});
+
+Route::get('/tambahmenu', function () {
+    return view('tambahmenu');
+});
+
 Route::get('/', function () {
     return view('home');
 })->middleware(['auth'])->name('home');
@@ -33,7 +41,7 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 Route::get('/business/{id}', [App\Http\Controllers\Management\RestaurantController::class, 'indexBisnis']);
 Route::get('/business/{id}/update', [App\Http\Controllers\Management\RestaurantController::class, 'edit']);
 Route::post('/business/{id}', [App\Http\Controllers\Management\RestaurantController::class, 'update']);
-    
+
 Route::get('/', [App\Http\Controllers\Management\RestaurantController::class, 'index']);
 
 
@@ -47,5 +55,4 @@ Route::get('/', [App\Http\Controllers\Management\RestaurantController::class, 'i
 // Route::resource('/home',App\Http\Controllers\Auth\AuthenticatedSessionController::class);
 
 
-require __DIR__.'/auth.php';
-
+require __DIR__ . '/auth.php';
