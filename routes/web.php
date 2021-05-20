@@ -44,6 +44,7 @@ Route::post('/business/{id}', [App\Http\Controllers\Management\RestaurantControl
 
 Route::get('/', [App\Http\Controllers\Management\RestaurantController::class, 'index']);
 
+Route::get('/search', [App\Http\Controllers\Management\SearchController::class, 'search']);
 
 //Route::resource('/business',App\Http\Controllers\Management\RestaurantController::class);
 // Route::get('/business',[App\Http\Controllers\Management\RestaurantController::class],'edit');
