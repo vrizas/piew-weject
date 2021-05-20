@@ -54,10 +54,10 @@
 		<header>
 			<h1>TEMUKAN</h1>
 			<h4>makanan enak tersembunyi di sekitarmu</h4>
-			<form action="pencarian" method="GET" role="search">
+			<form action="{{url('/search')}}" method="GET" role="search">
 				@csrf
 				<input type="text" class="ket ket-1" placeholder="Cari" disabled>
-				<input class="search-box-1" name= "kategori" type="text" placeholder="restoran,warung,makanan..">
+				<input class="search-box-1" name="kategori" type="text" placeholder="restoran,warung,makanan..">
 				<input type="text" class="ket ket-2" placeholder="Lokasi" disabled>
 				<input class="search-box-2" name="lokasi" type="text" placeholder="Malang,Jawa Timur">
 				<button type="submit"><i class='bx bx-search'></i></button>
