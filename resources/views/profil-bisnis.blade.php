@@ -61,9 +61,8 @@
             <i class='bx bxs-star'></i>
             <i class='bx bxs-star'></i>
             <i class='bx bxs-star'></i>
-            <div class="rating-angka">4</div>
+            <div class="rating-angka">{{$restaurant->rating}}</div>
         </div>
-        <a href="" class="edit-bisnis"><i class='bx bxs-edit'> </i> Edit</a>
     </div>
    
     <!-- Akhir Header -->
@@ -96,7 +95,8 @@
             <div class="ulasan-wrapper">
                 <!-- Ambil dari database -->
                 <div class="form-ulasan">
-                    <form action="" method="POST">
+                    <form action="/profile/{{$restaurant->id}}" method="POST">
+                        @csrf
                     <div class="ket-ulasan">
                         <p class="foto-user"><i class='bx bxs-user-circle'></i></p>
                         <span class="rating-wrapper">
@@ -117,7 +117,7 @@
                     <input type="submit" name="kirim" value="Kirim">
                     </form>
                 </div>
-                @for($i = 1; $i <= 6; $i++) 
+                @foreach($ratings as $i =>$rating) 
                 <div class="ulasan-orang ulasan-ke-{{$i}}">
                     <div class="ket-ulasan">
                         <p class="foto-user"><i class='bx bxs-user-circle'></i></p>
@@ -128,16 +128,18 @@
                                 <i class='bx bxs-star'></i>
                                 <i class='bx bxs-star'></i>
                                 <i class='bx bxs-star'></i>
-                                <div class="rating-angka" hidden>4</div>
+                                <div class="rating-angka" hidden>{{$rating->rating}}</div>
                             </div>
-                            <p class="user">Oleh Basri (17 April 2021)</p>
+                            
+                            <p class="user">Oleh Basri ({{$rating->created_at}})</p>
+                            
                         </span>
                     </div>
                     <div class="pesan">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam delectus consectetur magnam vitae iusto quasi libero eligendi obcaecati ex et.</p>
+                        <p>{{$rating->pesan}}</p>
                     </div>
                 </div>
-                @endfor
+                @endforeach
                 <!-- ----------------- -->
             </div>
         </div>

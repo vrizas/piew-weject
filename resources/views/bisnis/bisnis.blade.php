@@ -63,7 +63,7 @@
             <i class='bx bxs-star'></i>
             <div class="rating-angka">{{$restaurant->rating}}</div>
         </div>
-        <a href="" class="edit-bisnis"><i class='bx bxs-edit'> </i> Edit</a>
+        <a href="/business/{{$restaurant->id}}/update" class="edit-bisnis"><i class='bx bxs-edit'> </i> Edit</a>
     </div>
     @endforeach
     <!-- Akhir Header -->

@@ -46,6 +46,10 @@ Route::get('/', [App\Http\Controllers\Management\RestaurantController::class, 'i
 
 Route::get('/search', [App\Http\Controllers\SearchController::class, 'search']);
 
+Route::get('/profile/{id}', [App\Http\Controllers\Management\RatingController::class, 'indexProfile']);
+Route::post('/profile/{id}',[App\Http\Controllers\Management\RatingController::class, 'store']);
+//Route::post('/profile/{id}', [App\Http\Controllers\Management\RatingController::class, 'store']);
+
 //Route::resource('/business',App\Http\Controllers\Management\RestaurantController::class);
 // Route::get('/business',[App\Http\Controllers\Management\RestaurantController::class],'edit');
 // Route::put('/business',[App\Http\Controllers\Management\RestaurantController::class],'update');
