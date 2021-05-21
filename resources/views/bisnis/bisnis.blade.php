@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,15 +13,12 @@
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/bisnis.css') }}">
 </head>
-
 <body>
-
     <!-- Navbar -->
     <div class="nav-container">
         <nav>
@@ -52,12 +48,13 @@
     <!-- Akhir Navbar -->
 
     <!-- Header -->
-    <!-- Ambil dari database -->
     @foreach($restaurants as $i => $restaurant)
     <div class="header-container" style="background-image: url('{{asset('img/bisnis_images')}}/{{$restaurant->image}}')">
-        <h3 class="nama-bisnis">{{$restaurant->nama}}</h3>
-        <h4 class="alamat">{{$restaurant->alamat}}</h4>
-        <h4 class="jam">09.00 - 20.30</h4>
+        <div class="isi-header-1">
+            <h3 class="nama-bisnis">{{$restaurant->nama}}</h3>
+            <h4 class="alamat">{{$restaurant->alamat}}</h4>
+            <h4 class="jam">09.00 - 20.30</h4>
+        </div>
         <div class="rating">
             <i class='bx bxs-star'></i>
             <i class='bx bxs-star'></i>
@@ -65,51 +62,54 @@
             <i class='bx bxs-star'></i>
             <i class='bx bxs-star'></i>
             <div class="rating-angka">{{$restaurant->rating}}</div>
-            <a href="business/{{$restaurant->id}}/update" class="edit-bisnis"><i class='bx bxs-edit'></i>Edit</a>
         </div>
-        @endforeach
-        <!-- ----------------- -->
-        <!-- Akhir Header -->
+        <a href="" class="edit-bisnis"><i class='bx bxs-edit'> </i> Edit</a>
+    </div>
+    @endforeach
+    <!-- Akhir Header -->
 
-        <!-- Content -->
-        <div class="content-container">
-            <!-- Ambil dari database -->
-            <div class="pilihan">
-                <h3 class="pilihan-tentang active">Tentang</h3>
-                <h3 class="pilihan-ulasan">Ulasan</h3>
-                <h3 class="pilihan-menu">Menu</h3>
-            </div>
-            <div class="tentang">
-                <p class="deskripsi">{{$restaurant->deskripsi}}</p>
-            </div>
-            <div class="ulasan">
-                <div class="ulasan-wrapper">
-                    <!-- Ambil dari database -->
-                    @for($i = 1; $i <= 6; $i++) <div class="ulasan-orang ulasan-ke-{{$i}}">
-                        <div class="ket-ulasan">
-                            <p class="foto-user"><i class='bx bxs-user-circle'></i></p>
-                            <span class="rating-wrapper">
-                                <div class="rating">
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <div class="rating-angka" hidden>4</div>
-                                </div>
-                                <p class="user">Oleh Basri (17 April 2021)</p>
-                            </span>
-                        </div>
-                        <div class="pesan">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam delectus consectetur magnam vitae iusto quasi libero eligendi obcaecati ex et.</p>
-                        </div>
+    <!-- Content -->
+    <div class="content-container">
+    <div class="content-wrapper">
+        <!-- Ambil dari database -->
+        <div class="pilihan">
+            <h3 class="pilihan-tentang">Tentang</h3>
+            <h3 class="pilihan-ulasan active">Ulasan</h3>
+            <h3 class="pilihan-menu">Menu</h3>
+        </div>
+        <div class="tentang">
+            <p class="deskripsi">{{$restaurant->deskripsi}}</p>
+        </div>
+        <div class="ulasan">
+            <div class="ulasan-wrapper">
+                <!-- Ambil dari database -->
+                @for($i = 1; $i <= 6; $i++) 
+                <div class="ulasan-orang ulasan-ke-{{$i}}">
+                    <div class="ket-ulasan">
+                        <p class="foto-user"><i class='bx bxs-user-circle'></i></p>
+                        <span class="rating-wrapper">
+                            <div class="rating">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <div class="rating-angka" hidden>4</div>
+                            </div>
+                            <p class="user">Oleh Basri (17 April 2021)</p>
+                        </span>
+                    </div>
+                    <div class="pesan">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam delectus consectetur magnam vitae iusto quasi libero eligendi obcaecati ex et.</p>
+                    </div>
                 </div>
                 @endfor
                 <!-- ----------------- -->
             </div>
         </div>
         <div class="menu">
-            @for($i = 1; $i <= 4; $i++) <div class="daftar-menu daftar-menu-{{$i}}">
+            @for($i = 1; $i <= 4; $i++) 
+            <div class="daftar-menu daftar-menu-{{$i}}">
                 <h4 class="nama-menu">Ayam Goreng</h4>
                 <img src="{{asset('img/bisnis_images')}}/nelongso.jpeg" alt="" class="menu-img">
                 <p class="harga">Rp. 18.000,00</p>
@@ -119,8 +119,9 @@
                         <button type="submit"><i class='bx bxs-trash'></i></button>
                     </form>
                 </div>
-        </div>
+            </div>
         @endfor
+        </div>
     </div>
     </div>
     <!-- Akhir Content -->
@@ -138,7 +139,6 @@
     </div>
     <!-- Akhir Footer -->
 
-    <script src="{{ asset('js/bisnis.js') }}"></script>
+<script src="{{ asset('js/bisnis.js') }}"></script>
 </body>
-
 </html>

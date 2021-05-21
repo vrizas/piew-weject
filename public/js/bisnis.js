@@ -16,7 +16,6 @@ const p3 = document.querySelector('h3.pilihan-menu');
 
 pilihan.addEventListener('click', function(e) {
 	if(e.target.innerHTML === 'Tentang') {
-        console.log('ok');
 		tentang.style.display = 'block';
 		ulasan.style.display = 'none';
 		menu.style.display = 'none';

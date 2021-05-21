@@ -54,17 +54,20 @@ class RegisteredUserController extends Controller
             
         ]);
 
-        $restaurants = Restaurant::create([
-            'id' => $user->id,
-            'nama' => $request->name,
-            'rating'=> '0.0',
-            'alamat'=> '',
-            'id_location'=>'0',
-            'image'=>'noimage.png',
-            'kategori'=>'',
-            'deskripsi' => '',
+        if ($request->role == 'bisnis') {
+            $restaurants = Restaurant::create([
+                'id' => $user->id,
+                'nama' => $request->name,
+                'rating'=> '0.0',
+                'alamat'=> '',
+                'id_location'=>'0',
+                'image'=>'noimage.png',
+                'kategori'=>'',
+                'deskripsi' => '',
+    
+            ]);
+        }
 
-        ]);
 
         event(new Registered($user));
 
