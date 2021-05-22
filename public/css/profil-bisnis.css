@@ -36,8 +36,7 @@ a {
 
 /*Navbar*/
 .nav-container nav{
-	padding: 0 40px;
-	height: 100px;
+	padding: 30px 40px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -46,11 +45,11 @@ a {
 .nav-container img.logo {
 	width: 100px;
 	position: relative;
-	top: -5px;
+	top: -3px;
 }
 
 .nav-container .nav-menu {
-	width: 35%;
+	width: 90%;
 }
 
 .nav-container .nav-menu ul{
@@ -67,8 +66,14 @@ a {
 	color: var(--color-soft-blue);
 }
 
-.akun {
+.akun, .menu-out {
 	cursor: pointer;
+    position: relative;
+    top: 13px;
+}
+
+.menu-out {
+    cursor: inherit;
 }
 
 .nav-container .nav-menu .akun button.drop {
@@ -81,7 +86,6 @@ a {
 	top: -5px;
 	font-size: 0.9rem;
 	border-radius: 3px 3px 0 0;
-    color: var(--color-white);
 }
 
 .drop i {
@@ -99,36 +103,29 @@ a {
 
 .drop-content {
 	background-color: var(--color-white);
-	padding: 10px 15.5px;
+	padding: 10px 7.5px;
 	display: flex;
 	flex-direction: column;
 	position: absolute;
 	/* top: 61px; */
 	top: 30px;
-	right: 35px;
 	border-radius: 0 0 3px 3px;
 	transform: scaleY(0);
 	height: 30px;
 }
 
 .drop-content form {
-	margin-top: -30px;
+	margin-top: -5px;
 }
 
 .drop-content button {
 	cursor: pointer;
 	color: var(--color-black);
 	background-color: transparent;
-	padding: 0 22px;
+	padding: 6px 39px;
 	border: none;
 	overflow: hidden;
 	font-size: 0.7rem;
-}
-
-.drop-content button[type="submit"] {
-	position: relative;
-	bottom: 45px;
-	right: -25px;
 }
 
 .drop-content i {
@@ -137,12 +134,65 @@ a {
 	top: 1px;
 }
 
-button.drop.active {
+/* button.drop.active {
 	animation: drop-button .1s ease-out forwards;
-}
+} */
 
 .drop-content.active {
 	animation: drop-content .1s ease-out forwards;
+}
+
+input, button {
+	border: none;
+	box-sizing: border-box;
+	padding: 15px 0;
+	display: inline-block;
+	width: 300px;
+	background-color: rgba(21,34,56,.8);
+	color: var(--color-white);
+}
+
+button {
+	padding: 15px;
+}
+
+input.ket {
+	padding: 15px 10px;
+	width: 70px;
+	text-align: center;
+	margin-right: -4px;
+}
+
+input.ket-1 {
+	border-radius: 3px 0 0 3px;
+}
+
+input.ket-2 {
+	margin-right: inherit;
+	margin-left: -4px;
+}
+
+input:focus {
+	outline: none;
+}
+
+button {
+	cursor: pointer;
+	width: inherit;
+	border-radius: 0 3px 3px 0;
+}
+
+input::placeholder, button {
+	color: var(--color-white);
+}
+
+input.search-box-1 {
+	border-right: 1px solid var(--color-white);
+}
+
+input.search-box-2 {
+	margin-right: -3.9px;
+	margin-left: -4.7px;
 }
 
 /* Header */
@@ -155,6 +205,8 @@ button.drop.active {
     box-sizing: border-box;
     position: relative;
     color: #fff;
+    box-shadow: inset 20px 20px 100px 100px rgba(0,0,0,.6);
+    z-index: -10;
 }
 
 .header-container .isi-header-1 {
@@ -195,7 +247,7 @@ button.drop.active {
 .header-container .rating .rating-angka {
 	width: 30px;
 	height: 30px;
-	background-color: rgba(144, 238, 144,.6);
+	background-color: rgba(144, 238, 144,.7);
 	border-radius: 3px;
 	text-align: center;
 	line-height: 30px;
@@ -206,7 +258,7 @@ button.drop.active {
 	font-size: 1.8rem;
 	letter-spacing: 5px;
 	line-height: 30px;
-    color: rgba(7, 11, 21,.3);
+    color: var(--color-rating);
 }
 
 .header-container i.bxs-edit {
@@ -303,12 +355,6 @@ h1.logo-tulis {
     width: 50%;
 }
 
-.content-container .ulasan-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-
 .content-container .ulasan .ket-ulasan {
     display: flex;
 }
@@ -364,6 +410,10 @@ h1.logo-tulis {
 
 .content-container .ulasan-orang {
     margin-bottom: 50px;
+}
+
+.ulasan-orang .rating i {
+    color: var(--color-rating);
 }
 
 .ulasan-orang:nth-last-child(1) {
@@ -478,7 +528,7 @@ h1.logo-tulis {
 
 @keyframes drop-content {
 	to {
-		top: 61px;
+		top: 25px;
 		transform: scaleY(1);
 	}
 }

@@ -49,9 +49,9 @@ class AuthenticatedSessionController extends Controller
         }else if($role == 'bisnis'){
             foreach($restaurants as $restaurant) {
                 if($restaurant->id_location === 0){
-                    return view('bisnis.create-business')->with('restaurants',$restaurants)->with('locations',$locations);
+                    return redirect('/business/'.$id.'/create');
                 }else{
-                    return view('bisnis.bisnis',['restaurants'=>$restaurants]);
+                    return redirect('/business/'.$id);
                 }
             }
     

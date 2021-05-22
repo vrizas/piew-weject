@@ -23,7 +23,7 @@
     <!-- Navbar -->
     <div class="nav-container">
         <nav>
-            <img src="{{ asset('img/home/logo.svg') }}" class="logo"><h1 class="logo-tulis">Business</h1>
+            <a href="/"><img src="{{ asset('img/home/logo.svg') }}" class="logo"></a>
             <div class="nav-menu">
                 <ul>
                     @if(session()->has('login'))
@@ -38,8 +38,7 @@
                         </div>
                     </li>
                     @else
-                    <li><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
-                    <li><a href="register"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
+                    <script>window.location = "/login";</script>
                     @endif
                 </ul>
             </div>
@@ -50,7 +49,6 @@
     <!-- Content -->
     <div class="content-container">
         <h1>Buatlah Bisnismu</h1>
-        @foreach($restaurants as $restaurant)
         <form action="/business/{{$restaurant->id}}" method="POST" class="form" enctype ="multipart/form-data">
             @csrf
             <input type="hidden" value="{{$restaurant->id}}">
@@ -72,7 +70,6 @@
             <input type="file" name="image">
             <input type="submit" value ="Simpan">
         </form>
-        @endforeach
     </div>
     <!-- Akhir Content -->
 
@@ -89,6 +86,6 @@
 	</div>
     <!-- Akhir Footer -->
     
-    <script src="{{ asset('js/home.js') }}"></script>
+    <script src="{{ asset('js/akun.js') }}"></script>
 </body>
 </html>

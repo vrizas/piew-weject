@@ -19,6 +19,7 @@ html, body {
 	--color-soft-blue: #23395d;
 	--color-black: #111;
     --color-light-gray: #d3d3d3;
+    --color-rating: #FFD700;
 }
 
 body {
@@ -35,19 +36,20 @@ a {
 
 /*Navbar*/
 .nav-container nav{
-	padding: 0 40px;
-	height: 100px;
+	padding: 30px 40px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-    position: relative;
-    z-index: 1;
 }
 
 .nav-container img.logo {
 	width: 100px;
 	position: relative;
-	top: -5px;
+	top: -3px;
+}
+
+.nav-container .nav-menu {
+	width: 15%;
 }
 
 .nav-container .nav-menu ul{
@@ -66,6 +68,8 @@ a {
 
 .akun {
 	cursor: pointer;
+    position: relative;
+    top: 3px;
 }
 
 .nav-container .nav-menu .akun button.drop {
@@ -97,31 +101,29 @@ a {
 
 .drop-content {
 	background-color: var(--color-white);
-	padding: 10px 15.5px;
+	padding: 10px 7.5px;
 	display: flex;
 	flex-direction: column;
 	position: absolute;
-    top: 30px;
-	right: 35px;
+	/* top: 61px; */
+	top: 30px;
 	border-radius: 0 0 3px 3px;
 	transform: scaleY(0);
 	height: 30px;
+}
+
+.drop-content form {
+	margin-top: -5px;
 }
 
 .drop-content button {
 	cursor: pointer;
 	color: var(--color-black);
 	background-color: transparent;
-	padding: 0 22px;
+	padding: 6px 39px;
 	border: none;
 	overflow: hidden;
 	font-size: 0.7rem;
-}
-
-.drop-content button[type="submit"] {
-	position: relative;
-	bottom: 15px;
-	right: -25px;
 }
 
 .drop-content i {
@@ -130,13 +132,14 @@ a {
 	top: 1px;
 }
 
-button.drop.active {
+/* button.drop.active {
 	animation: drop-button .1s ease-out forwards;
-}
+} */
 
 .drop-content.active {
 	animation: drop-content .1s ease-out forwards;
 }
+
 
 /* Header */
 .header-container {
@@ -148,6 +151,8 @@ button.drop.active {
     box-sizing: border-box;
     position: relative;
     color: #fff;
+    box-shadow: inset 20px 20px 100px 100px rgba(0,0,0,.6);
+    z-index: -10;
 }
 
 .header-container .isi-header-1 {
@@ -188,7 +193,7 @@ button.drop.active {
 .header-container .rating .rating-angka {
 	width: 30px;
 	height: 30px;
-	background-color: rgba(144, 238, 144,.6);
+	background-color: rgba(144, 238, 144,.7);
 	border-radius: 3px;
 	text-align: center;
 	line-height: 30px;
@@ -199,20 +204,20 @@ button.drop.active {
 	font-size: 1.8rem;
 	letter-spacing: 5px;
 	line-height: 30px;
-    color: rgba(7, 11, 21,.3);
+    color: var(--color-rating);
 }
 
-.header-container i.bxs-edit {
+i.bxs-edit {
     color: inherit;
     font-size: 1.6rem;
     position: relative;
     bottom: -2px;
 }
 
-.header-container a.edit-bisnis {
+a.edit-bisnis {
     position: absolute;
     font-size: 1.5rem;
-    bottom: 35px;
+    bottom: 145px;
     right: 50px;
     font-weight: 700;
     background-color: rgba(7, 11, 21,.2);
@@ -221,7 +226,7 @@ button.drop.active {
     transition: .4s;
 }
 
-.header-container a.edit-bisnis:hover {
+a.edit-bisnis:hover {
     background-color: rgba(7, 11, 21,.3);
     transform: translateY(2px);
 }
@@ -237,77 +242,127 @@ h1.logo-tulis {
 /* Content */
 
 .content-container {
-    padding: 50px 0;
+    padding: 35px 45px;
+    background-color: var(--color-white);
+    color: var(--color-black);
 }
 
 .content-wrapper {
-    height: 100vh;
     position: relative;
     z-index: 1;
     margin: auto;
-    width: 80%;
-    min-height: 120vh;
 }
 
-.content-container .pilihan {
+.content-container .tombol {
+    margin-bottom: 50px;
     display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 40px;
-    font-size: 1.2rem;
 }
 
-.pilihan-tentang, .pilihan-ulasan, .pilihan-menu {
-    cursor: pointer;
+.content-container .tombol-tulis-ulasan, .content-container .tombol-share {
+    background-color: var(--color-soft-blue);
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 25px;
 }
 
-.pilihan-tentang:hover, .pilihan-ulasan:hover, .pilihan-menu:hover {
-    text-decoration: underline;
+.content-container .tombol-share {
+    background-color: transparent;
+    border: 3px solid rgba(144, 238, 144, .6);
 }
 
-.content-container .tentang {
-    display: none;
+.content-container .tombol-tulis-ulasan {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-container a {
+    color: var(--color-black);
+}
+
+.content-container a.tombol-tulis-ulasan {
+    color: var(--color-white);
 }
 
 .content-container .tentang .deskripsi {
     font-size: 0.9rem;
-    margin-top: 80px;
-    padding-left: 215px;
-    padding-right: 215px;
+    margin-bottom: 50px;
+    width: 50%;
+    padding: 15px 20px;
+    min-height: 10vh;
+    border-radius: 5px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .content-container .ulasan {
-    background-color: var(--color-white);
-    color: var(--color-black);
-    padding: 60px 0;
-    min-height: 100vh;
-    box-sizing: border-box;
-    border-radius: 10px;
-}
-
-.content-container .ulasan-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    padding: 30px 20px;
+    border-bottom: .1px solid rgba(0, 0, 0, 0.19);
+    width: 50%;
 }
 
 .content-container .ulasan .ket-ulasan {
     display: flex;
 }
 
-.content-container .ulasan-orang {
-    width: 400px;
-    margin-bottom: 30px;
-    padding: 30px;
-    border: 2px solid var(--color-blue);
+.content-container .form-ulasan {
+    margin-bottom: 50px;
     border-radius: 5px;
-    box-sizing: border-box;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 100%;
+    padding: 25px 30px;
+}
+
+.form-ulasan textarea {
+    font-family: 'Roboto', sans-serif;
+    padding: 15px 20px;
+    width: 91%;
+}
+
+.form-ulasan input[type="submit"] {
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: rgb(81, 255, 81);
+    padding: 10px 15px;
+    color: var(--color-white);
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+    margin-left: 8px;
+}
+
+.form-ulasan input[type="submit"]:hover {
+    background-color: rgb(64, 253, 64);
+    transform: translateY(1px);
+}
+
+.form-ulasan .rating {
+    cursor: pointer;
+    width: fit-content;
+}
+
+.form-ulasan .rating:hover > i:before {
+    color:var(--color-rating);
+}
+
+.form-ulasan .rating > i:hover ~ i:before {
+    color: var(--color-black);
+}
+
+.form-ulasan .rating i.active {
+    color:var(--color-rating);
+}
+
+.content-container .ulasan-orang {
+    margin-bottom: 50px;
+}
+
+.ulasan-orang .rating i {
+    color: var(--color-rating);
 }
 
 .ulasan-orang:nth-last-child(1) {
-    margin-bottom: 0;
-}
-
-.ulasan-orang:nth-last-child(2) {
     margin-bottom: 0;
 }
 
@@ -335,13 +390,19 @@ h1.logo-tulis {
 }
 
 .content-container .menu {
-    background-color: var(--color-white);
-    color: var(--color-black);
-    padding: 45px 30px;
-    min-height: 100vh;
-    box-sizing: border-box;
-    border-radius: 10px;
-    display: none;
+    padding: 30px 20px;
+    border-top: .1px solid rgba(0, 0, 0, 0.19);
+    border-bottom: .1px solid rgba(0, 0, 0, 0.19);
+    position: relative;
+}
+
+.content-container .menu h3, .content-container .ulasan h3 {
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+}
+
+.content-container .menu-wrapper { 
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
@@ -349,6 +410,12 @@ h1.logo-tulis {
 .content-container .menu img.menu-img {
     width: 280px;
 	height: 230px;
+}
+
+.content-container .menu .nama-menu {
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
 }
 
 .content-container .menu .daftar-menu {
@@ -366,23 +433,34 @@ h1.logo-tulis {
     display: inline;
 }
 
-button {
+.menu button {
     border: none;
     outline: none;
     background-color: transparent;
     cursor: pointer;
 }
 
+.menu i {
+    margin-top: 5px;
+    font-size: 1.2rem;
+    margin-left: 2px;
+}
+
+.menu i:nth-child(1) {
+    margin-right: 2px;
+    margin-left: 0;
+}
+
+.menu .tambah-menu i{
+    position: absolute;
+    right: 27px;
+    top: 28px;
+    font-size: 1.8rem;
+}
+
 .content-container .menu .harga {
+    margin-top: 10px;
     font-size: 0.9rem;
-}
-
-.content-container a {
-    color: var(--color-black);
-}
-
-.active {
-    animation: active .2s forwards;
 }
 
 /*Footer*/
@@ -417,29 +495,16 @@ button {
 }
 
 /* Animations */
-@keyframes drop-button {
+/* @keyframes drop-button {
 	to {
 		background-color: var(--color-white);
 		color: var(--color-black);
 	}
-}
+} */
 
 @keyframes drop-content {
 	to {
-		top: 61px;
+		top: 25px;
 		transform: scaleY(1);
-	}
-}
-
-@keyframes fadeIn {
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-
-@keyframes active {
-	to { 
-		text-decoration: underline;
 	}
 }

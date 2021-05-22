@@ -23,7 +23,7 @@
     <!-- Navbar -->
     <div class="nav-container">
         <nav>
-            <img src="{{ asset('img/home/logo.svg') }}" class="logo"><h1 class="logo-tulis">Business</h1>
+            <a href="/"><img src="{{ asset('img/home/logo.svg') }}" class="logo"></a>
             <div class="nav-menu">
                 <ul>
                     @if(session()->has('login'))
@@ -38,8 +38,7 @@
                         </div>
                     </li>
                     @else
-                    <li><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
-                    <li><a href="register"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
+                    <script>window.location = "/login";</script>
                     @endif
                 </ul>
             </div>
@@ -55,7 +54,7 @@
             <label for="nama">Nama Bisnis</label>
             <input type="text" name="nama" value="{{$restaurant->nama}}">
             <label for="alamat">Alamat</label>
-            <input type="text" name="alamat">
+            <input type="text" name="alamat" value="{{$restaurant->alamat}}">
             <label for="id_location">Kota</label>
             <select name="id_location" id="id_location">
                 @foreach($locations as $location)
@@ -63,11 +62,11 @@
                 @endforeach  
             </select>
             <label for="kategori">Kategori</label>
-            <input type="text" name="kategori" placeholder="kategori digunakan untuk pencarian">
+            <input type="text" name="kategori" placeholder="kategori digunakan untuk pencarian" value="{{$restaurant->kategori}}">
             <label for="deskripsi">Deskripsi</label>
-            <textarea name="deskripsi" id="deskripsi" cols="30" rows="10"></textarea>
+            <textarea name="deskripsi" id="deskripsi" cols="30" rows="10">{{$restaurant->deskripsi}}</textarea>
             <label for="image">Unggah foto</label>
-            <input type="file" name="image">
+            <input type="file" name="image" value="{{$restaurant->image}}">
             <input type="submit" value ="Simpan">
         </form>
     </div>
@@ -86,6 +85,6 @@
 	</div>
     <!-- Akhir Footer -->
     
-    <script src="{{ asset('js/home.js') }}"></script>
+    <script src="{{ asset('js/akun.js') }}"></script>
 </body>
 </html>

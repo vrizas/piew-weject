@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\Location;
 use App\Models\Rating;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
+use DB;
 
 
 class RestaurantController extends Controller
@@ -18,16 +22,23 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::all();
+        $restaurants = Restaurant::Where('rating','>=','4')
+                    ->take(4)
+                    ->get();
         return view('home')->with('restaurants',$restaurants);
-
     }
 
     public function indexBisnis($id)
     {
-        $restaurants = Restaurant::all();
+        $restaurant = Restaurant::all();
         $restaurants = Restaurant::Where('id', $id)->get();
-        return view('bisnis.bisnis')->with('restaurants',$restaurants);
+        $ratings = DB::table('ratings')
+                    ->join('users', 'ratings.id_user', '=', 'users.id')
+                    ->select('ratings.rating', 'ratings.pesan', 'ratings.created_at', 'users.name')
+                    ->latest()
+                    ->take(5)
+                    ->get();
+        return view('bisnis.bisnis')->with('restaurants',$restaurants)->with('ratings', $ratings);
     }
 
     /**
@@ -35,9 +46,11 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $restaurant = Restaurant::find($id);
+        $locations = Location::all();
+        return view('bisnis.create-business')->with('restaurant',$restaurant)->with('locations',$locations);
     }
 
     /**
@@ -73,7 +86,6 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::find($id);
         $locations = Location::all();
         return view('bisnis.update-business')->with('restaurant',$restaurant)->with('locations',$locations);
-
     }
 
     /**
@@ -122,7 +134,14 @@ class RestaurantController extends Controller
 
         $restaurants = Restaurant::all();
         $restaurants = Restaurant::Where('id', $request->id)->get();
-        return view('bisnis.bisnis')->with('restaurants',$restaurants);
+        $ratings = DB::table('ratings')
+                    ->join('users', 'ratings.id_user', '=', 'users.id')
+                    ->select('ratings.rating', 'ratings.pesan', 'ratings.created_at', 'users.name')
+                    ->latest()
+                    ->take(5)
+                    ->get();
+
+        return view('bisnis.bisnis')->with('restaurants',$restaurants)->with('ratings', $ratings);
     }
 
     /**

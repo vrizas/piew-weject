@@ -19,18 +19,18 @@ Route::get('/', function () {
 });
 
 Route::get('/updatemenu', function () {
-    return view('updatemenu');
+    return view('bisnis.updatemenu');
 });
 
 Route::get('/tambahmenu', function () {
-    return view('tambahmenu');
+    return view('bisnis.tambahmenu');
 });
 
 Route::get('/', function () {
     return view('home');
 })->middleware(['auth'])->name('home');
 
-Route::get('/business', function () {
+Route::get('/business/{id}', function () {
     return view('bisnis.bisnis');
 })->middleware(['auth'])->name('business');
 
@@ -40,6 +40,7 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 
 Route::get('/business/{id}', [App\Http\Controllers\Management\RestaurantController::class, 'indexBisnis']);
 Route::get('/business/{id}/update', [App\Http\Controllers\Management\RestaurantController::class, 'edit']);
+Route::get('/business/{id}/create', [App\Http\Controllers\Management\RestaurantController::class, 'create']);
 Route::post('/business/{id}', [App\Http\Controllers\Management\RestaurantController::class, 'update']);
 
 Route::get('/', [App\Http\Controllers\Management\RestaurantController::class, 'index']);
@@ -48,7 +49,8 @@ Route::get('/search', [App\Http\Controllers\SearchController::class, 'search']);
 
 Route::get('/profile/{id}', [App\Http\Controllers\Management\RatingController::class, 'indexProfile']);
 Route::post('/profile/{id}',[App\Http\Controllers\Management\RatingController::class, 'store']);
-//Route::post('/profile/{id}', [App\Http\Controllers\Management\RatingController::class, 'store']);
+
+
 
 //Route::resource('/business',App\Http\Controllers\Management\RestaurantController::class);
 // Route::get('/business',[App\Http\Controllers\Management\RestaurantController::class],'edit');
@@ -61,3 +63,7 @@ Route::post('/profile/{id}',[App\Http\Controllers\Management\RatingController::c
 
 
 require __DIR__ . '/auth.php';
+
+
+
+// Sementara

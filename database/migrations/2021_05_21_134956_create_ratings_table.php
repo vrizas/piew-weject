@@ -17,7 +17,7 @@ class CreateRatingsTable extends Migration
             $table->id();
             $table->integer('id_user');
             $table->integer('id_restaurant');
-            $table->integer('rating');
+            $table->float('rating',6,1);
             $table->text('pesan');
             $table->timestamps();
         });

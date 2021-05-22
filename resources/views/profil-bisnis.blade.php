@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piew Business</title>
+    <title>Piew</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
@@ -22,24 +22,37 @@
     <!-- Navbar -->
 	<div class="nav-container">
 		<nav>
-			<img src="{{ asset('img/home/logo.svg') }}" class="logo">
+			<a href="/"><img src="{{ asset('img/home/logo.svg') }}" class="logo"></a>
 			<div class="nav-menu">
 				<ul>
-					<li><a href="registerBusiness">DAFTARKAN BISNISMU</a></li>
+                    <li class="form-pencarian">
+                        <form action="{{url('/search')}}" method="GET" role="search">
+                            @csrf
+                            <input type="text" class="ket ket-1" placeholder="Cari" disabled>
+                            <input class="search-box-1" name="kategori" type="text" placeholder="restoran,warung,makanan.." autocomplete="off">
+                            <input type="text" class="ket ket-2" placeholder="Lokasi" disabled>
+                            <input class="search-box-2" name="lokasi" type="text" value="Malang, Jawa Timur" autocomplete="off">
+                            <button type="submit"><i class='bx bx-search'></i></button>
+                        </form>
+                    </li>
+					<li class="menu-out"><a href="registerBusiness">DAFTARKAN BISNISMU</a></li>
 					@if(session()->has('login'))
 						<li class='akun'>
+							@if(strlen(Auth::user()->name)>7)
+							<button class='drop'><i class='bx bxs-user-circle'></i> {{ substr(strip_tags(Auth::user()->name),0,7) }} <i class='bx bxs-chevron-down'></i></button>
+							@else
 							<button class='drop'><i class='bx bxs-user-circle'></i> {{ Auth::user()->name }} <i class='bx bxs-chevron-down'></i></button>
+							@endif
 							<div class="drop-content">
 								<form id="logout-form" action="{{ route('logout') }}" method="POST">
 									@csrf
-									<button style="font-size:.96rem;opacity:0;cursor:default;">{{ Auth::user()->name }}</button><br>
 									<button type="submit"><i class='bx bx-log-out' ></i> Keluar</button>
 								</form>
 							</div>
 						</li>
 					@else
-						<li><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
-						<li><a href="register"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
+						<li class="menu-out"><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
+						<li class="menu-out"><a href="register"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
 					@endif
 				</ul>
 			</div>
@@ -48,19 +61,18 @@
 	<!-- Akhir Navbar -->
 
     <!-- Header -->
-    
-    <div class="header-container" style="background-image: url('{{asset('img/bisnis_images')}}/ayam.jpg')">
+    <div class="header-container" style="background-image: url('{{asset('img/bisnis_images')}}/{{$restaurant->image}}')">
         <div class="isi-header-1">
-            <h3 class="nama-bisnis">Ayam Bakar</h3>
-            <h4 class="alamat">Jalan Sudirman</h4>
+            <h3 class="nama-bisnis">{{$restaurant->nama}}</h3>
+            <h4 class="alamat">{{$restaurant->alamat}}</h4>
             <h4 class="jam">09.00 - 20.30</h4>
         </div>
         <div class="rating">
-            <i class='bx bxs-star'></i>
-            <i class='bx bxs-star'></i>
-            <i class='bx bxs-star'></i>
-            <i class='bx bxs-star'></i>
-            <i class='bx bxs-star'></i>
+            <i class='bx bx-star'></i>
+            <i class='bx bx-star'></i>
+            <i class='bx bx-star'></i>
+            <i class='bx bx-star'></i>
+            <i class='bx bx-star'></i>
             <div class="rating-angka">{{$restaurant->rating}}</div>
         </div>
     </div>
@@ -108,7 +120,7 @@
                                 <i class='bx bxs-star'></i>
                                 <input type="hidden" class="rating-angka" name="rating">
                             </div>
-                            <p class="user">Oleh Basri (17 April 2021)</p>
+                            <p class="user">Oleh Anda</p>
                         </span>
                     </div>
                     <div class="pesan">
@@ -118,21 +130,19 @@
                     </form>
                 </div>
                 @foreach($ratings as $i =>$rating) 
-                <div class="ulasan-orang ulasan-ke-{{$i}}">
+                <div class="ulasan-orang ulasan-ke-{{$i+1}}">
                     <div class="ket-ulasan">
                         <p class="foto-user"><i class='bx bxs-user-circle'></i></p>
                         <span class="rating-wrapper">
                             <div class="rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <div class="rating-angka" hidden>{{$rating->rating}}</div>
+                                <i class='bx bx-star'></i>
+                                <i class='bx bx-star'></i>
+                                <i class='bx bx-star'></i>
+                                <i class='bx bx-star'></i>
+                                <i class='bx bx-star'></i>
+                                <div class="rating-angka-ke{{$i+1}}" hidden>{{$rating->rating}}</div>
                             </div>
-                            
-                            <p class="user">Oleh Basri ({{$rating->created_at}})</p>
-                            
+                            <p class="user">Oleh {{$rating->name}} ({{$rating->created_at}})</p>   
                         </span>
                     </div>
                     <div class="pesan">
@@ -159,7 +169,7 @@
         </footer>
     </div>
     <!-- Akhir Footer -->
-
+<script src="{{ asset('js/akun.js') }}"></script>
 <script src="{{ asset('js/profil-bisnis.js') }}"></script>
 </body>
 </html>

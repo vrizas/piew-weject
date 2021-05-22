@@ -23,18 +23,21 @@
 	<!-- Navbar -->
 	<div class="nav-container">
 		<nav>
-			<img src="{{ asset('img/home/logo.svg') }}" class="logo">
+		<a href="/"><img src="{{ asset('img/home/logo.svg') }}" class="logo"></a>
 			<div class="nav-menu">
 				<ul>
 					<li><a href="#">TENTANG KAMI</a></li>
 					<li><a href="#">TULIS REVIEW</a></li>
 					@if(session()->has('login'))
 						<li class='akun'>
+							@if(strlen(Auth::user()->name)>7)
+							<button class='drop'><i class='bx bxs-user-circle'></i> {{ substr(strip_tags(Auth::user()->name),0,7) }} <i class='bx bxs-chevron-down'></i></button>
+							@else
 							<button class='drop'><i class='bx bxs-user-circle'></i> {{ Auth::user()->name }} <i class='bx bxs-chevron-down'></i></button>
+							@endif
 							<div class="drop-content">
 								<form id="logout-form" action="{{ route('logout') }}" method="POST">
 									@csrf
-									<button style="font-size:.96rem;opacity:0;cursor:default;">{{ Auth::user()->name }}</button><br>
 									<button type="submit"><i class='bx bx-log-out' ></i> Keluar</button>
 								</form>
 							</div>
@@ -56,10 +59,10 @@
 			<h4>makanan enak tersembunyi di sekitarmu</h4>
 			<form action="{{url('/search')}}" method="GET" role="search">
 				@csrf
-				<input type="text" class="ket ket-1" placeholder="Cari" disabled>
-				<input class="search-box-1" name="kategori" type="text" placeholder="restoran,warung,makanan..">
+				<input type="search" class="ket ket-1" placeholder="Cari" disabled>
+				<input class="search-box-1" name="kategori" type="text" placeholder="restoran,warung,makanan.." autocomplete="off">
 				<input type="text" class="ket ket-2" placeholder="Lokasi" disabled>
-				<input class="search-box-2" name="lokasi" type="text" placeholder="Malang,Jawa Timur">
+				<input class="search-box-2" name="lokasi" type="text" value="Malang, Jawa Timur" autocomplete="off">
 				<button type="submit"><i class='bx bx-search'></i></button>
 			</form>
 		</header>
@@ -77,17 +80,17 @@
 			<div class="content-pilihan-kami-wrapper">
 				@foreach($restaurants as $i => $restaurant)
 				
-				<div class="img-wrapper-{{ $i }}">
+				<div class="img-wrapper-{{ $i+1 }}">
 					<!-- Ambil dari Database -->
 					<p><a href="#" class="nama-resto">{{$restaurant->nama}}</a></p>
 					<a href="#"><img src="{{asset('img/bisnis_images')}}/{{$restaurant->image}}" alt="{{$restaurant->nama}}"></a>
-					<div class="rating">
-						<i class='bx bxs-star'></i>
-						<i class='bx bxs-star'></i>
-						<i class='bx bxs-star'></i>
-						<i class='bx bxs-star'></i>
-						<i class='bx bxs-star'></i>
-						<div class="rating-angka">{{$restaurant->rating}}</div>
+					<div class="rating rating-ke-{{$i+1}}">
+						<i class='bx bx-star'></i>
+						<i class='bx bx-star'></i>
+						<i class='bx bx-star'></i>
+						<i class='bx bx-star'></i>
+						<i class='bx bx-star'></i>
+						<div class="rating-angka rating-angka-ke-{{$i+1}}">{{$restaurant->rating}}</div>
 						<!-- ------------------- -->
 					</div>
 				</div>
@@ -99,17 +102,17 @@
 			<h3>MASAKAN PADANG</h3>
 			<div class="content-random-wrapper">
 				@foreach($restaurants as $i => $restaurant)
-				<div class="img-wrapper-{{ $i }}">
+				<div class="img-wrapper-{{ $i+1 }}">
 					<!-- Ambil dari Database -->
 					<p><a href="#" class="nama-resto">{{$restaurant->nama}}</a></p>
 					<a href="#"><img src="{{asset('img/bisnis_images')}}/{{$restaurant->image}}" alt="{{$restaurant->nama}}"></a>
-					<div class="rating">
-						<i class='bx bxs-star'></i>
-						<i class='bx bxs-star'></i>
-						<i class='bx bxs-star'></i>
-						<i class='bx bxs-star'></i>
-						<i class='bx bxs-star'></i>
-						<div class="rating-angka">{{$restaurant->rating}}</div>
+					<div class="rating rating-ke-{{$i+1}}">
+						<i class='bx bx-star'></i>
+						<i class='bx bx-star'></i>
+						<i class='bx bx-star'></i>
+						<i class='bx bx-star'></i>
+						<i class='bx bx-star'></i>
+						<div class="rating-angka rating-angka-ke-{{$i+1}}">{{$restaurant->rating}}</div>
 						<!-- ------------------- -->
 					</div>
 				</div>
@@ -133,6 +136,7 @@
 	</div>
 	<!-- Akhir Footer -->
 
+<script src="{{ asset('js/akun.js') }}"></script>
 <script src="{{ asset('js/home.js') }}"></script>
 </body>
 

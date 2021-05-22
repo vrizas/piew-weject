@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Rating;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Collection;
+use DB;
 
 
 class RatingController extends Controller
@@ -17,8 +18,13 @@ class RatingController extends Controller
     {
         $restaurant = Restaurant::all();
         $restaurant = Restaurant::Where('id', $id)->first();
-        return view('profil-bisnis')->with('restaurant',$restaurant);
-    
+        $ratings = DB::table('ratings')
+                    ->join('users', 'ratings.id_user', '=', 'users.id')
+                    ->select('ratings.rating', 'ratings.pesan', 'ratings.created_at', 'users.name')
+                    ->latest()
+                    ->take(5)
+                    ->get();
+        return view('profil-bisnis')->with('restaurant',$restaurant)->with('ratings', $ratings);
     }
 
     public function store(Request $request, $id)
@@ -45,7 +51,12 @@ class RatingController extends Controller
         $restaurant = Restaurant::Where('id', $id)->first();
         
         // $users = User::Where('id',$rating->id_user)->name;
-        $ratings = Rating::latest()->take(5)->get();
+        $ratings = DB::table('ratings')
+                    ->join('users', 'ratings.id_user', '=', 'users.id')
+                    ->select('ratings.rating', 'ratings.pesan', 'ratings.created_at', 'users.name')
+                    ->latest()
+                    ->take(5)
+                    ->get();
 
         // foreach($ratings as $rating){
         //     $users = User::Where('id',$rating->id_user)->name;
