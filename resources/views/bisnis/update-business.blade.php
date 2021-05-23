@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piew Business</title>
     <!-- Favicon -->
-	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
     <!-- BoxIcons -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -19,11 +20,12 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/update-bisnis.css') }}">
 </head>
+
 <body>
     <!-- Navbar -->
     <div class="nav-container">
         <nav>
-            <a href="/"><img src="{{ asset('img/home/logo.svg') }}" class="logo"></a>
+            <a href="/"><img src="{{ asset('img/logo.png') }}" class="logo"></a>
             <div class="nav-menu">
                 <ul>
                     @if(session()->has('login'))
@@ -33,12 +35,14 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button style="font-size:.96rem;opacity:0;cursor:default;">{{ Auth::user()->name }}</button><br>
-                                <button type="submit"><i class='bx bx-log-out' ></i> Keluar</button>
+                                <button type="submit"><i class='bx bx-log-out'></i> Keluar</button>
                             </form>
                         </div>
                     </li>
                     @else
-                    <script>window.location = "/login";</script>
+                    <script>
+                        window.location = "/login";
+                    </script>
                     @endif
                 </ul>
             </div>
@@ -48,7 +52,7 @@
 
     <!-- Content -->
     <div class="content-container">
-        <form action="/business/{{$restaurant->id}}" method="POST" class="form" enctype ="multipart/form-data">
+        <form action="/business/{{$restaurant->id}}" method="POST" class="form" enctype="multipart/form-data">
             @csrf
             <input type="hidden" value="{{$restaurant->id}}">
             <label for="nama">Nama Bisnis</label>
@@ -59,7 +63,7 @@
             <select name="id_location" id="id_location">
                 @foreach($locations as $location)
                 <option value="{{$location->id}}">{{$location->lokasi}}</option>
-                @endforeach  
+                @endforeach
             </select>
             <label for="kategori">Kategori</label>
             <input type="text" name="kategori" placeholder="kategori digunakan untuk pencarian" value="{{$restaurant->kategori}}">
@@ -67,24 +71,25 @@
             <textarea name="deskripsi" id="deskripsi" cols="30" rows="10">{{$restaurant->deskripsi}}</textarea>
             <label for="image">Unggah foto</label>
             <input type="file" name="image" value="{{$restaurant->image}}">
-            <input type="submit" value ="Simpan">
+            <input type="submit" value="Simpan">
         </form>
     </div>
     <!-- Akhir Content -->
 
-     <!-- Footer -->
-     <div class="footer-container">
-		<footer>
-			<div class="sosmed">
-				<i class='bx bxl-instagram'></i>
-				<i class='bx bxl-facebook-square'></i>
-				<i class='bx bxl-twitter'></i>
-			</div>
-			<p><i class='bx bx-copyright'></i> 2021 By Weject.</p>
-		</footer>
-	</div>
+    <!-- Footer -->
+    <div class="footer-container">
+        <footer>
+            <div class="sosmed">
+                <i class='bx bxl-instagram'></i>
+                <i class='bx bxl-facebook-square'></i>
+                <i class='bx bxl-twitter'></i>
+            </div>
+            <p><i class='bx bx-copyright'></i> 2021 By Weject.</p>
+        </footer>
+    </div>
     <!-- Akhir Footer -->
-    
+
     <script src="{{ asset('js/akun.js') }}"></script>
 </body>
+
 </html>

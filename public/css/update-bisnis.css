@@ -22,7 +22,8 @@ html, body {
 }
 
 body {
-	background-color: var(--color-blue);
+	background-image: url('../img/bgbgbgbg.png');
+	background-attachment: fixed;
 	font-family: var(--font-roboto);
 	font-weight: 400;
 	color: var(--color-white);
@@ -166,6 +167,7 @@ h1.logo-tulis {
 input[type="text"], select, textarea {
 	padding: 3px;
 	margin-bottom: 10px;
+	border-radius: 10px;
 }
 
 textarea {
@@ -177,15 +179,15 @@ label {
 }
 
 input[type="submit"] {
-	background-color: var(--color-soft-blue);
+	background-color: #e18f1f;
 	border: none;
 	outline: none;
 	color: var(--color-white);
 	width: 70px;
 	padding: 10px;
-	border-radius: 3px;
 	margin-top: 10px;
 	cursor: pointer;
+	border-radius: 30px;
 }
 
 input[type="submit"]:hover {
@@ -193,9 +195,10 @@ input[type="submit"]:hover {
 	color: lightgray;
 }
 
+
 /*Footer*/
 .footer-container {
-	height: 25vh;
+	height: 15vh;
 }
 
 .footer-container footer {
