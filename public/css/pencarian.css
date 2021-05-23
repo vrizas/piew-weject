@@ -39,23 +39,21 @@ a {
 }
 
 /*Navbar*/
-
 .nav-container nav{
-	padding: 0 40px;
-	height: 100px;
+	padding: 30px 40px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
 .nav-container img.logo {
-	width: 200px;
+	width: 100px;
 	position: relative;
-	top: 3px;
+	top: -3px;
 }
 
 .nav-container .nav-menu {
-	width: 40%;
+	width: 90%;
 }
 
 .nav-container .nav-menu ul{
@@ -69,11 +67,17 @@ a {
 }
 
 .nav-container .nav-menu a:hover {
-	color: #aaa;
+	color: var(--color-soft-blue);
 }
 
-.akun {
+.akun, .menu-out {
 	cursor: pointer;
+    position: relative;
+    top: 13px;
+}
+
+.menu-out {
+    cursor: inherit;
 }
 
 .nav-container .nav-menu .akun button.drop {
@@ -102,37 +106,30 @@ a {
 }
 
 .drop-content {
-	background-color: var(--color-ungu-muda);
-	padding: 10px 15.5px;
+	background-color: var(--color-white);
+	padding: 10px 7.5px;
 	display: flex;
 	flex-direction: column;
 	position: absolute;
 	/* top: 61px; */
 	top: 30px;
-	right: 35px;
 	border-radius: 0 0 3px 3px;
 	transform: scaleY(0);
 	height: 30px;
 }
 
 .drop-content form {
-	margin-top: -30px;
+	margin-top: -5px;
 }
 
 .drop-content button {
 	cursor: pointer;
 	color: var(--color-black);
 	background-color: transparent;
-	padding: 0 22px;
+	padding: 6px 39px;
 	border: none;
 	overflow: hidden;
 	font-size: 0.7rem;
-}
-
-.drop-content button[type="submit"] {
-	position: relative;
-	bottom: 45px;
-	right: -25px;
 }
 
 .drop-content i {
@@ -141,13 +138,77 @@ a {
 	top: 1px;
 }
 
-button.drop.active {
+/* button.drop.active {
 	animation: drop-button .1s ease-out forwards;
-}
+} */
 
 .drop-content.active {
 	animation: drop-content .1s ease-out forwards;
 }
+
+input, button {
+	border: none;
+	box-sizing: border-box;
+	padding: 15px 0;
+	display: inline-block;
+	width: 300px;
+	background-color: rgba(21,34,56,.8);
+	color: var(--color-black);
+}
+
+button {
+	padding: 15px;
+}
+
+input.ket {
+	background-color: #FBFFF1;
+	padding: 15px 10px;
+	width: 70px;
+	text-align: center;
+	margin-right: -4px;
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+input.ket-1 {
+	border-radius: 50px 0 0 50px;
+}
+
+input.ket-2 {
+	margin-right: inherit;
+	margin-left: -4px;
+}
+
+input:focus {
+	outline: none;
+}
+.cari button{
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+button {
+	cursor: pointer;
+	width: inherit;
+	border-radius: 0 50px 50px 0;	
+	background-color: #FBFFF1;
+}
+
+input::placeholder, button {
+	color: var(--color-black);
+}
+
+input.search-box-1 {
+	background-color: #FBFFF1;
+	border-right: 1px solid var(--color-white);
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+input.search-box-2 {
+	background-color: #FBFFF1;
+	margin-right: -3.9px;
+	margin-left: -4.7px;
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
 
 .lokasi{
   padding-left: 110px;
@@ -165,7 +226,12 @@ button.drop.active {
   padding-left: 100px;
   padding-right: 100px;
 }
+
+.hasil-pencarian:hover{
+	transform: scale(1.05);
+}
 .hasil-pencarian{
+	transition: 0.5s;
   display: flex;
   margin-bottom: 30px;
   background-color: #FBFFF1;

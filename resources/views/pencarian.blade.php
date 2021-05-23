@@ -25,22 +25,34 @@
             <a href="/"><img src="{{ asset('img/logo.png') }}" class="logo"></a>
             <div class="nav-menu">
                 <ul>
-                    <li><a href="#">TENTANG KAMI</a></li>
-                    <li><a href="#">TULIS REVIEW</a></li>
+                    <li class="form-pencarian">
+                        <form class="cari" action="{{url('/search')}}" method="GET" role="search">
+                            @csrf
+                            <input type="text" class="ket ket-1" placeholder="Cari" disabled>
+                            <input class="search-box-1" name="kategori" type="text" placeholder="restoran,warung,makanan.." autocomplete="off">
+                            <input type="text" class="ket ket-2" placeholder="Lokasi" disabled>
+                            <input class="search-box-2" name="lokasi" type="text" value="Malang, Jawa Timur" autocomplete="off">
+                            <button type="submit"><i class='bx bx-search'></i></button>
+                        </form>
+                    </li>
+                    <li class="menu-out"><a href="registerBusiness">DAFTARKAN BISNISMU</a></li>
                     @if(session()->has('login'))
                     <li class='akun'>
+                        @if(strlen(Auth::user()->name)>7)
+                        <button class='drop'><i class='bx bxs-user-circle'></i> {{ substr(strip_tags(Auth::user()->name),0,7) }} <i class='bx bxs-chevron-down'></i></button>
+                        @else
                         <button class='drop'><i class='bx bxs-user-circle'></i> {{ Auth::user()->name }} <i class='bx bxs-chevron-down'></i></button>
+                        @endif
                         <div class="drop-content">
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <button style="font-size:.96rem;opacity:0;cursor:default;">{{ Auth::user()->name }}</button><br>
                                 <button type="submit"><i class='bx bx-log-out'></i> Keluar</button>
                             </form>
                         </div>
                     </li>
                     @else
-                    <li><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
-                    <li><a href="register"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
+                    <li class="menu-out"><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
+                    <li class="menu-out"><a href="register"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
                     @endif
                 </ul>
             </div>
@@ -56,29 +68,31 @@
     </div>
     <div class="nama-container">
         @foreach($restaurants as $i => $restaurant)
-        <?php $a++ ?>
-        <div class="hasil-pencarian">
-            <div class="gambar-alamat">
-                <div class="gambar">
-                    <img src="{{asset('img/bisnis_images')}}/{{$restaurant->image}}" alt="">
+        <a class="pitet" href="/profile/<?php echo $i + 1 ?>">
+            <?php $a++ ?>
+            <div class="hasil-pencarian">
+                <div class="gambar-alamat">
+                    <div class="gambar">
+                        <img src="{{asset('img/bisnis_images')}}/{{$restaurant->image}}" alt="">
+                    </div>
+                    <div class="alamat">
+                        <p>{{$restaurant->alamat}}</p>
+                    </div>
                 </div>
-                <div class="alamat">
-                    <p>{{$restaurant->alamat}}</p>
+                <div class="nomor-nama">
+                    <div class="Cari">
+
+                    </div>
+                    <div class="nama-restaurant">
+                        <p>Nama : {{$restaurant->nama}}</p>
+                        <p>Rating : {{$restaurant->rating}}</p>
+                        <p>Kategori : {{$restaurant->kategori}}</p>
+                        <p>Deskripsi :</p>
+                        <p>{{$restaurant->deskripsi}}</p>
+                    </div>
                 </div>
             </div>
-            <div class="nomor-nama">
-                <div class="Cari">
-                    <h1>Hasil Pencarian {{$i+1}}</h1>
-                </div>
-                <div class="nama-restaurant">
-                    <p>nama : {{$restaurant->nama}}</p>
-                    <p>rating : {{$restaurant->rating}}</p>
-                    <p>kategori : {{$restaurant->kategori}}</p>
-                    <p>deskripsi :</p>
-                    <p>{{$restaurant->deskripsi}}</p>
-                </div>
-            </div>
-        </div>
+        </a>
         @endforeach
         <div class="jumlah">
             <p>Menampilkan <?php echo $a ?> hasil </p>
