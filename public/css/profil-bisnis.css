@@ -23,7 +23,8 @@ html, body {
 }
 
 body {
-	background-color: var(--color-blue);
+	background-image: url('../img/bgbgbg.png');
+    background-attachment: fixed;
 	font-family: var(--font-roboto);
 	font-weight: 400;
 	color: var(--color-white);
@@ -31,7 +32,7 @@ body {
 
 a {
 	text-decoration: none;
-	color: var(--color-white);
+	color: var(--color-black);
 }
 
 /*Navbar*/
@@ -149,7 +150,7 @@ input, button {
 	display: inline-block;
 	width: 300px;
 	background-color: rgba(21,34,56,.8);
-	color: var(--color-white);
+	color: var(--color-black);
 }
 
 button {
@@ -157,14 +158,16 @@ button {
 }
 
 input.ket {
+	background-color: #FBFFF1;
 	padding: 15px 10px;
 	width: 70px;
 	text-align: center;
 	margin-right: -4px;
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
 }
 
 input.ket-1 {
-	border-radius: 3px 0 0 3px;
+	border-radius: 50px 0 0 50px;
 }
 
 input.ket-2 {
@@ -175,24 +178,32 @@ input.ket-2 {
 input:focus {
 	outline: none;
 }
+.cari button{
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
 
 button {
 	cursor: pointer;
 	width: inherit;
-	border-radius: 0 3px 3px 0;
+	border-radius: 0 50px 50px 0;	
+	background-color: #FBFFF1;
 }
 
 input::placeholder, button {
-	color: var(--color-white);
+	color: var(--color-black);
 }
 
 input.search-box-1 {
+	background-color: #FBFFF1;
 	border-right: 1px solid var(--color-white);
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
 }
 
 input.search-box-2 {
+	background-color: #FBFFF1;
 	margin-right: -3.9px;
 	margin-left: -4.7px;
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
 }
 
 /* Header */
@@ -297,8 +308,9 @@ h1.logo-tulis {
 
 .content-container {
     padding: 35px 45px;
-    background-color: var(--color-white);
+    background-color: #FBFFF1;
     color: var(--color-black);
+    box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
 }
 
 .content-wrapper {
@@ -313,7 +325,7 @@ h1.logo-tulis {
 }
 
 .content-container .tombol-tulis-ulasan, .content-container .tombol-share {
-    background-color: var(--color-soft-blue);
+    background-color: #e18f1f;
     width: fit-content;
     padding: 10px 20px;
     border-radius: 5px;
@@ -463,6 +475,8 @@ h1.logo-tulis {
 .content-container .menu img.menu-img {
     width: 280px;
 	height: 230px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
 }
 
 .content-container .menu .nama-menu {
@@ -489,10 +503,11 @@ h1.logo-tulis {
 
 /*Footer*/
 .footer-container {
-	height: 25vh;
+	height: 50vh;
 }
 
 .footer-container footer {
+    color:#111;
 	height: inherit;
 	display: flex;
 	flex-direction: column;

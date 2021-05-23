@@ -23,7 +23,8 @@ html, body {
 }
 
 body {
-	background-color: var(--color-blue);
+    background-image: url('../img/bgbgbg.png');
+    background-attachment: fixed;
 	font-family: var(--font-roboto);
 	font-weight: 400;
 	color: var(--color-white);
@@ -31,7 +32,7 @@ body {
 
 a {
 	text-decoration: none;
-	color: var(--color-white);
+	color: var(--color-black);
 }
 
 /*Navbar*/
@@ -49,7 +50,7 @@ a {
 }
 
 .nav-container .nav-menu {
-	width: 15%;
+	width: 90%;
 }
 
 .nav-container .nav-menu ul{
@@ -66,10 +67,14 @@ a {
 	color: var(--color-soft-blue);
 }
 
-.akun {
+.akun, .menu-out {
 	cursor: pointer;
     position: relative;
-    top: 3px;
+    top: 13px;
+}
+
+.menu-out {
+    cursor: inherit;
 }
 
 .nav-container .nav-menu .akun button.drop {
@@ -82,8 +87,6 @@ a {
 	top: -5px;
 	font-size: 0.9rem;
 	border-radius: 3px 3px 0 0;
-    color: var(--color-white);
-    cursor: pointer;
 }
 
 .drop i {
@@ -140,6 +143,68 @@ a {
 	animation: drop-content .1s ease-out forwards;
 }
 
+input, button {
+	border: none;
+	box-sizing: border-box;
+	padding: 15px 0;
+	display: inline-block;
+	width: 300px;
+	background-color: rgba(21,34,56,.8);
+	color: var(--color-black);
+}
+
+button {
+	padding: 15px;
+}
+
+input.ket {
+	background-color: #FBFFF1;
+	padding: 15px 10px;
+	width: 70px;
+	text-align: center;
+	margin-right: -4px;
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+input.ket-1 {
+	border-radius: 50px 0 0 50px;
+}
+
+input.ket-2 {
+	margin-right: inherit;
+	margin-left: -4px;
+}
+
+input:focus {
+	outline: none;
+}
+.cari button{
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+button {
+	cursor: pointer;
+	width: inherit;
+	border-radius: 0 50px 50px 0;	
+	background-color: #FBFFF1;
+}
+
+input::placeholder, button {
+	color: var(--color-black);
+}
+
+input.search-box-1 {
+	background-color: #FBFFF1;
+	border-right: 1px solid var(--color-white);
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+input.search-box-2 {
+	background-color: #FBFFF1;
+	margin-right: -3.9px;
+	margin-left: -4.7px;
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
 
 /* Header */
 .header-container {
@@ -243,8 +308,9 @@ h1.logo-tulis {
 
 .content-container {
     padding: 35px 45px;
-    background-color: var(--color-white);
+    background-color: #FBFFF1;
     color: var(--color-black);
+    box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
 }
 
 .content-wrapper {
@@ -543,10 +609,11 @@ h1.logo-tulis {
 
 /*Footer*/
 .footer-container {
-	height: 25vh;
+	height: 50vh;
 }
 
 .footer-container footer {
+    color:#111;
 	height: inherit;
 	display: flex;
 	flex-direction: column;

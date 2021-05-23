@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,35 +20,48 @@
     <link rel="stylesheet" href="{{ asset('css/bisnis.css') }}">
     @livewireStyles
 </head>
+
 <body>
     <!-- Navbar -->
-	<div class="nav-container">
-		<nav>
-        <a href="/"><img src="{{ asset('img/home/logo.svg') }}" class="logo"></a>
-			<div class="nav-menu">
-				<ul>
-					@if(session()->has('login'))
-						<li class='akun'>
-							@if(strlen(Auth::user()->name)>7)
-							<button class='drop'><i class='bx bxs-user-circle'></i> {{ substr(strip_tags(Auth::user()->name),0,7) }} <i class='bx bxs-chevron-down'></i></button>
-							@else
-							<button class='drop'><i class='bx bxs-user-circle'></i> {{ Auth::user()->name }} <i class='bx bxs-chevron-down'></i></button>
-							@endif
-							<div class="drop-content">
-								<form id="logout-form" action="{{ route('logout') }}" method="POST">
-									@csrf
-									<button type="submit"><i class='bx bx-log-out' ></i> Keluar</button>
-								</form>
-							</div>
-						</li>
-					@else
-                    <script>window.location = "/login";</script>
-					@endif
-				</ul>
-			</div>
-		</nav>
-	</div>
-	<!-- Akhir Navbar -->
+    <div class="nav-container">
+        <nav>
+            <a href="/"><img src="{{ asset('img/logo.png') }}" class="logo"></a>
+            <div class="nav-menu">
+                <ul>
+                    <li class="form-pencarian">
+                        <form class="cari" action="{{url('/search')}}" method="GET" role="search">
+                            @csrf
+                            <input type="text" class="ket ket-1" placeholder="Cari" disabled>
+                            <input class="search-box-1" name="kategori" type="text" placeholder="restoran,warung,makanan.." autocomplete="off">
+                            <input type="text" class="ket ket-2" placeholder="Lokasi" disabled>
+                            <input class="search-box-2" name="lokasi" type="text" value="Malang, Jawa Timur" autocomplete="off">
+                            <button type="submit"><i class='bx bx-search'></i></button>
+                        </form>
+                    </li>
+                    <li class="menu-out"><a href="registerBusiness">DAFTARKAN BISNISMU</a></li>
+                    @if(session()->has('login'))
+                    <li class='akun'>
+                        @if(strlen(Auth::user()->name)>7)
+                        <button class='drop'><i class='bx bxs-user-circle'></i> {{ substr(strip_tags(Auth::user()->name),0,7) }} <i class='bx bxs-chevron-down'></i></button>
+                        @else
+                        <button class='drop'><i class='bx bxs-user-circle'></i> {{ Auth::user()->name }} <i class='bx bxs-chevron-down'></i></button>
+                        @endif
+                        <div class="drop-content">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit"><i class='bx bx-log-out'></i> Keluar</button>
+                            </form>
+                        </div>
+                    </li>
+                    @else
+                    <li class="menu-out"><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
+                    <li class="menu-out"><a href="register"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
+                    @endif
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- Akhir Navbar -->
 
     <!-- Header -->
     @foreach($restaurants as $restaurant)
@@ -71,48 +85,48 @@
 
     <!-- Content -->
     <div class="content-container">
-    <div class="content-wrapper">
-        <!-- Ambil dari database -->
-        <div class="tombol">
-            <a href="#" class="tombol-share"><i class='bx bxs-share' ></i> Bagikan</a>
-        </div>
-        <div class="tentang">
-            <p class="deskripsi">{{$restaurant->deskripsi}}</p>
-        </div>
-        <div class="menu">
-            <h3>Menu</h3>
-            <livewire:list-menu />
-        </div>
-        @endforeach
-        <div class="ulasan" id="ulasan">
-            <h3>Ulasan</h3>
-            <div class="ulasan-wrapper">
-                <!-- Ambil dari database -->
-                @foreach($ratings as $i =>$rating) 
-                <div class="ulasan-orang ulasan-ke-{{$i+1}}">
-                    <div class="ket-ulasan">
-                        <p class="foto-user"><i class='bx bxs-user-circle'></i></p>
-                        <span class="rating-wrapper">
-                            <div class="rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <div class="rating-angka-ke{{$i+1}}" hidden>{{$rating->rating}}</div>
-                            </div>
-                            <p class="user">Oleh {{$rating->name}} ({{\Carbon\Carbon::parse($rating->created_at)}})</p>          
-                        </span>
+        <div class="content-wrapper">
+            <!-- Ambil dari database -->
+            <div class="tombol">
+                <a href="#" class="tombol-share"><i class='bx bxs-share'></i> Bagikan</a>
+            </div>
+            <div class="tentang">
+                <p class="deskripsi">{{$restaurant->deskripsi}}</p>
+            </div>
+            <div class="menu">
+                <h3>Menu</h3>
+                <livewire:list-menu />
+            </div>
+            @endforeach
+            <div class="ulasan" id="ulasan">
+                <h3>Ulasan</h3>
+                <div class="ulasan-wrapper">
+                    <!-- Ambil dari database -->
+                    @foreach($ratings as $i =>$rating)
+                    <div class="ulasan-orang ulasan-ke-{{$i+1}}">
+                        <div class="ket-ulasan">
+                            <p class="foto-user"><i class='bx bxs-user-circle'></i></p>
+                            <span class="rating-wrapper">
+                                <div class="rating">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <div class="rating-angka-ke{{$i+1}}" hidden>{{$rating->rating}}</div>
+                                </div>
+                                <p class="user">Oleh {{$rating->name}} ({{\Carbon\Carbon::parse($rating->created_at)}})</p>
+                            </span>
+                        </div>
+                        <div class="pesan">
+                            <p>{{$rating->pesan}}</p>
+                        </div>
                     </div>
-                    <div class="pesan">
-                        <p>{{$rating->pesan}}</p>
-                    </div>
+                    @endforeach
+                    <!-- ----------------- -->
                 </div>
-                @endforeach
-                <!-- ----------------- -->
             </div>
         </div>
-    </div>
     </div>
     <!-- Akhir Content -->
 
@@ -129,8 +143,9 @@
     </div>
     <!-- Akhir Footer -->
 
-<script src="{{ asset('js/akun.js') }}"></script>
-<script src="{{ asset('js/bisnis.js') }}"></script>
-@livewireScripts
+    <script src="{{ asset('js/akun.js') }}"></script>
+    <script src="{{ asset('js/bisnis.js') }}"></script>
+    @livewireScripts
 </body>
+
 </html>

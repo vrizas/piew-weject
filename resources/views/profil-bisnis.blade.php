@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,15 +19,16 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/profil-bisnis.css') }}">
 </head>
+
 <body>
     <!-- Navbar -->
-	<div class="nav-container">
-		<nav>
-			<a href="/"><img src="{{ asset('img/home/logo.svg') }}" class="logo"></a>
-			<div class="nav-menu">
-				<ul>
+    <div class="nav-container">
+        <nav>
+            <a href="/"><img src="{{ asset('img/logo.png') }}" class="logo"></a>
+            <div class="nav-menu">
+                <ul>
                     <li class="form-pencarian">
-                        <form action="{{url('/search')}}" method="GET" role="search">
+                        <form class="cari" action="{{url('/search')}}" method="GET" role="search">
                             @csrf
                             <input type="text" class="ket ket-1" placeholder="Cari" disabled>
                             <input class="search-box-1" name="kategori" type="text" placeholder="restoran,warung,makanan.." autocomplete="off">
@@ -35,30 +37,30 @@
                             <button type="submit"><i class='bx bx-search'></i></button>
                         </form>
                     </li>
-					<li class="menu-out"><a href="registerBusiness">DAFTARKAN BISNISMU</a></li>
-					@if(session()->has('login'))
-						<li class='akun'>
-							@if(strlen(Auth::user()->name)>7)
-							<button class='drop'><i class='bx bxs-user-circle'></i> {{ substr(strip_tags(Auth::user()->name),0,7) }} <i class='bx bxs-chevron-down'></i></button>
-							@else
-							<button class='drop'><i class='bx bxs-user-circle'></i> {{ Auth::user()->name }} <i class='bx bxs-chevron-down'></i></button>
-							@endif
-							<div class="drop-content">
-								<form id="logout-form" action="{{ route('logout') }}" method="POST">
-									@csrf
-									<button type="submit"><i class='bx bx-log-out' ></i> Keluar</button>
-								</form>
-							</div>
-						</li>
-					@else
-						<li class="menu-out"><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
-						<li class="menu-out"><a href="register"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
-					@endif
-				</ul>
-			</div>
-		</nav>
-	</div>
-	<!-- Akhir Navbar -->
+                    <li class="menu-out"><a href="registerBusiness">DAFTARKAN BISNISMU</a></li>
+                    @if(session()->has('login'))
+                    <li class='akun'>
+                        @if(strlen(Auth::user()->name)>7)
+                        <button class='drop'><i class='bx bxs-user-circle'></i> {{ substr(strip_tags(Auth::user()->name),0,7) }} <i class='bx bxs-chevron-down'></i></button>
+                        @else
+                        <button class='drop'><i class='bx bxs-user-circle'></i> {{ Auth::user()->name }} <i class='bx bxs-chevron-down'></i></button>
+                        @endif
+                        <div class="drop-content">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit"><i class='bx bx-log-out'></i> Keluar</button>
+                            </form>
+                        </div>
+                    </li>
+                    @else
+                    <li class="menu-out"><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
+                    <li class="menu-out"><a href="register"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
+                    @endif
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- Akhir Navbar -->
 
     <!-- Header -->
     <div class="header-container" style="background-image: url('{{asset('img/bisnis_images')}}/{{$restaurant->image}}')">
@@ -76,30 +78,29 @@
             <div class="rating-angka">{{$restaurant->rating}}</div>
         </div>
     </div>
-   
+
     <!-- Akhir Header -->
 
     <!-- Content -->
     <div class="content-container">
-    <div class="content-wrapper">
-        <!-- Ambil dari database -->
-        <div class="tombol">
-            <a href="#ulasan" class="tombol-tulis-ulasan">Tulis Ulasan</a>
-            <a href="#" class="tombol-share"><i class='bx bxs-share' ></i> Bagikan</a>
-        </div>
-        <div class="tentang">
-            <p class="deskripsi">blablabla</p>
-        </div>
-        <div class="menu">
-            <h3>Menu</h3>
-            <div class="menu-wrapper">
-            @for($i = 1; $i <= 4; $i++) 
-            <div class="daftar-menu daftar-menu-{{$i}}">
-                <h4 class="nama-menu">Ayam Goreng</h4>
-                <img src="{{asset('img/bisnis_images')}}/ayam.jpg" alt="" class="menu-img">
-                <p class="harga">Rp. 18.000,00</p>
+        <div class="content-wrapper">
+            <!-- Ambil dari database -->
+            <div class="tombol">
+                <a href="#ulasan" class="tombol-tulis-ulasan">Tulis Ulasan</a>
+                <a href="#" class="tombol-share"><i class='bx bxs-share'></i> Bagikan</a>
             </div>
-            @endfor
+            <div class="tentang">
+                <p class="deskripsi">blablabla</p>
+            </div>
+            <div class="menu">
+                <h3>Menu</h3>
+                <div class="menu-wrapper">
+                    @for($i = 1; $i <= 4; $i++) <div class="daftar-menu daftar-menu-{{$i}}">
+                        <h4 class="nama-menu">Ayam Goreng</h4>
+                        <img src="{{asset('img/bisnis_images')}}/ayam.jpg" alt="" class="menu-img">
+                        <p class="harga">Rp. 18.000,00</p>
+                </div>
+                @endfor
             </div>
         </div>
         <div class="ulasan" id="ulasan">
@@ -109,27 +110,27 @@
                 <div class="form-ulasan">
                     <form action="/profile/{{$restaurant->id}}" method="POST">
                         @csrf
-                    <div class="ket-ulasan">
-                        <p class="foto-user"><i class='bx bxs-user-circle'></i></p>
-                        <span class="rating-wrapper">
-                            <div class="rating" id="form-rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <input type="hidden" class="rating-angka" name="rating">
-                            </div>
-                            <p class="user">Oleh Anda</p>
-                        </span>
-                    </div>
-                    <div class="pesan">
-                        <textarea name="pesan" id="pesan" cols="30" rows="10" placeholder="masukkan pesan"></textarea>
-                    </div>
-                    <input type="submit" name="kirim" value="Kirim">
+                        <div class="ket-ulasan">
+                            <p class="foto-user"><i class='bx bxs-user-circle'></i></p>
+                            <span class="rating-wrapper">
+                                <div class="rating" id="form-rating">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <input type="hidden" class="rating-angka" name="rating">
+                                </div>
+                                <p class="user">Oleh Anda</p>
+                            </span>
+                        </div>
+                        <div class="pesan">
+                            <textarea name="pesan" id="pesan" cols="30" rows="10" placeholder="masukkan pesan"></textarea>
+                        </div>
+                        <input type="submit" name="kirim" value="Kirim">
                     </form>
                 </div>
-                @foreach($ratings as $i =>$rating) 
+                @foreach($ratings as $i =>$rating)
                 <div class="ulasan-orang ulasan-ke-{{$i+1}}">
                     <div class="ket-ulasan">
                         <p class="foto-user"><i class='bx bxs-user-circle'></i></p>
@@ -142,7 +143,7 @@
                                 <i class='bx bx-star'></i>
                                 <div class="rating-angka-ke{{$i+1}}" hidden>{{$rating->rating}}</div>
                             </div>
-                            <p class="user">Oleh {{$rating->name}} ({{$rating->created_at}})</p>   
+                            <p class="user">Oleh {{$rating->name}} ({{$rating->created_at}})</p>
                         </span>
                     </div>
                     <div class="pesan">
@@ -169,7 +170,8 @@
         </footer>
     </div>
     <!-- Akhir Footer -->
-<script src="{{ asset('js/akun.js') }}"></script>
-<script src="{{ asset('js/profil-bisnis.js') }}"></script>
+    <script src="{{ asset('js/akun.js') }}"></script>
+    <script src="{{ asset('js/profil-bisnis.js') }}"></script>
 </body>
+
 </html>
