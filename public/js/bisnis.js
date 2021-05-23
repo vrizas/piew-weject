@@ -46,11 +46,78 @@ const headerRating = document.querySelectorAll('.header-container .rating i');
 const headerAngkaRating = document.querySelector('.header-container .rating-angka').innerHTML;
 activeStar(headerRating, headerAngkaRating);
 
-for(var i = 1; i <= 5; i++) {
+const ulasanOrang = document.querySelectorAll('.content-container .ulasan-orang');
+
+for(var i = 1; i <= ulasanOrang.length; i++) {
     var ratingOrang = document.querySelectorAll('.content-container .ulasan-ke-'+i+' .rating i');
     var angkaRatingOrang = document.querySelector('.content-container .ulasan-orang .rating-angka-ke'+i).innerHTML;
     activeStar(ratingOrang, angkaRatingOrang);
 }
+
+
+// const tambahMenu = document.querySelectorAll('.menu .menu-kosong');
+// const tombolTambahMenu = document.querySelectorAll('.menu .menu-kosong .tombol');
+// const formMenu = document.querySelectorAll('.menu .menu-kosong .form-menu');
+// const namaMenu = document.querySelectorAll('.daftar-menu h4.nama-menu');
+// const imgMenu = document.querySelectorAll('.daftar-menu img.menu-img');
+// const hargaMenu = document.querySelectorAll('.daftar-menu p.harga');
+// const batalTambahMenu = document.querySelectorAll('.menu-kosong button.batal-tambah-menu');
+
+// for(var i = 0; i < tambahMenu.length; i++) {
+//     if(namaMenu[i].innerHTML.length == 0 || !imgMenu[i].hasAttribute('src') || hargaMenu[i].innerHTML.length == 0) {
+//         document.querySelectorAll('.menu .daftar-menu')[i].style.display = 'none';
+//         tambahMenu[i].style.display = 'flex';
+//     }
+// }
+
+// tombolTambahMenu[0].addEventListener('click', function() {
+//     tombolTambahMenu[0].style.display = 'none';
+//     formMenu[0].style.display = 'flex';
+//     tambahMenu[0].style.cursor = 'inherit';
+// });
+
+// tombolTambahMenu[1].addEventListener('click', function() {
+//     tombolTambahMenu[1].style.display = 'none';
+//     formMenu[1].style.display = 'flex';
+//     tambahMenu[1].style.cursor = 'inherit';
+// });
+
+// tombolTambahMenu[2].addEventListener('click', function() {
+//     tombolTambahMenu[2].style.display = 'none';
+//     formMenu[2].style.display = 'flex';
+//     tambahMenu[2].style.cursor = 'inherit';
+// });
+
+// tombolTambahMenu[3].addEventListener('click', function() {
+//     tombolTambahMenu[3].style.display = 'none';
+//     formMenu[3].style.display = 'flex';
+//     tambahMenu[3].style.cursor = 'inherit';
+// });
+
+// batalTambahMenu[0].addEventListener('click', function() {
+//     formMenu[0].style.display = 'none';
+//     tombolTambahMenu[0].style.display = 'flex';
+//     tambahMenu[0].style.cursor = 'pointer';
+// });
+
+// batalTambahMenu[1].addEventListener('click', function() {
+//     formMenu[1].style.display = 'none';
+//     tombolTambahMenu[1].style.display = 'flex';
+//     tambahMenu[1].style.cursor = 'pointer';
+// });
+
+// batalTambahMenu[2].addEventListener('click', function() {
+//     formMenu[2].style.display = 'none';
+//     tombolTambahMenu[2].style.display = 'flex';
+//     tambahMenu[2].style.cursor = 'pointer';
+// });
+
+// batalTambahMenu[3].addEventListener('click', function() {
+//     formMenu[3].style.display = 'none';
+//     tombolTambahMenu[3].style.display = 'flex';
+//     tambahMenu[3].style.cursor = 'pointer';
+// });
+
 
 function activeStar(rating, angkaRating) {
     if(angkaRating == 0) {
