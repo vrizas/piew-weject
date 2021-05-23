@@ -1,13 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{asset('css/login.css')}}">
+</head>
+
+<body>
+
+</html>
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            <a class="logo" href="/">
+                <img src="{{ asset('img/logo.png') }}" class="logo">
             </a>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+            {{ __('Lupa Kata sandi? Tidak masalah, Berikan alamat email anda dan kami akan mengirimkan sandi untuk menyunting ulang Kata sandi anda.') }}
         </div>
 
         <!-- Session Status -->
@@ -28,9 +42,11 @@
 
             <div class="flex items-center justify-end mt-4">
                 <x-button>
-                    {{ __('Email Password Reset Link') }}
+                    {{ __('Kirimkan tautan reset sandi') }}
                 </x-button>
             </div>
         </form>
     </x-auth-card>
 </x-guest-layout>
+
+</body>

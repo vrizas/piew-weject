@@ -1,0 +1,265 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+:root {
+	/*Fonts*/
+	--font-roboto: 'Roboto', sans-serif;
+	--font-lato: 'Lato', sans-serif;
+
+	/*Warna*/
+  --color-white: #f5f5f5;
+	--color-blue: #070B15;
+	--color-soft-blue: #23395d;
+	--color-black: #111;
+  --color-ungu: #15192a;
+  --color-muda: #1d263b;
+  --color-ungu-muda: #7885b2;
+
+}
+
+
+body {
+  /* background-color: var(--color-white); */
+	background-image: url('../img/autumn.png');
+  background-attachment: fixed;
+	font-family: var(--font-roboto);
+	color: var(--color-ungu);
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-black);
+}
+
+/*Navbar*/
+
+.nav-container nav{
+	padding: 0 40px;
+	height: 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.nav-container img.logo {
+	width: 200px;
+	position: relative;
+	top: 3px;
+}
+
+.nav-container .nav-menu {
+	width: 40%;
+}
+
+.nav-container .nav-menu ul{
+	list-style-type: none;
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav-container .nav-menu ul li {
+	font-size: 0.9rem;
+}
+
+.nav-container .nav-menu a:hover {
+	color: #aaa;
+}
+
+.akun {
+	cursor: pointer;
+}
+
+.nav-container .nav-menu .akun button.drop {
+	background-color: transparent;
+	padding: 5px 20px;
+	border: none;
+	overflow: hidden;
+	position: relative;
+	margin: -5px;
+	top: -5px;
+	font-size: 0.9rem;
+	border-radius: 3px 3px 0 0;
+}
+
+.drop i {
+	position: relative;
+}
+
+.drop .bxs-user-circle {
+	font-size: 1.3rem;
+	top: 3px;
+}
+
+.drop .bxs-chevron-down {
+	top: 1px;
+}
+
+.drop-content {
+	background-color: var(--color-ungu-muda);
+	padding: 10px 15.5px;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	/* top: 61px; */
+	top: 30px;
+	right: 35px;
+	border-radius: 0 0 3px 3px;
+	transform: scaleY(0);
+	height: 30px;
+}
+
+.drop-content form {
+	margin-top: -30px;
+}
+
+.drop-content button {
+	cursor: pointer;
+	color: var(--color-black);
+	background-color: transparent;
+	padding: 0 22px;
+	border: none;
+	overflow: hidden;
+	font-size: 0.7rem;
+}
+
+.drop-content button[type="submit"] {
+	position: relative;
+	bottom: 45px;
+	right: -25px;
+}
+
+.drop-content i {
+	font-size: 0.8rem;
+	position: relative;
+	top: 1px;
+}
+
+button.drop.active {
+	animation: drop-button .1s ease-out forwards;
+}
+
+.drop-content.active {
+	animation: drop-content .1s ease-out forwards;
+}
+
+.lokasi{
+  padding-left: 110px;
+	margin-top: 20px;
+}
+.lokasi h1{
+  font-family: var(--font-roboto);
+  font-weight: 400;
+}
+
+.nama-container{
+  position: relative;
+  z-index: 1;
+  margin: 5vh auto;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.hasil-pencarian{
+  display: flex;
+  margin-bottom: 30px;
+  background-color: #FBFFF1;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+.Cari h1{
+  font-family: var(--font-roboto);
+}
+
+.gambar-alamat{
+  padding-top: 0px;
+  color: var();
+}
+.gambar{
+  max-height: 150px;
+  width: 400px;
+
+  border-radius: 10px;
+}
+.gambar img{
+  max-height: 100%;
+  width: 400px;
+  border-radius: 10px;
+}
+.alamat{
+  width: 350px;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: 400;
+  padding-left: 20px;
+}
+
+.nomor-nama{
+  padding-left: 20px;
+  border-radius: 20px;
+}
+
+.nama-restaurant{
+  margin-top: 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+/*Footer*/
+.footer-container {
+	height: 25vh;
+}
+
+.footer-container footer {
+	height: inherit;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.footer-container .sosmed i {
+	font-size: 2rem;
+	cursor: pointer;
+	margin-right: 15px;
+}
+
+.footer-container .sosmed i:nth-last-child(1) {
+	margin-right: 0;
+}
+
+.footer-container .sosmed i:hover {
+	color: #aaa;
+}
+
+.footer-container p {
+	margin-top: 20px;
+}
+
+.footer-container .sosmed{
+}
+.bawah{
+  padding: 10px 20px 10px 20px;
+  background-color: #FBFFF1;
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+
+.jumlah{
+  
+  padding: 10px;
+  background-color: #FBFFF1;
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+  padding-left: 20px;
+}
