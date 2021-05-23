@@ -17,6 +17,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/bisnis.css') }}">
+    @livewireStyles
 </head>
 <body>
     <!-- Navbar -->
@@ -50,7 +51,7 @@
 
     <!-- Header -->
     @foreach($restaurants as $restaurant)
-    <div class="header-container" style="background-image: url('{{asset('img/bisnis_images')}}/ayam.jpg')">
+    <div class="header-container" style="background-image: url('{{asset('img/bisnis_images')}}/$restaurant->image')">
         <div class="isi-header-1">
             <h3 class="nama-bisnis">Ayam Bakar</h3>
             <h4 class="alamat">Jalan Sudirman</h4>
@@ -65,7 +66,6 @@
             <div class="rating-angka">{{$restaurant->rating}}</div>
         </div>
     </div>
-    @endforeach
     <a href="/business/{{$restaurant->id}}/update" class="edit-bisnis"><i class='bx bxs-edit'> </i> Edit</a>
     <!-- Akhir Header -->
 
@@ -77,27 +77,13 @@
             <a href="#" class="tombol-share"><i class='bx bxs-share' ></i> Bagikan</a>
         </div>
         <div class="tentang">
-            <p class="deskripsi">blablabla</p>
+            <p class="deskripsi">{{$restaurant->deskripsi}}</p>
         </div>
         <div class="menu">
             <h3>Menu</h3>
-            <a href="tambahmenu" class="tambah-menu"><i class='bx bx-plus-circle'></i></i></a>
-            <div class="menu-wrapper">
-            @for($i = 1; $i <= 4; $i++) 
-            <div class="daftar-menu daftar-menu-{{$i}}">
-                <h4 class="nama-menu">Ayam Goreng</h4>
-                <img src="{{asset('img/bisnis_images')}}/ayam.jpg" alt="" class="menu-img">
-                <p class="harga">Rp. 18.000,00</p>
-                <div class="edit-delete">
-                    <a href="updatemenu" class="edit-menu"> <i class='bx bxs-edit'></i></a>
-                    <form action="post" class="delete-menu">
-                        <button type="submit"><i class='bx bxs-trash'></i></button>
-                    </form>
-                </div>
-            </div>
-            @endfor
-            </div>
+            <livewire:list-menu />
         </div>
+        @endforeach
         <div class="ulasan" id="ulasan">
             <h3>Ulasan</h3>
             <div class="ulasan-wrapper">
@@ -115,7 +101,7 @@
                                 <i class='bx bxs-star'></i>
                                 <div class="rating-angka-ke{{$i+1}}" hidden>{{$rating->rating}}</div>
                             </div>
-                            <p class="user">Oleh {{$rating->name}} ({{$rating->created_at}})</p>          
+                            <p class="user">Oleh {{$rating->name}} ({{\Carbon\Carbon::parse($rating->created_at)}})</p>          
                         </span>
                     </div>
                     <div class="pesan">
@@ -145,5 +131,6 @@
 
 <script src="{{ asset('js/akun.js') }}"></script>
 <script src="{{ asset('js/bisnis.js') }}"></script>
+@livewireScripts
 </body>
 </html>
