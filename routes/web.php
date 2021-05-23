@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('home');
+    return view('About');
 });
 
 Route::get('/', function () {
@@ -44,7 +44,7 @@ Route::get('/', [App\Http\Controllers\Management\RestaurantController::class, 'i
 Route::get('/search', [App\Http\Controllers\SearchController::class, 'search']);
 
 Route::get('/profile/{id}', [App\Http\Controllers\Management\RatingController::class, 'indexProfile']);
-Route::post('/profile/{id}',[App\Http\Controllers\Management\RatingController::class, 'store']);
+Route::post('/profile/{id}', [App\Http\Controllers\Management\RatingController::class, 'store']);
 
 
 

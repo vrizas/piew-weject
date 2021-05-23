@@ -28,15 +28,15 @@
 			<img src="{{ asset('img/logo.png') }}" class="logo">
 			<div class="nav-menu">
 				<ul>
-					<li><a href="#">TENTANG KAMI</a></li>
+					<li><a href="about">TENTANG KAMI</a></li>
 					<li><a href="{{url('/search/')}}">TULIS REVIEW</a></li>
 					@if(session()->has('login'))
 					<li class='akun'>
 						@if(strlen(Auth::user()->name)>7)
-                        <button class='drop'><i class='bx bxs-user-circle'></i> {{ substr(strip_tags(Auth::user()->name),0,7) }} <i class='bx bxs-chevron-down'></i></button>
-                        @else
-                        <button class='drop'><i class='bx bxs-user-circle'></i> {{ Auth::user()->name }} <i class='bx bxs-chevron-down'></i></button>
-                        @endif
+						<button class='drop'><i class='bx bxs-user-circle'></i> {{ substr(strip_tags(Auth::user()->name),0,7) }} <i class='bx bxs-chevron-down'></i></button>
+						@else
+						<button class='drop'><i class='bx bxs-user-circle'></i> {{ Auth::user()->name }} <i class='bx bxs-chevron-down'></i></button>
+						@endif
 						<div class="drop-content">
 							<form id="logout-form" action="{{ route('logout') }}" method="POST">
 								@csrf

@@ -1,0 +1,334 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html{
+  scroll-behavior: smooth;
+}
+
+.container{
+  position: relative;
+  scroll-behavior: smooth;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+}
+.section{
+  scroll-snap-align: start;
+}
+body {
+	font-family: var(--font-roboto);
+	font-weight: 400;
+	color: var(--color-white);
+}
+
+/*Navbar*/
+.nav-container nav{
+	padding: 30px 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  position: fixed;
+  z-index: 999;
+}
+
+.nav-container img.logo {
+	width: 100px;
+	position: relative;
+	top: -3px;
+}
+
+.nav-container .nav-menu {
+	width: 90%;
+}
+
+.nav-container .nav-menu ul{
+	list-style-type: none;
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav-container .nav-menu ul li {
+	font-size: 0.9rem;
+}
+
+.nav-container .nav-menu a:hover {
+	color: var(--color-soft-blue);
+}
+
+.akun, .menu-out {
+	  cursor: pointer;
+    position: relative;
+    top: 13px;
+
+}
+
+a{
+  color: black;
+  text-decoration: none;
+
+}
+
+
+
+.menu-out {
+    cursor: inherit;
+}
+
+.nav-container .nav-menu .akun button.drop {
+	background-color: transparent;
+	padding: 5px 20px;
+	border: none;
+	overflow: hidden;
+	position: relative;
+	margin: -5px;
+	top: -5px;
+	font-size: 0.9rem;
+	border-radius: 3px 3px 0 0;
+}
+
+.drop i {
+	position: relative;
+}
+
+.drop .bxs-user-circle {
+	font-size: 1.3rem;
+	top: 3px;
+}
+
+.drop .bxs-chevron-down {
+	top: 1px;
+}
+
+.drop-content {
+	background-color: var(--color-white);
+	padding: 10px 7.5px;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	/* top: 61px; */
+	top: 30px;
+	border-radius: 0 0 3px 3px;
+	transform: scaleY(0);
+	height: 30px;
+}
+
+.drop-content form {
+	margin-top: -5px;
+}
+
+.drop-content button {
+	cursor: pointer;
+	color: var(--color-black);
+	background-color: transparent;
+	padding: 6px 39px;
+	border: none;
+	overflow: hidden;
+	font-size: 0.7rem;
+}
+
+.drop-content i {
+	font-size: 0.8rem;
+	position: relative;
+	top: 1px;
+}
+
+/* button.drop.active {
+	animation: drop-button .1s ease-out forwards;
+} */
+
+.drop-content.active {
+	animation: drop-content .1s ease-out forwards;
+}
+
+input, button {
+	border: none;
+	box-sizing: border-box;
+	padding: 15px 0;
+	display: inline-block;
+	width: 300px;
+	background-color: rgba(21,34,56,.8);
+	color: var(--color-black);
+}
+
+button {
+	padding: 15px;
+}
+
+input.ket {
+	background-color: #FBFFF1;
+	padding: 15px 10px;
+	width: 70px;
+	text-align: center;
+	margin-right: -4px;
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+input.ket-1 {
+	border-radius: 50px 0 0 50px;
+}
+
+input.ket-2 {
+	margin-right: inherit;
+	margin-left: -4px;
+}
+
+input:focus {
+	outline: none;
+}
+.cari button{
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+button {
+	cursor: pointer;
+	width: inherit;
+	border-radius: 0 50px 50px 0;	
+	background-color: #FBFFF1;
+}
+
+input::placeholder, button {
+	color: var(--color-black);
+}
+
+input.search-box-1 {
+	background-color: #FBFFF1;
+	border-right: 1px solid var(--color-white);
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+input.search-box-2 {
+	background-color: #FBFFF1;
+	margin-right: -3.9px;
+	margin-left: -4.7px;
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+
+
+
+/*header*/
+.header-container {
+  background-color: #000210;
+	height: 100vh;
+  padding-left: 250px;
+  padding-right: 250px;
+}
+.header-container header {
+	height: inherit;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+  color: azure;
+}
+.header-container .Penjelasan1{
+  padding-right: 50px;
+  text-align: center;
+}
+.header-container header h1 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+  padding-bottom: 20px;
+}
+.header-container header p {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
+.logo1 img{
+  height: 450px;
+  width: 450px;
+}
+
+/*Mid*/
+.Mid-container {
+	position: relative;
+	height: 100vh;
+	background-color: var(--color-white);
+  padding-left: 250px;
+  padding-right: 250px;
+  background-color: #FBFFF1;
+
+}
+
+.Mid-container header {
+	height: inherit;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.Mid-container .Penjelasan2{
+  padding-left: 50px;
+  text-align: center;
+}
+.Mid-container header h1 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+  padding-bottom: 20px;
+}
+.Mid-container header p {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
+.logo2 img{
+  height: 350px;
+  width: 350px;
+}
+/*Bot*/
+.Bot-container {
+	position: relative;
+	height: 100vh;
+  background-color: #000210;
+  padding-left: 250px;
+  padding-right: 250px;
+}
+
+.Bot-container header {
+	height: inherit;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+  color: azure;
+}
+.Bot-container .Penjelasan3{
+  padding-right: 50px;
+  text-align: center;
+}
+.Bot-container header h1 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+  padding-bottom: 20px;
+}
+.Bot-container header p {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
+.logo3 img{
+  height: 450px;
+  width: 450px;
+}
+.tombol{
+  outline: none;
+  display: block;
+  border: solid 1px #0081D5;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 16px 30px;
+  border-radius: 30px;
+  background-color: white;
+  color: #0081D5;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  text-decoration: inherit;
+}
+.tombol:hover,.tombol:focus{
+  background: #0081D5;
+  color: white;
+}
+.tombol:active{
+  background: #000210;
+}
