@@ -14,14 +14,15 @@ class CreateRestaurantsTable extends Migration
     public function up()
     {
         Schema::create('restaurants', function (Blueprint $table) {
-            $table->id('id_restaurant');
+            $table->id();
+            $table->integer('id_location');
             $table->string('nama');
             $table->float('rating',6,1);
             $table->string('alamat');
-            $table->string('provinsi');
-            $table->string('kota');
+            $table->time('jamBuka');
+            $table->time('jamTutup');
             $table->string('image');
-            $table->integer('category_id');
+            $table->string('kategori');
             $table->text('deskripsi');
             $table->timestamps();
         });

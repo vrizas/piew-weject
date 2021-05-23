@@ -1,0 +1,660 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+:root {
+	/*Fonts*/
+	--font-roboto: 'Roboto', sans-serif;
+	--font-lato: 'Lato', sans-serif;
+
+	/*Warna*/
+	--color-white: #f5f5f5;
+	--color-blue: #070b15;
+	--color-soft-blue: #23395d;
+	--color-black: #111;
+    --color-light-gray: #d3d3d3;
+    --color-rating: #FFD700;
+}
+
+body {
+    background-image: url('../img/bgbgbg.png');
+    background-attachment: fixed;
+	font-family: var(--font-roboto);
+	font-weight: 400;
+	color: var(--color-white);
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-black);
+}
+
+/*Navbar*/
+.nav-container nav{
+	padding: 30px 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.nav-container img.logo {
+	width: 100px;
+	position: relative;
+	top: -3px;
+}
+
+.nav-container .nav-menu {
+	width: 90%;
+}
+
+.nav-container .nav-menu ul{
+	list-style-type: none;
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav-container .nav-menu ul li {
+	font-size: 0.9rem;
+}
+
+.nav-container .nav-menu a:hover {
+	color: var(--color-soft-blue);
+}
+
+.akun, .menu-out {
+	cursor: pointer;
+    position: relative;
+    top: 13px;
+}
+
+.menu-out {
+    cursor: inherit;
+}
+
+.nav-container .nav-menu .akun button.drop {
+	background-color: transparent;
+	padding: 5px 20px;
+	border: none;
+	overflow: hidden;
+	position: relative;
+	margin: -5px;
+	top: -5px;
+	font-size: 0.9rem;
+	border-radius: 3px 3px 0 0;
+}
+
+.drop i {
+	position: relative;
+}
+
+.drop .bxs-user-circle {
+	font-size: 1.3rem;
+	top: 3px;
+}
+
+.drop .bxs-chevron-down {
+	top: 1px;
+}
+
+.drop-content {
+	background-color: var(--color-white);
+	padding: 10px 7.5px;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	/* top: 61px; */
+	top: 30px;
+	border-radius: 0 0 3px 3px;
+	transform: scaleY(0);
+	height: 30px;
+}
+
+.drop-content form {
+	margin-top: -5px;
+}
+
+.drop-content button {
+	cursor: pointer;
+	color: var(--color-black);
+	background-color: transparent;
+	padding: 6px 39px;
+	border: none;
+	overflow: hidden;
+	font-size: 0.7rem;
+}
+
+.drop-content i {
+	font-size: 0.8rem;
+	position: relative;
+	top: 1px;
+}
+
+/* button.drop.active {
+	animation: drop-button .1s ease-out forwards;
+} */
+
+.drop-content.active {
+	animation: drop-content .1s ease-out forwards;
+}
+
+.form-pencarian input, button {
+	border: none;
+	box-sizing: border-box;
+	padding: 15px 0;
+	display: inline-block;
+	width: 300px;
+	color: var(--color-black);
+}
+
+button {
+	padding: 15px;
+}
+
+input.ket {
+	background-color: #FBFFF1;
+	padding: 15px 10px;
+	width: 70px;
+	text-align: center;
+	margin-right: -4px;
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+input.ket-1 {
+	border-radius: 50px 0 0 50px;
+}
+
+input.ket-2 {
+	margin-right: inherit;
+	margin-left: -4px;
+}
+
+input:focus {
+	outline: none;
+}
+.cari button{
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+button {
+	cursor: pointer;
+	width: inherit;
+	border-radius: 0 50px 50px 0;	
+	background-color: #FBFFF1;
+}
+
+input::placeholder, button {
+	color: var(--color-black);
+}
+
+input.search-box-1 {
+	background-color: #FBFFF1;
+	border-right: 1px solid var(--color-white);
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+input.search-box-2 {
+	background-color: #FBFFF1;
+	margin-right: -3.9px;
+	margin-left: -4.7px;
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+/* Header */
+.header-container {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 70vh;
+    padding: 90px 40px;
+    box-sizing: border-box;
+    position: relative;
+    color: #fff;
+    box-shadow: inset 20px 20px 100px 100px rgba(0,0,0,.6);
+    z-index: -10;
+}
+
+.header-container .isi-header-1 {
+    width: fit-content;
+    border-radius: 5px;
+    position: absolute;
+    top: 40px;
+}
+
+.header-container .nama-bisnis {
+    font-weight: 900;
+    font-size: 3rem;
+    margin-bottom: 4px;
+}
+
+.header-container .alamat {
+    margin-bottom: 2px;
+}
+
+.header-container .alamat, .header-container .jam {
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.header-container .jam::before {
+    content: "Buka ";
+    color: #507ec7;
+    font-weight: 700;
+}
+
+.header-container .rating {
+    display: flex;
+    position: absolute;
+    bottom: 40px;
+    border-radius: 5px;
+}
+
+.header-container .rating .rating-angka {
+	width: 30px;
+	height: 30px;
+	background-color: rgba(144, 238, 144,.7);
+	border-radius: 3px;
+	text-align: center;
+	line-height: 30px;
+	margin-left: 10px;
+}
+
+.header-container .rating i {
+	font-size: 1.8rem;
+	letter-spacing: 5px;
+	line-height: 30px;
+    color: var(--color-rating);
+}
+
+i.bxs-edit {
+    color: inherit;
+    font-size: 1.6rem;
+    position: relative;
+    bottom: -2px;
+}
+
+a.edit-bisnis {
+    position: absolute;
+    font-size: 1.5rem;
+    bottom: 145px;
+    right: 50px;
+    font-weight: 700;
+    background-color: rgba(7, 11, 21,.2);
+    padding: 7px;
+    border-radius: 5px;
+    transition: .4s;
+}
+
+a.edit-bisnis:hover {
+    background-color: rgba(7, 11, 21,.3);
+    transform: translateY(2px);
+}
+
+h1.logo-tulis {
+	position: absolute;
+	left: 140px;
+	font-size: 2rem;
+	top: 29px;
+	font-style: italic;
+}
+
+/* Content */
+
+.content-container {
+    padding: 35px 45px;
+    background-color: #FBFFF1;
+    color: var(--color-black);
+    box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    margin: auto;
+}
+
+.content-container .tombol {
+    margin-bottom: 50px;
+    display: flex;
+}
+
+.content-container .tombol-tulis-ulasan, .content-container .tombol-share {
+    background-color: var(--color-soft-blue);
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 25px;
+}
+
+.content-container .tombol-share {
+    background-color: transparent;
+    border: 3px solid rgba(144, 238, 144, .6);
+}
+
+.content-container .tombol-tulis-ulasan {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-container a {
+    color: var(--color-black);
+}
+
+.content-container a.tombol-tulis-ulasan {
+    color: var(--color-white);
+}
+
+.content-container .tentang .deskripsi {
+    font-size: 0.9rem;
+    margin-bottom: 50px;
+    width: 50%;
+    padding: 15px 20px;
+    min-height: 10vh;
+    border-radius: 5px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.content-container .ulasan {
+    padding: 30px 20px;
+    border-bottom: .1px solid rgba(0, 0, 0, 0.19);
+    width: 50%;
+}
+
+.content-container .ulasan .ket-ulasan {
+    display: flex;
+}
+
+.content-container .form-ulasan {
+    margin-bottom: 50px;
+    border-radius: 5px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 100%;
+    padding: 25px 30px;
+}
+
+.form-ulasan textarea {
+    font-family: 'Roboto', sans-serif;
+    padding: 15px 20px;
+    width: 91%;
+}
+
+.form-ulasan input[type="submit"] {
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: rgb(81, 255, 81);
+    padding: 10px 15px;
+    color: var(--color-white);
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+    margin-left: 8px;
+}
+
+.form-ulasan input[type="submit"]:hover {
+    background-color: rgb(64, 253, 64);
+    transform: translateY(1px);
+}
+
+.form-ulasan .rating {
+    cursor: pointer;
+    width: fit-content;
+}
+
+.form-ulasan .rating:hover > i:before {
+    color:var(--color-rating);
+}
+
+.form-ulasan .rating > i:hover ~ i:before {
+    color: var(--color-black);
+}
+
+.form-ulasan .rating i.active {
+    color:var(--color-rating);
+}
+
+.content-container .ulasan-orang {
+    margin-bottom: 50px;
+}
+
+.ulasan-orang .rating i {
+    color: var(--color-rating);
+}
+
+.ulasan-orang:nth-last-child(1) {
+    margin-bottom: 0;
+}
+
+.content-container .rating {
+    margin: 0;
+}
+
+.content-container .ket-ulasan .foto-user i {
+    font-size: 3.5rem;
+    line-height: 38px;
+    margin-right: 10px;
+}
+
+.content-container .ket-ulasan .rating i {
+    font-size: 1.6rem;
+}
+
+.content-container .ket-ulasan .user {
+    font-size: 0.8rem;
+}
+
+.content-container .ulasan .pesan {
+    font-size: 0.9rem;
+    padding: 10px;
+}
+
+.content-container .menu {
+    padding: 30px 20px;
+    border-top: .1px solid rgba(0, 0, 0, 0.19);
+    border-bottom: .1px solid rgba(0, 0, 0, 0.19);
+    position: relative;
+}
+
+.content-container .menu h3, .content-container .ulasan h3 {
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+}
+
+.content-container .menu-wrapper { 
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content-container .menu img.menu-img {
+    width: 280px;
+	height: 200px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
+
+.content-container .menu .nama-menu {
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.content-container .menu .daftar-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    /* border: 2px solid rgba(153, 153, 153, 0.6); */
+    padding: 10px 5px;
+    margin-right: 10px;
+}
+
+.content-container .menu .edit-delete button i {
+    font-size: 1.3rem;
+}
+
+.menu .menu-kosong {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 2px solid rgba(153, 153, 153, 0.6);
+    padding: 10px 5px;
+    width: 280px;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: inherit;
+}
+
+.menu .menu-kosong .tombol{
+    width: 100%;
+    height: 236px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(15px);    
+}
+
+.menu .menu-kosong .tombol i {
+    font-size: 2.5rem;
+    color: rgba(0,0,0,.5);
+}
+
+.menu-kosong .form-menu {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3px;
+}
+
+.menu-kosong .input-image-box {
+    width: 90%;
+    height: 195px;
+    border: 1px dashed rgba(153, 153, 153, 0.6);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-kosong input[type="text"], .menu-kosong input[type="number"] {
+    outline: none;
+    padding: 2px 5px;
+}
+
+.menu-kosong .tombol-batal-tambah-menu {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 60%;
+}
+
+.menu-kosong input[type="submit"] {
+    background-color: #38fc38;
+    border: none;
+    color: var(--color-white);
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.menu-kosong button.batal-tambah-menu {
+    background-color: #ff2222;
+    border: none;
+    color: var(--color-white);
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.daftar-menu:nth-last-child(1), .daftar-menu:nth-last-child(2) {
+    margin-bottom: 0;
+}
+
+.content-container .menu .delete-menu {
+    display: inline;
+}
+
+.menu button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.menu i {
+    margin-top: 5px;
+    font-size: 1.2rem;
+    margin-left: 2px;
+}
+
+.menu i:nth-child(1) {
+    margin-right: 2px;
+    margin-left: 0;
+}
+
+.menu .tambah-menu i{
+    position: absolute;
+    right: 27px;
+    top: 28px;
+    font-size: 1.8rem;
+}
+
+.content-container .menu .harga {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+/*Footer*/
+.footer-container {
+	height: 50vh;
+}
+
+.footer-container footer {
+    color:#111;
+	height: inherit;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer-container .sosmed i {
+	font-size: 2rem;
+	cursor: pointer;
+	margin-right: 15px;
+}
+
+.footer-container .sosmed i:nth-last-child(1) {
+	margin-right: 0;
+}
+
+.footer-container .sosmed i:hover {
+	color: #aaa;
+}
+
+.footer-container p {
+	margin-top: 20px;
+}
+
+/* Animations */
+/* @keyframes drop-button {
+	to {
+		background-color: var(--color-white);
+		color: var(--color-black);
+	}
+} */
+
+@keyframes drop-content {
+	to {
+		top: 25px;
+		transform: scaleY(1);
+	}
+}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Restaurant;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -42,6 +43,7 @@ class RegisteredUserController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => ['required', 'confirmed', Rules\Password::min(8)],
             'role' => 'required',
+            
         ]);
 
         $user = User::create([
@@ -49,12 +51,29 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => $request->role,
+            
         ]);
+
+        if ($request->role == 'bisnis') {
+            $restaurants = Restaurant::create([
+                'id' => $user->id,
+                'nama' => $request->name,
+                'rating'=> '0.0',
+                'alamat'=> '',
+                'id_location'=>'0',
+                'image'=>'noimage.png',
+                'kategori'=>'',
+                'deskripsi' => '',
+                'jamBuka' => '00:00',
+                'jamTutup' => '00:00',
+            ]);
+        }
+
 
         event(new Registered($user));
 
-        Auth::login($user);
+        // Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::LOGIN);
     }
 }

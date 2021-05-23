@@ -18,20 +18,23 @@ html, body {
 	--color-blue: #152238;
 	--color-soft-blue: #23395d;
 	--color-black: #111;
-
+	--color-rating: #FFD700;
 }
 
 body {
-	background-image: url('../img/home/home-bg.png');
+	background-image: url('../img/autumn2.png');
+	background-attachment: fixed;
 	font-family: var(--font-roboto);
 	font-weight: 400;
-	color: var(--color-white);
+	color: var(--color-black);
+	overflow-x: hidden;
 }
 
 a {
 	text-decoration: none;
-	color: var(--color-white);
+	color: var(--color-black);
 }
+
 
 /*Navbar*/
 .nav-container nav{
@@ -43,9 +46,9 @@ a {
 }
 
 .nav-container img.logo {
-	width: 100px;
+	max-width: 200px;
 	position: relative;
-	top: -13px;
+	top: 3px;
 }
 
 .nav-container .nav-menu {
@@ -63,7 +66,7 @@ a {
 }
 
 .nav-container .nav-menu a:hover {
-	color: var(--color-soft-blue);
+	color: var(--color-white);
 }
 
 .akun {
@@ -71,6 +74,7 @@ a {
 }
 
 .nav-container .nav-menu .akun button.drop {
+
 	background-color: transparent;
 	padding: 5px 20px;
 	border: none;
@@ -79,7 +83,7 @@ a {
 	margin: -5px;
 	top: -5px;
 	font-size: 0.9rem;
-	border-radius: 3px 3px 0 0;
+	border-radius: 20px 20px 0px 0px;
 }
 
 .drop i {
@@ -96,6 +100,7 @@ a {
 }
 
 .drop-content {
+
 	background-color: var(--color-white);
 	padding: 10px 15.5px;
 	display: flex;
@@ -104,12 +109,13 @@ a {
 	/* top: 61px; */
 	top: 30px;
 	right: 35px;
-	border-radius: 0 0 3px 3px;
+	border-radius: 0 0 20px 20px;
 	transform: scaleY(0);
+	height: 30px;
 }
 
 .drop-content form {
-	margin-top: -30px;
+	margin-top: 22px;
 }
 
 .drop-content button {
@@ -119,7 +125,12 @@ a {
 	padding: 0 22px;
 	border: none;
 	overflow: hidden;
-	font-size: 0.7rem;
+	font-size: 0.8rem;
+}
+
+.drop-content button[type="submit"] {
+	position: relative;
+	bottom: 45px;
 }
 
 .drop-content i {
@@ -130,10 +141,12 @@ a {
 
 button.drop.active {
 	animation: drop-button .1s ease-out forwards;
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
 }
 
 .drop-content.active {
 	animation: drop-content .1s ease-out forwards;
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
 }
 
 /*Header*/
@@ -165,7 +178,13 @@ button.drop.active {
 	font-size: 1.3rem;
 	position: relative;
 	bottom: 60px;
-	font-weight: 300;
+	font-weight: 400;
+	color: #FBFFF1;
+	text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
 }
 
 input, button {
@@ -176,7 +195,7 @@ input, button {
 	width: 300px;
 	background-color: rgba(21,34,56,.8);
 	margin-top: 30px;
-	color: var(--color-white);
+	color: var(--color-black);
 }
 
 button {
@@ -184,14 +203,16 @@ button {
 }
 
 input.ket {
+	background-color: #FBFFF1;
 	padding: 15px 10px;
 	width: 70px;
 	text-align: center;
 	margin-right: -4px;
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
 }
 
 input.ket-1 {
-	border-radius: 3px 0 0 3px;
+	border-radius: 50px 0 0 50px;
 }
 
 input.ket-2 {
@@ -204,23 +225,40 @@ input:focus {
 }
 
 button {
+	background-color: #FBFFF1;
 	cursor: pointer;
 	width: inherit;
-	border-radius: 0 3px 3px 0;
+	border-radius: 0 50px 50px 0;
 }
 
+/* .cari{
+	background-color: #FBFFF1;
+} */
+.cari button{
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
+}
 input::placeholder, button {
-	color: var(--color-white);
+	color: var(--color-black);
 }
 
 input.search-box-1 {
 	border-right: 1px solid var(--color-white);
+	background-color: #FBFFF1;
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
 }
 
 input.search-box-2 {
 	margin-right: -3.9px;
 	margin-left: -4.7px;
+	background-color: #FBFFF1;
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
 }
+/* .header-container p{
+	background-color: #FBFFF1;
+	margin-left: 680px;
+	margin-right: 680px;
+	border-radius: 20px 20px 20px 20px;
+} */
 
 .header-container .tombol-rekomendasi i {
 	font-size: 2rem;
@@ -241,17 +279,19 @@ input.search-box-2 {
 
 .header-container .tombol-rekomendasi:hover {
 	background-color: #aaa;
-	color: var(--color-soft-blue);
+	color: var(--color-white);
 }
 
 /*Content*/
+
 .content-container {
 	position: relative;
 	height: 150vh;
-	background-color: var(--color-white);
+	background-color: #FBFFF1;
 	padding: 60px 40px;
 	box-sizing: border-box;
-	border-radius: 30px 30px 0 0;
+	border-radius: 100px;
+	box-shadow: 10px 10px 20px rgb(183, 116, 69,0.5);
 }
 
 /*.content-container::before {
@@ -280,6 +320,7 @@ input.search-box-2 {
 
 .content-container p {
 	margin-bottom: 3px;
+
 }
 
 .content-container a.nama-resto:hover {
@@ -289,7 +330,6 @@ input.search-box-2 {
 .content-pilihan-kami-wrapper,  .content-random-wrapper {
 	display: flex;
 	justify-content: space-evenly;
-
 }
 
 .content-pilihan-kami {
@@ -298,11 +338,13 @@ input.search-box-2 {
 
 .content-pilihan-kami, .content-random {
 	position: relative;
+	
 }
 
 .content-container img {
 	width: 280px;
 	height: 230px;
+	border-radius: 10px;
 }
 
 .content-container img:hover {
@@ -328,6 +370,7 @@ input.search-box-2 {
 	letter-spacing: 5px;
 	line-height: 30px;
 	cursor: pointer;
+	color: var(--color-rating);
 }
 
 .content-container a.link-pencarian {
@@ -343,7 +386,6 @@ input.search-box-2 {
 /*Footer*/
 .footer-container {
 	height: 25vh;
-	background-color: var(--color-blue);
 }
 
 .footer-container footer {
@@ -352,6 +394,7 @@ input.search-box-2 {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+
 }
 
 .footer-container .sosmed i {
@@ -370,6 +413,15 @@ input.search-box-2 {
 
 .footer-container p {
 	margin-top: 20px;
+}
+
+.footer-container .sosmed{
+}
+.bawah{
+  padding: 10px 20px 10px 20px;
+  background-color: #FBFFF1;
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
 }
 
 /* Animations */

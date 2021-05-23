@@ -17,11 +17,11 @@ Route::get('/register', [RegisteredUserController::class, 'create'])
 Route::post('/register', [RegisteredUserController::class, 'store'])
                 ->middleware('guest');
 
-Route::get('/registerBisnis', [RegisteredUserController::class, 'createBisnis'])
+Route::get('/registerBusiness', [RegisteredUserController::class, 'createBisnis'])
                 ->middleware('guest')
                 ->name('registerBisnis');
 
-Route::post('/registerBisnis', [RegisteredUserController::class, 'store'])
+Route::post('/registerBusiness', [RegisteredUserController::class, 'store'])
                 ->middleware('guest');                
 
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
