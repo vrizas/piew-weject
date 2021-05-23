@@ -64,7 +64,8 @@ class RegisteredUserController extends Controller
                 'image'=>'noimage.png',
                 'kategori'=>'',
                 'deskripsi' => '',
-                'jam' => '00:00',
+                'jamBuka' => '00:00',
+                'jamTutup' => '00:00',
             ]);
         }
 

@@ -1,4 +1,4 @@
-<div>   
+<div>  
     <div class="menu-wrapper">
     @foreach($menus as $menu)
                 @if($updateStateId != $menu->id)

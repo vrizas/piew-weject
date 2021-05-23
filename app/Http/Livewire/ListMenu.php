@@ -23,7 +23,7 @@ class ListMenu extends Component
 
     public function render()
     {
-        $menus = Menu::Where('id_restaurant', Auth::id())->paginate(5);
+        $menus = Menu::Where('id_restaurant', Auth::id())->get();
         return view('livewire.list-menu')->with('menus', $menus);
     }
 

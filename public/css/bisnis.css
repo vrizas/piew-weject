@@ -143,13 +143,12 @@ a {
 	animation: drop-content .1s ease-out forwards;
 }
 
-input, button {
+.form-pencarian input, button {
 	border: none;
 	box-sizing: border-box;
 	padding: 15px 0;
 	display: inline-block;
 	width: 300px;
-	background-color: rgba(21,34,56,.8);
 	color: var(--color-black);
 }
 
@@ -475,12 +474,14 @@ h1.logo-tulis {
 .content-container .menu img.menu-img {
     width: 280px;
 	height: 200px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
 }
 
 .content-container .menu .nama-menu {
     font-weight: 500;
     margin-bottom: 10px;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 }
 
 .content-container .menu .daftar-menu {
@@ -493,6 +494,10 @@ h1.logo-tulis {
     margin-right: 10px;
 }
 
+.content-container .menu .edit-delete button i {
+    font-size: 1.3rem;
+}
+
 .menu .menu-kosong {
     display: flex;
     align-items: center;
@@ -502,6 +507,7 @@ h1.logo-tulis {
     width: 280px;
     cursor: pointer;
     margin-right: 10px;
+    border-radius: inherit;
 }
 
 .menu .menu-kosong .tombol{
@@ -543,12 +549,10 @@ h1.logo-tulis {
 }
 
 .menu-kosong .tombol-batal-tambah-menu {
-    margin-top: 5px;
+    margin-top: 20px;
     display: flex;
     justify-content: space-evenly;
     width: 60%;
-    position: relative;
-    z-index: 10;
 }
 
 .menu-kosong input[type="submit"] {
@@ -567,6 +571,7 @@ h1.logo-tulis {
     padding: 5px 10px;
     border-radius: 3px;
     cursor: pointer;
+    width: fit-content;
 }
 
 .daftar-menu:nth-last-child(1), .daftar-menu:nth-last-child(2) {
@@ -604,7 +609,7 @@ h1.logo-tulis {
 
 .content-container .menu .harga {
     margin-top: 10px;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 /*Footer*/

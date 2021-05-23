@@ -30,11 +30,14 @@
                 <ul>
                     @if(session()->has('login'))
                     <li class='akun'>
+                        @if(strlen(Auth::user()->name)>7)
+                        <button class='drop'><i class='bx bxs-user-circle'></i> {{ substr(strip_tags(Auth::user()->name),0,7) }} <i class='bx bxs-chevron-down'></i></button>
+                        @else
                         <button class='drop'><i class='bx bxs-user-circle'></i> {{ Auth::user()->name }} <i class='bx bxs-chevron-down'></i></button>
+                        @endif
                         <div class="drop-content">
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <button style="font-size:.96rem;opacity:0;cursor:default;">{{ Auth::user()->name }}</button><br>
                                 <button type="submit"><i class='bx bx-log-out'></i> Keluar</button>
                             </form>
                         </div>
@@ -68,6 +71,10 @@
             </select>
             <label for="kategori">Kategori</label>
             <input type="text" name="kategori" placeholder="kategori digunakan untuk pencarian">
+            <label for="jam-buka">Jam Buka</label>
+            <input type="time" name="jamBuka">
+            <label for="jam-tutup">Jam Tutup</label>
+            <input type="time" name="jamTutup">
             <label for="deskripsi">Deskripsi</label>
             <textarea name="deskripsi" id="deskripsi" cols="30" rows="10"></textarea>
             <label for="image">Unggah foto</label>

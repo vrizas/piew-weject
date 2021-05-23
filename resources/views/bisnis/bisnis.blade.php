@@ -38,7 +38,6 @@
                             <button type="submit"><i class='bx bx-search'></i></button>
                         </form>
                     </li>
-                    <li class="menu-out"><a href="registerBusiness">DAFTARKAN BISNISMU</a></li>
                     @if(session()->has('login'))
                     <li class='akun'>
                         @if(strlen(Auth::user()->name)>7)
@@ -65,11 +64,11 @@
 
     <!-- Header -->
     @foreach($restaurants as $restaurant)
-    <div class="header-container" style="background-image: url('{{asset('img/bisnis_images')}}/$restaurant->image')">
+    <div class="header-container" style="background-image: url('{{asset('img/bisnis_images')}}/{{$restaurant->image}}')">
         <div class="isi-header-1">
-            <h3 class="nama-bisnis">Ayam Bakar</h3>
-            <h4 class="alamat">Jalan Sudirman</h4>
-            <h4 class="jam">09.00 - 20.30</h4>
+            <h3 class="nama-bisnis">{{$restaurant->nama}}</h3>
+            <h4 class="alamat">{{$restaurant->alamat}}</h4>
+            <h4 class="jam">{{\Carbon\Carbon::parse($restaurant->jamBuka)->format('H.i')}} - {{\Carbon\Carbon::parse($restaurant->jamTutup)->format('H.i')}}</h4>
         </div>
         <div class="rating">
             <i class='bx bx-star'></i>
@@ -115,7 +114,7 @@
                                     <i class='bx bxs-star'></i>
                                     <div class="rating-angka-ke{{$i+1}}" hidden>{{$rating->rating}}</div>
                                 </div>
-                                <p class="user">Oleh {{$rating->name}} ({{\Carbon\Carbon::parse($rating->created_at)}})</p>
+                                <p class="user">Oleh {{$rating->name}} ({{\Carbon\Carbon::parse($rating->created_at)->diffForHumans()}})</p>
                             </span>
                         </div>
                         <div class="pesan">

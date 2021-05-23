@@ -469,12 +469,11 @@ h1.logo-tulis {
 .content-container .menu-wrapper { 
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
 }
 
 .content-container .menu img.menu-img {
     width: 280px;
-	height: 230px;
+	height: 200px;
     border-radius: 20px;
     box-shadow: 10px 10px 20px rgb(183, 116, 69,0.2);
 }
@@ -482,7 +481,7 @@ h1.logo-tulis {
 .content-container .menu .nama-menu {
     font-weight: 500;
     margin-bottom: 10px;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 }
 
 .content-container .menu .daftar-menu {
@@ -490,6 +489,7 @@ h1.logo-tulis {
     flex-direction: column;
     align-items: center;
     margin-bottom: 15px;
+    margin-right: 20px;
 }
 
 .daftar-menu:nth-last-child(1), .daftar-menu:nth-last-child(2) {
@@ -498,7 +498,6 @@ h1.logo-tulis {
 
 .content-container .menu .harga {
     margin-top: 10px;
-    font-size: 0.9rem;
 }
 
 /*Footer*/

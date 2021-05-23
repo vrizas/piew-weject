@@ -25,7 +25,11 @@ class RestaurantController extends Controller
         $restaurants = Restaurant::Where('rating','>=','4')
                     ->take(4)
                     ->get();
-        return view('home')->with('restaurants',$restaurants);
+
+        $padangs = Restaurant::Where('kategori','LIKE','padang')
+                    ->take(4)
+                    ->get();
+        return view('home')->with('restaurants',$restaurants)->with('padangs', $padangs);
     }
 
     public function indexBisnis($id)
@@ -38,7 +42,11 @@ class RestaurantController extends Controller
                     ->latest()
                     ->take(5)
                     ->get();
-        return view('bisnis.bisnis')->with('restaurants',$restaurants)->with('ratings', $ratings);
+        if(Auth::user()->id == $id) {
+            return view('bisnis.bisnis')->with('restaurants',$restaurants)->with('ratings', $ratings);
+        } else {
+            return redirect('profile/'.$id);
+        }
     }
 
     /**
@@ -130,6 +138,8 @@ class RestaurantController extends Controller
         $restaurant->id_location=$request->id_location;
         $restaurant->kategori=$request->kategori;
         $restaurant->deskripsi=$request->deskripsi;
+        $restaurant->jamBuka=$request->jamBuka;
+        $restaurant->jamTutup=$request->jamTutup;
         $restaurant->save();
 
         $restaurants = Restaurant::all();

@@ -18,12 +18,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/updatemenu', function () {
-    return view('bisnis.updatemenu');
-});
-
-Route::get('/tambahmenu', function () {
-    return view('bisnis.tambahmenu');
+Route::get('/about', function () {
+    return view('home');
 });
 
 Route::get('/', function () {

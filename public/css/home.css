@@ -18,7 +18,7 @@ html, body {
 	--color-blue: #152238;
 	--color-soft-blue: #23395d;
 	--color-black: #111;
-
+	--color-rating: #FFD700;
 }
 
 body {
@@ -115,7 +115,7 @@ a {
 }
 
 .drop-content form {
-	margin-top: -30px;
+	margin-top: 22px;
 }
 
 .drop-content button {
@@ -370,6 +370,7 @@ input.search-box-2 {
 	letter-spacing: 5px;
 	line-height: 30px;
 	cursor: pointer;
+	color: var(--color-rating);
 }
 
 .content-container a.link-pencarian {

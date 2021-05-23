@@ -19,7 +19,8 @@ class CreateRestaurantsTable extends Migration
             $table->string('nama');
             $table->float('rating',6,1);
             $table->string('alamat');
-            $table->time('jam');
+            $table->time('jamBuka');
+            $table->time('jamTutup');
             $table->string('image');
             $table->string('kategori');
             $table->text('deskripsi');

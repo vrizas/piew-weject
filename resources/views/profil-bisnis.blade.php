@@ -37,7 +37,7 @@
                             <button type="submit"><i class='bx bx-search'></i></button>
                         </form>
                     </li>
-                    <li class="menu-out"><a href="registerBusiness">DAFTARKAN BISNISMU</a></li>
+                    <li class="menu-out"><a href="{{url('registerBusiness')}}">DAFTARKAN BISNISMU</a></li>
                     @if(session()->has('login'))
                     <li class='akun'>
                         @if(strlen(Auth::user()->name)>7)
@@ -53,8 +53,8 @@
                         </div>
                     </li>
                     @else
-                    <li class="menu-out"><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
-                    <li class="menu-out"><a href="register"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
+                    <li class="menu-out"><a href="{{url('login')}}"><i class='bx bx-log-in'></i> MASUK</a></li>
+                    <li class="menu-out"><a href="{{url('register')}}"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
                     @endif
                 </ul>
             </div>
@@ -95,18 +95,20 @@
             <div class="menu">
                 <h3>Menu</h3>
                 <div class="menu-wrapper">
-                    @for($i = 1; $i <= 4; $i++) <div class="daftar-menu daftar-menu-{{$i}}">
-                        <h4 class="nama-menu">Ayam Goreng</h4>
-                        <img src="{{asset('img/bisnis_images')}}/ayam.jpg" alt="" class="menu-img">
-                        <p class="harga">Rp. 18.000,00</p>
-                </div>
-                @endfor
+                    @foreach($menus as $i => $menu) 
+                    <div class="daftar-menu daftar-menu-{{$i}}">
+                        <h4 class="nama-menu">{{$menu->nama}}</h4>
+                        <img src="{{asset('storage')}}/{{$menu->image}}" alt="{{$menu->nama}}" class="menu-img">
+                        <p class="harga">Rp {{$menu->harga}}</p>
+                    </div>
+                    @endforeach
             </div>
         </div>
         <div class="ulasan" id="ulasan">
             <h3>Ulasan</h3>
             <div class="ulasan-wrapper">
                 <!-- Ambil dari database -->
+                @if(!$cek)
                 <div class="form-ulasan">
                     <form action="/profile/{{$restaurant->id}}" method="POST">
                         @csrf
@@ -130,6 +132,7 @@
                         <input type="submit" name="kirim" value="Kirim">
                     </form>
                 </div>
+                @endif
                 @foreach($ratings as $i =>$rating)
                 <div class="ulasan-orang ulasan-ke-{{$i+1}}">
                     <div class="ket-ulasan">
@@ -143,7 +146,7 @@
                                 <i class='bx bx-star'></i>
                                 <div class="rating-angka-ke{{$i+1}}" hidden>{{$rating->rating}}</div>
                             </div>
-                            <p class="user">Oleh {{$rating->name}} ({{$rating->created_at}})</p>
+                            <p class="user">Oleh {{$rating->name}} ({{ \Carbon\Carbon::parse($rating->created_at)->diffForHumans() }})</p>
                         </span>
                     </div>
                     <div class="pesan">
@@ -172,6 +175,7 @@
     <!-- Akhir Footer -->
     <script src="{{ asset('js/akun.js') }}"></script>
     <script src="{{ asset('js/profil-bisnis.js') }}"></script>
+    <script src="{{ asset('js/rating.js') }}"></script>
 </body>
 
 </html>

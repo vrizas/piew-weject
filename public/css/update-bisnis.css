@@ -109,6 +109,10 @@ a {
 	height: 30px;
 }
 
+.drop-content form {
+	margin-top: 36px;
+}
+
 .drop-content button {
 	cursor: pointer;
 	color: var(--color-black);

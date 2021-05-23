@@ -115,6 +115,8 @@
         </footer>
     </div>
     <!-- Akhir Footer -->
+
+    <script src="{{ asset('js/akun.js') }}"></script>
 </body>
 
 </html>

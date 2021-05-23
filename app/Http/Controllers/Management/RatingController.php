@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\User;
 use App\Models\Rating;
+use App\Models\Menu;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Collection;
 use DB;
@@ -21,10 +22,15 @@ class RatingController extends Controller
         $ratings = DB::table('ratings')
                     ->join('users', 'ratings.id_user', '=', 'users.id')
                     ->select('ratings.rating', 'ratings.pesan', 'ratings.created_at', 'users.name')
+                    ->Where('id_restaurant', $id)
                     ->latest()
                     ->take(5)
                     ->get();
-        return view('profil-bisnis')->with('restaurant',$restaurant)->with('ratings', $ratings);
+        $menus = Menu::Where('id_restaurant', Auth::id())->get();
+        $cek = Rating::Where('id_user', Auth::id())
+                    ->Where('id_restaurant', $id)
+                    ->first();
+        return view('profil-bisnis')->with('restaurant',$restaurant)->with('ratings', $ratings)->with('menus', $menus)->with('cek', $cek);
     }
 
     public function store(Request $request, $id)
@@ -51,19 +57,21 @@ class RatingController extends Controller
         $restaurant = Restaurant::Where('id', $id)->first();
         
         // $users = User::Where('id',$rating->id_user)->name;
-        $ratings = DB::table('ratings')
-                    ->join('users', 'ratings.id_user', '=', 'users.id')
-                    ->select('ratings.rating', 'ratings.pesan', 'ratings.created_at', 'users.name')
-                    ->latest()
-                    ->take(5)
-                    ->get();
+        // $ratings = DB::table('ratings')
+        //             ->join('users', 'ratings.id_user', '=', 'users.id')
+        //             ->select('ratings.rating', 'ratings.pesan', 'ratings.created_at', 'users.name')
+        //             ->latest()
+        //             ->take(5)
+        //             ->get();
+        // $menus = Menu::Where('id_restaurant', Auth::id())->get();
 
-        // foreach($ratings as $rating){
-        //     $users = User::Where('id',$rating->id_user)->name;
-        // }
+        // // foreach($ratings as $rating){
+        // //     $users = User::Where('id',$rating->id_user)->name;
+        // // }
         
 
-        return view('profil-bisnis')->with('restaurant',$restaurant)->with('ratings', $ratings);
+        // return view('profil-bisnis')->with('restaurant',$restaurant)->with('ratings', $ratings)->with('menus', $menus);
+        indexProfile($id);
 
     }
 
