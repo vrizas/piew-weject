@@ -34,8 +34,12 @@ class RestaurantController extends Controller
 
     public function indexBisnis($id)
     {
-        $restaurant = Restaurant::all();
-        $restaurants = Restaurant::Where('id', $id)->get();
+        $restaurants = Restaurant::all();
+        $restaurants = DB::table('restaurants')
+                    ->join('locations', 'restaurants.id_location', '=', 'locations.id')
+                    ->select('restaurants.id','restaurants.nama', 'restaurants.rating', 'restaurants.alamat', 'restaurants.jamBuka', 'restaurants.jamTutup', 'restaurants.image', 'restaurants.kategori', 'restaurants.deskripsi', 'locations.lokasi')
+                    ->Where('restaurants.id', $id)
+                    ->get();
         $ratings = DB::table('ratings')
                     ->join('users', 'ratings.id_user', '=', 'users.id')
                     ->select('ratings.rating', 'ratings.pesan', 'ratings.created_at', 'users.name')
@@ -61,27 +65,6 @@ class RestaurantController extends Controller
         return view('bisnis.create-business')->with('restaurant',$restaurant)->with('locations',$locations);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -107,17 +90,6 @@ class RestaurantController extends Controller
     {
 
         $restaurant = Restaurant::find($request->id);
-        
-        // $request->validate([
-        //     'nama' => 'required',
-        //     'alamat' => 'required',
-        //     'id_location' => 'required|numeric',
-        //     'kategori' => 'required',
-        //     'deskripsi' => 'required',
-            
-            
-        // ]);
-    
     
         $imageName = "noimage.png";
 
@@ -143,7 +115,11 @@ class RestaurantController extends Controller
         $restaurant->save();
 
         $restaurants = Restaurant::all();
-        $restaurants = Restaurant::Where('id', $request->id)->get();
+        $restaurants = DB::table('restaurants')
+                    ->join('locations', 'restaurants.id_location', '=', 'locations.id')
+                    ->select('restaurants.id','restaurants.nama', 'restaurants.rating', 'restaurants.alamat', 'restaurants.jamBuka', 'restaurants.jamTutup', 'restaurants.image', 'restaurants.kategori', 'restaurants.deskripsi', 'locations.lokasi')
+                    ->Where('restaurants.id', $id)
+                    ->get();
         $ratings = DB::table('ratings')
                     ->join('users', 'ratings.id_user', '=', 'users.id')
                     ->select('ratings.rating', 'ratings.pesan', 'ratings.created_at', 'users.name')
@@ -152,16 +128,5 @@ class RestaurantController extends Controller
                     ->get();
 
         return view('bisnis.bisnis')->with('restaurants',$restaurants)->with('ratings', $ratings);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

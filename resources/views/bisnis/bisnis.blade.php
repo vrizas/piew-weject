@@ -67,7 +67,7 @@
     <div class="header-container" style="background-image: url('{{asset('img/bisnis_images')}}/{{$restaurant->image}}')">
         <div class="isi-header-1">
             <h3 class="nama-bisnis">{{$restaurant->nama}}</h3>
-            <h4 class="alamat">{{$restaurant->alamat}}</h4>
+            <h4 class="alamat">{{$restaurant->alamat}} {{$restaurant->lokasi}}</h4>
             <h4 class="jam">{{\Carbon\Carbon::parse($restaurant->jamBuka)->format('H.i')}} - {{\Carbon\Carbon::parse($restaurant->jamTutup)->format('H.i')}}</h4>
         </div>
         <div class="rating">

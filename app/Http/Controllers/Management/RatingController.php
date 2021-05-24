@@ -18,7 +18,11 @@ class RatingController extends Controller
     public function indexProfile($id)
     {
         $restaurant = Restaurant::all();
-        $restaurant = Restaurant::Where('id', $id)->first();
+        $restaurant = DB::table('restaurants')
+                    ->join('locations', 'restaurants.id_location', '=', 'locations.id')
+                    ->select('restaurants.id','restaurants.nama', 'restaurants.rating', 'restaurants.alamat', 'restaurants.jamBuka', 'restaurants.jamTutup', 'restaurants.image', 'restaurants.kategori', 'restaurants.deskripsi', 'locations.lokasi')
+                    ->Where('restaurants.id', $id)
+                    ->first();
         $ratings = DB::table('ratings')
                     ->join('users', 'ratings.id_user', '=', 'users.id')
                     ->select('ratings.rating', 'ratings.pesan', 'ratings.created_at', 'users.name')
@@ -56,21 +60,6 @@ class RatingController extends Controller
         $restaurant = Restaurant::all();
         $restaurant = Restaurant::Where('id', $id)->first();
         
-        // $users = User::Where('id',$rating->id_user)->name;
-        // $ratings = DB::table('ratings')
-        //             ->join('users', 'ratings.id_user', '=', 'users.id')
-        //             ->select('ratings.rating', 'ratings.pesan', 'ratings.created_at', 'users.name')
-        //             ->latest()
-        //             ->take(5)
-        //             ->get();
-        // $menus = Menu::Where('id_restaurant', Auth::id())->get();
-
-        // // foreach($ratings as $rating){
-        // //     $users = User::Where('id',$rating->id_user)->name;
-        // // }
-        
-
-        // return view('profil-bisnis')->with('restaurant',$restaurant)->with('ratings', $ratings)->with('menus', $menus);
         indexProfile($id);
 
     }

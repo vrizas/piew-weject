@@ -66,8 +66,8 @@
     <div class="header-container" style="background-image: url('{{asset('img/bisnis_images')}}/{{$restaurant->image}}')">
         <div class="isi-header-1">
             <h3 class="nama-bisnis">{{$restaurant->nama}}</h3>
-            <h4 class="alamat">{{$restaurant->alamat}}</h4>
-            <h4 class="jam">09.00 - 20.30</h4>
+            <h4 class="alamat">{{$restaurant->alamat}} {{$restaurant->lokasi}}</h4>
+            <h4 class="jam">{{\Carbon\Carbon::parse($restaurant->jamBuka)->format('H.i')}} - {{\Carbon\Carbon::parse($restaurant->jamTutup)->format('H.i')}}</h4>
         </div>
         <div class="rating">
             <i class='bx bx-star'></i>
@@ -90,7 +90,7 @@
                 <a href="#" class="tombol-share"><i class='bx bxs-share'></i> Bagikan</a>
             </div>
             <div class="tentang">
-                <p class="deskripsi">blablabla</p>
+                <p class="deskripsi">{{$restaurant->deskripsi}}</p>
             </div>
             <div class="menu">
                 <h3>Menu</h3>

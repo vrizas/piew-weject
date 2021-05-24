@@ -14,52 +14,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
 Route::get('/about', function () {
     return view('About');
 });
-
-Route::get('/', function () {
-    return view('home');
-})->middleware(['auth'])->name('home');
-
-Route::get('/business/{id}', function () {
-    return view('bisnis.bisnis');
-})->middleware(['auth'])->name('business');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');
 
-Route::get('/business/{id}', [App\Http\Controllers\Management\RestaurantController::class, 'indexBisnis']);
-Route::get('/business/{id}/update', [App\Http\Controllers\Management\RestaurantController::class, 'edit']);
-Route::get('/business/{id}/create', [App\Http\Controllers\Management\RestaurantController::class, 'create']);
-Route::post('/business/{id}', [App\Http\Controllers\Management\RestaurantController::class, 'update']);
+Route::get('/business/{id}', [App\Http\Controllers\Management\RestaurantController::class, 'indexBisnis'])
+    ->middleware(['auth'])->name('business');
+Route::get('/business/{id}/update', [App\Http\Controllers\Management\RestaurantController::class, 'edit'])
+    ->middleware(['auth'])->name('businessUpdate');
+Route::get('/business/{id}/create', [App\Http\Controllers\Management\RestaurantController::class, 'create'])
+    ->middleware(['auth'])->name('businessCreate');
+Route::post('/business/{id}', [App\Http\Controllers\Management\RestaurantController::class, 'update'])
+    ->middleware(['auth'])->name('businessEdit');
 
 Route::get('/', [App\Http\Controllers\Management\RestaurantController::class, 'index']);
 
 Route::get('/search', [App\Http\Controllers\SearchController::class, 'search']);
 
 Route::get('/profile/{id}', [App\Http\Controllers\Management\RatingController::class, 'indexProfile']);
-Route::post('/profile/{id}', [App\Http\Controllers\Management\RatingController::class, 'store']);
-
-
-
-//Route::resource('/business',App\Http\Controllers\Management\RestaurantController::class);
-// Route::get('/business',[App\Http\Controllers\Management\RestaurantController::class],'edit');
-// Route::put('/business',[App\Http\Controllers\Management\RestaurantController::class],'update');
-// Route::get('/business/update-business', function () {
-//     return view('bisnis.update-business');
-// });
-
-// Route::resource('/home',App\Http\Controllers\Auth\AuthenticatedSessionController::class);
-
+Route::post('/profile/{id}', [App\Http\Controllers\Management\RatingController::class, 'store'])
+    ->middleware(['auth'])->name('business');
 
 require __DIR__ . '/auth.php';
 
 
-
-// Sementara

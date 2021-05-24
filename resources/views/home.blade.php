@@ -84,8 +84,8 @@
 
 				<div class="img-wrapper-{{ $i+1 }}">
 					<!-- Ambil dari Database -->
-					<p><a href="#" class="nama-resto">{{$restaurant->nama}}</a></p>
-					<a class="kotak" href="#"><img src="{{asset('img/bisnis_images')}}/{{$restaurant->image}}" alt="{{$restaurant->nama}}"></a>
+					<p><a href="{{url('profile/'.$restaurant->id)}}" class="nama-resto">{{$restaurant->nama}}</a></p>
+					<a class="kotak" href="{{url('profile/'.$restaurant->id)}}"><img src="{{asset('img/bisnis_images')}}/{{$restaurant->image}}" alt="{{$restaurant->nama}}"></a>
 					<div class="rating rating-ke-{{$i+1}}">
 						<i class='bx bx-star'></i>
 						<i class='bx bx-star'></i>
@@ -106,8 +106,8 @@
 				@foreach($padangs as $i => $padang)
 				<div class="img-wrapper-{{ $i }}">
 					<!-- Ambil dari Database -->
-					<p><a href="#" class="nama-resto">{{$padang->nama}}</a></p>
-					<a href="#"><img src="{{asset('img/bisnis_images')}}/{{$padang->image}}" alt="{{$padang->nama}}"></a>
+					<p><a href="{{url('profile/'.$padang->id)}}" class="nama-resto">{{$padang->nama}}</a></p>
+					<a href="{{url('profile/'.$padang->id)}}"><img src="{{asset('img/bisnis_images')}}/{{$padang->image}}" alt="{{$padang->nama}}"></a>
 					<div class="rating rating-ke-{{$i+1}}">
 						<i class='bx bx-star'></i>
 						<i class='bx bx-star'></i>

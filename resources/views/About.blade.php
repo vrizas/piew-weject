@@ -19,39 +19,6 @@
   <div class="nav-container">
     <nav>
       <a href="/"><img src="{{ asset('img/logo.png') }}" class="logo"></a>
-      <!-- <div class="nav-menu">
-        <ul>
-          <li class="form-pencarian">
-            <form class="cari" action="{{url('/search')}}" method="GET" role="search">
-              @csrf
-              <input type="text" class="ket ket-1" placeholder="Cari" disabled>
-              <input class="search-box-1" name="kategori" type="text" placeholder="restoran,warung,makanan.." autocomplete="off">
-              <input type="text" class="ket ket-2" placeholder="Lokasi" disabled>
-              <input class="search-box-2" name="lokasi" type="text" value="Malang, Jawa Timur" autocomplete="off">
-              <button type="submit"><i class='bx bx-search'></i></button>
-            </form>
-          </li>
-          <li class="menu-out"><a href="registerBusiness">DAFTARKAN BISNISMU</a></li>
-          @if(session()->has('login'))
-          <li class='akun'>
-            @if(strlen(Auth::user()->name)>7)
-            <button class='drop'><i class='bx bxs-user-circle'></i> {{ substr(strip_tags(Auth::user()->name),0,7) }} <i class='bx bxs-chevron-down'></i></button>
-            @else
-            <button class='drop'><i class='bx bxs-user-circle'></i> {{ Auth::user()->name }} <i class='bx bxs-chevron-down'></i></button>
-            @endif
-            <div class="drop-content">
-              <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button type="submit"><i class='bx bx-log-out'></i> Keluar</button>
-              </form>
-            </div>
-          </li>
-          @else
-          <li class="menu-out"><a href="login"><i class='bx bx-log-in'></i> MASUK</a></li>
-          <li class="menu-out"><a href="register"></i><i class='bx bxs-user-plus'></i> DAFTAR</a></li>
-          @endif
-        </ul>
-      </div> -->
     </nav>
   </div>
   <!-- Akhir Navbar -->
