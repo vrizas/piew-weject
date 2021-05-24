@@ -61,10 +61,9 @@
     <!-- Akhir Navbar -->
     <?php $a = 0 ?>
     <div class="lokasi">
-        @foreach($locations as $location)
         <!-- <h1>Lokasi</h1> -->
         <h1>Hasil Pencarian di {{$location->lokasi}}</h1>
-        @endforeach
+
     </div>
     <div class="nama-container">
         @foreach($restaurants as $i => $restaurant)

@@ -31,15 +31,8 @@
         <header>
           <div class="Penjelasan1" data-aos="fade-left">
             <h1>Apa itu PIEW?</h1>
-            <p>Makan merupakan kebutuhan primer manusia, sehingga kita tidak dapat memisahkan manusia dan makan,
-              terdapat
-              berbagai macam jenis makanan yang menjadi pilihan kita sehari-hari, namun seringkali banyaknya pilihan
-              tersebut
-              membuat kita bingung apa yang harus kita pilih untuk menjadi santapan kita, belum lagi terdapat banyak
-              lokasi
-              kuliner dengan reputasinya masing-masing, dengan banyaknya pilihan tersebut justru akan menyulitkan kita
-              apabila
-              kita tidak memiliki cukup pengetahuan tentang makanan dan tempat yang menjualnya.
+            <p>Piew merupakan sebuah aplikasi yang diciptakan untuk mempermudah proses pencarian lokasi kuliner yang sesuai dengan keinginan pengguna.
+              Aplikasi kami dilengkapi dengan fitur untuk mengulas lokasi kuliner yang telah terdaftar pada aplikasi kami, sehingga calon konsumen mengetahui bagaimana impresi orang-orang terhadap lokasi kuliner tersebut.
             </p>
           </div>
           <div class="logo1" data-aos="fade-left">
@@ -56,15 +49,7 @@
           </div>
           <div class="Penjelasan2">
             <h1>Tujuan Kami</h1>
-            <p>Makan merupakan kebutuhan primer manusia, sehingga kita tidak dapat memisahkan manusia dan makan,
-              terdapat
-              berbagai macam jenis makanan yang menjadi pilihan kita sehari-hari, namun seringkali banyaknya pilihan
-              tersebut
-              membuat kita bingung apa yang harus kita pilih untuk menjadi santapan kita, belum lagi terdapat banyak
-              lokasi
-              kuliner dengan reputasinya masing-masing, dengan banyaknya pilihan tersebut justru akan menyulitkan kita
-              apabila
-              kita tidak memiliki cukup pengetahuan tentang makanan dan tempat yang menjualnya.
+            <p>Dengan adanya platform ini kami bertujuan untuk membantu mengenalkan lokasi kuliner yang mungkin belum diketahui banyak orang. Dengan harapan para pemilik usaha dapat mengembangkan bisnisnya.
             </p>
           </div>
         </header>
@@ -94,7 +79,6 @@
   <script>
     AOS.init();
   </script>
-  <script src="{{ asset('js/akun.js') }}"></script>
 </body>
 
 </html>
