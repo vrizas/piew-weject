@@ -22,34 +22,35 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::Where('rating','>=','4')
-                    ->take(4)
-                    ->get();
+        $restaurants = Restaurant::Where('rating', '>=', '4')
+            ->take(4)
+            ->get();
 
-        $padangs = Restaurant::Where('kategori','LIKE','padang')
-                    ->take(4)
-                    ->get();
-        return view('home')->with('restaurants',$restaurants)->with('padangs', $padangs);
+        $padangs = Restaurant::Where('kategori', 'LIKE', 'padang')
+            ->take(4)
+            ->get();
+        return view('home')->with('restaurants', $restaurants)->with('padangs', $padangs);
     }
 
     public function indexBisnis($id)
     {
         $restaurants = Restaurant::all();
         $restaurants = DB::table('restaurants')
-                    ->join('locations', 'restaurants.id_location', '=', 'locations.id')
-                    ->select('restaurants.id','restaurants.nama', 'restaurants.rating', 'restaurants.alamat', 'restaurants.jamBuka', 'restaurants.jamTutup', 'restaurants.image', 'restaurants.kategori', 'restaurants.deskripsi', 'locations.lokasi')
-                    ->Where('restaurants.id', $id)
-                    ->get();
+            ->join('locations', 'restaurants.id_location', '=', 'locations.id')
+            ->select('restaurants.id', 'restaurants.nama', 'restaurants.rating', 'restaurants.alamat', 'restaurants.jamBuka', 'restaurants.jamTutup', 'restaurants.image', 'restaurants.kategori', 'restaurants.deskripsi', 'locations.lokasi')
+            ->Where('restaurants.id', $id)
+            ->get();
         $ratings = DB::table('ratings')
-                    ->join('users', 'ratings.id_user', '=', 'users.id')
-                    ->select('ratings.rating', 'ratings.pesan', 'ratings.created_at', 'users.name')
-                    ->latest()
-                    ->take(5)
-                    ->get();
-        if(Auth::user()->id == $id) {
-            return view('bisnis.bisnis')->with('restaurants',$restaurants)->with('ratings', $ratings);
+            ->join('users', 'ratings.id_user', '=', 'users.id')
+            ->select('ratings.rating', 'ratings.pesan', 'ratings.created_at', 'users.name')
+            ->Where('id_restaurant', $id)
+            ->latest()
+            ->take(5)
+            ->get();
+        if (Auth::user()->id == $id) {
+            return view('bisnis.bisnis')->with('restaurants', $restaurants)->with('ratings', $ratings);
         } else {
-            return redirect('profile/'.$id);
+            return redirect('profile/' . $id);
         }
     }
 
@@ -62,7 +63,7 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::find($id);
         $locations = Location::all();
-        return view('bisnis.create-business')->with('restaurant',$restaurant)->with('locations',$locations);
+        return view('bisnis.create-business')->with('restaurant', $restaurant)->with('locations', $locations);
     }
 
 
@@ -76,7 +77,7 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::find($id);
         $locations = Location::all();
-        return view('bisnis.update-business')->with('restaurant',$restaurant)->with('locations',$locations);
+        return view('bisnis.update-business')->with('restaurant', $restaurant)->with('locations', $locations);
     }
 
     /**
@@ -90,43 +91,43 @@ class RestaurantController extends Controller
     {
 
         $restaurant = Restaurant::find($request->id);
-    
+
         $imageName = "noimage.png";
 
         //jika user upload image
-        if($request->image){
+        if ($request->image) {
             $request->validate([
                 'image' => 'nullable|file|image|mimes:jpeg,png,jpg|max:5000'
             ]);
-            $imageName = date('d-m-Y').uniqid().'.'.$request->image->extension();
-            $request->image->move(public_path('img/bisnis_images'),$imageName);
+            $imageName = date('d-m-Y') . uniqid() . '.' . $request->image->extension();
+            $request->image->move(public_path('img/bisnis_images'), $imageName);
         }
-        
-        
-        
-        $restaurant->image=$imageName;
-        $restaurant->nama=$request->nama;
-        $restaurant->alamat=$request->alamat;
-        $restaurant->id_location=$request->id_location;
-        $restaurant->kategori=$request->kategori;
-        $restaurant->deskripsi=$request->deskripsi;
-        $restaurant->jamBuka=$request->jamBuka;
-        $restaurant->jamTutup=$request->jamTutup;
+
+
+
+        $restaurant->image = $imageName;
+        $restaurant->nama = $request->nama;
+        $restaurant->alamat = $request->alamat;
+        $restaurant->id_location = $request->id_location;
+        $restaurant->kategori = $request->kategori;
+        $restaurant->deskripsi = $request->deskripsi;
+        $restaurant->jamBuka = $request->jamBuka;
+        $restaurant->jamTutup = $request->jamTutup;
         $restaurant->save();
 
         $restaurants = Restaurant::all();
         $restaurants = DB::table('restaurants')
-                    ->join('locations', 'restaurants.id_location', '=', 'locations.id')
-                    ->select('restaurants.id','restaurants.nama', 'restaurants.rating', 'restaurants.alamat', 'restaurants.jamBuka', 'restaurants.jamTutup', 'restaurants.image', 'restaurants.kategori', 'restaurants.deskripsi', 'locations.lokasi')
-                    ->Where('restaurants.id', $id)
-                    ->get();
+            ->join('locations', 'restaurants.id_location', '=', 'locations.id')
+            ->select('restaurants.id', 'restaurants.nama', 'restaurants.rating', 'restaurants.alamat', 'restaurants.jamBuka', 'restaurants.jamTutup', 'restaurants.image', 'restaurants.kategori', 'restaurants.deskripsi', 'locations.lokasi')
+            ->Where('restaurants.id', $id)
+            ->get();
         $ratings = DB::table('ratings')
-                    ->join('users', 'ratings.id_user', '=', 'users.id')
-                    ->select('ratings.rating', 'ratings.pesan', 'ratings.created_at', 'users.name')
-                    ->latest()
-                    ->take(5)
-                    ->get();
+            ->join('users', 'ratings.id_user', '=', 'users.id')
+            ->select('ratings.rating', 'ratings.pesan', 'ratings.created_at', 'users.name')
+            ->latest()
+            ->take(5)
+            ->get();
 
-        return view('bisnis.bisnis')->with('restaurants',$restaurants)->with('ratings', $ratings);
+        return view('bisnis.bisnis')->with('restaurants', $restaurants)->with('ratings', $ratings);
     }
 }

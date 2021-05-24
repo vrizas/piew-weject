@@ -67,12 +67,12 @@
     </div>
     <div class="nama-container">
         @foreach($restaurants as $i => $restaurant)
-        <a class="pitet" href="/profile/<?php echo $i + 1 ?>">
+        <a class="pitet" href="{{url('profile/'.$restaurant->id)}}">
             <?php $a++ ?>
             <div class="hasil-pencarian">
                 <div class="gambar-alamat">
                     <div class="gambar">
-                        <img src="{{asset('img/bisnis_images')}}/{{$restaurant->image}}" alt="">
+                        <img src="{{asset('img/bisnis_images')}}/{{$restaurant->image}}" alt="{{$restaurant->nama}}">
                     </div>
                     <div class="alamat">
                         <p>{{$restaurant->alamat}}</p>
